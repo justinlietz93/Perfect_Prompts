@@ -27,8 +27,8 @@ The agent executing a prompt based on this template MUST adhere to the following
     *   Progress/test results are logged internally per `Test Reporting Protocol`. Checkbox state visually tracks progress.
     *   External reporting occurs ONLY upon completion of the entire sequence.
 
-## 3. Mandatory Quality & Finalization Rules (Reference `../apex/STANDARDS.md`)
-Regardless of specific Step instructions, the agent MUST continuously enforce and finally verify adherence to **all** applicable rules within the **Apex Software Compliance Standards Guide** (`../apex/STANDARDS.md`), particularly including but not limited to:
+## 3. Mandatory Quality & Finalization Rules (Reference `../apex/APEX_STANDARDS.md`)
+Regardless of specific Step instructions, the agent MUST continuously enforce and finally verify adherence to **all** applicable rules within the **Apex Software Compliance Standards Guide** (`../apex/APEX_STANDARDS.md`), particularly including but not limited to:
 *   **Code Quality & Structure:** See Section 8 (`QUAL-*` rules).
 *   **Configuration Management:** See Section 12 (`CONF-*` rules).
 *   **Security:** See Section 13 (`SEC-*` rules).
@@ -47,7 +47,7 @@ Regardless of specific Step instructions, the agent MUST continuously enforce an
     *   Format: `Subject: [CONCISE, ACTION-ORIENTED TITLE]`
 
 *   **C. Directive Section:**
-    *   Establishes context, execution mode, sequential rule, **explicit reference to mandatory adherence to `../apex/STANDARDS.md`**, reporting constraints, internal logging instructions.
+    *   Establishes context, execution mode, sequential rule, **explicit reference to mandatory adherence to `../apex/APEX_STANDARDS.md`**, reporting constraints, internal logging instructions.
 
 *   **D. Test Reporting Protocol (Internal):**
     *   Defines standard for internal test log (e.g., `docs/Test_Result_Analysis.md`).
@@ -64,7 +64,7 @@ Regardless of specific Step instructions, the agent MUST continuously enforce an
         *   Content: Optional `* **Task Objective:**`, Step list items, `Internal Success Criteria`, `Internal Verification Method`, `Task Completion Testing (Internal)`.
 
     *   **E.3. Step (`- [ ] * **Step X.Y.Z [[(Rule #N: CODE)](<relative_path_to_standards>#rule-N), ...]:** Action`)**
-        *   Content: Begins with explicit **action verb**. Describes single action. **MUST** reference all applicable rules from `STANDARDS_REPOSITORY/apex/APEX_STANDARDS.md` using the linked format `[(Rule #N: CODE)](<relative_path_to_standards>#rule-N)`, where `<relative_path_to_standards>` is the correct relative path from the plan file to the standards file (e.g., `../STANDARDS_REPOSITORY/apex/APEX_STANDARDS.md` if the plan is in the root).
+        *   Content: Begins with explicit **action verb**. Describes single action. **MUST** reference all applicable rules from `STANDARDS_REPOSITORY/apex/APEX_STANDARDS.md` using the linked format `[(Rule #N: CODE)](<relative_path_to_standards>#rule-N)`, where `<relative_path_to_standards>` is the correct relative path from the plan file to the standards file (e.g., `../APEX_STANDARDS_REPOSITORY/apex/APEX_STANDARDS.md` if the plan is in the root).
 
     *   **E.4. Internal Success Criteria (within Task Block)**
         *   Defines measurable conditions for Task completion. MUST implicitly include "Compliance with all referenced and linked Apex Standards Rules".
@@ -80,6 +80,7 @@ Regardless of specific Step instructions, the agent MUST continuously enforce an
 
 *   **F. Final Instruction:**
     *   Explicitly commands start of execution, emphasizing sequential processing, checkbox marking, **adherence to the linked `APEX_STANDARDS.md`**, and final reporting constraint.
+    *   Final explicit requirements to perform a last sweep over the tasks performed to look for gaps or missed areas.
 
 *   **G. Contextual Footer:**
     *   Metadata: Timestamp, location. `*(Instructions generated: [YYYY-MM-DD HH:MM UTC+/-Offset]. Location context: [Location])*`
