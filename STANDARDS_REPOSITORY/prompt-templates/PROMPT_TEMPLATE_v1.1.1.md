@@ -65,8 +65,8 @@ Regardless of specific Step instructions, the agent MUST continuously enforce an
 
           *   **E.3. Step (`- [ ] * **Step X.Y.Z [[(Rule #N: CODE)](<relative_path_to_standards>#rule-N), ...]:** Action`)**
               *   Content: Begins with explicit **action verb**. Describes single action. **MUST** reference all applicable rules from `STANDARDS_REPOSITORY/apex/APEX_STANDARDS.md` using the linked format `[(Rule #N: CODE)](<relative_path_to_standards>#rule-N)`, where `<relative_path_to_standards>` is the correct relative path from the plan file to the standards file (e.g., `../APEX_STANDARDS_REPOSITORY/apex/APEX_STANDARDS.md` if the plan is in the root).
-             *   **E.3.1. Optional: Sub-Step (`- [ ] * **Sub-Step X.Y.Z.# [[(Rule #N: CODE)](<relative_path_to_standards>#rule-N), ...]:** Action`)**
-                 *   Content: Begins with explicit **action verb**. Describes absolute atomic action. **MUST** reference all applicable rules from `STANDARDS_REPOSITORY/apex/APEX_STANDARDS.md` using the linked format `[(Rule #N: CODE)](<relative_path_to_standards>#rule-N)`, where `<relative_path_to_standards>` is the correct relative path from the plan file to the standards file (e.g., `../APEX_STANDARDS_REPOSITORY/apex/APEX_STANDARDS.md` if the plan is in the root).
+          *   **E.3.1. Optional: Sub-Step (`- [ ] * **Sub-Step X.Y.Z.# [[(Rule #N: CODE)](<relative_path_to_standards>#rule-N), ...]:** Action`)**
+              *   Content: Begins with explicit **action verb**. Describes absolute atomic action. **MUST** reference all applicable rules from `STANDARDS_REPOSITORY/apex/APEX_STANDARDS.md` using the linked format `[(Rule #N: CODE)](<relative_path_to_standards>#rule-N)`, where `<relative_path_to_standards>` is the correct relative path from the plan file to the standards file (e.g., `../APEX_STANDARDS_REPOSITORY/apex/APEX_STANDARDS.md` if the plan is in the root).
 
     *   **E.4. Internal Success Criteria (within Task Block)**
         *   Defines measurable conditions for Task completion. MUST implicitly include "Compliance with all referenced and linked Apex Standards Rules".
