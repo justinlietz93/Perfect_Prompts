@@ -1,4 +1,4 @@
-# Meta-Structure Definition for Autonomous LLM Execution Prompts v1.1.2
+# Meta-Structure Definition for Autonomous LLM Execution Prompts v1.2.0
 
 **Date:** 2025-04-11
 **Time:** 14:52 UTC-5 (CDT)
@@ -68,7 +68,7 @@ Regardless of specific Step instructions, the agent MUST continuously enforce an
         * [ ] **Task 1.1: Generate Project Structure via Script**
             * **Task Objective:** Define and execute a script to create the initial project directory structure and essential blank files based on the established plan.
             * [ ] * **Step 1.1.1 [(Rule #1: PLAN-CHK)](./STANDARDS_REPOSITORY/apex/APEX_STANDARDS.md#rule-1), [(Rule #26: CONF-EXT)](./STANDARDS_REPOSITORY/apex/APEX_STANDARDS.md#rule-26):** **Generate:** Create a shell script (`scripts/01_setup_project_structure.sh`) or appropriate scripting format for the target OS. This script should contain commands to create all necessary top-level and nested directories (e.g., `src/`, `tests/`, `docs/`, `config/`, `scripts/`) as derived from the overall project plan/architecture defined earlier.
-            * [ ] * **Step 1.1.2 [(Rule #59: IMPL-PLACE)](./STANDARDS_REPOSITORY/apex/APEX_STANDARDS.md#rule-59), [(Rule #56: DOC-INT)](./STANDARDS_REPOSITORY/apex/APEX_STANDARDS.md#rule-56):** **Enhance Script:** Modify the script generated in Step 1.1.1 to also create essential blank starter files within the appropriate directories (e.g., `src/main.js`, `tests/test_main.js`, `README.md`, `docs/architecture.md`, `config/default.json`). For file types that support comments (e.g., `.js`, `.py`, `.md`), the script should inject relevant high-level plan comments (e.g., file purpose, related Phase/Task objective) into the newly created blank files. Skip comment injection for non-commentable file types (e.g., `.json`).
+            * [ ] * **Step 1.2.0 [(Rule #59: IMPL-PLACE)](./STANDARDS_REPOSITORY/apex/APEX_STANDARDS.md#rule-59), [(Rule #56: DOC-INT)](./STANDARDS_REPOSITORY/apex/APEX_STANDARDS.md#rule-56):** **Enhance Script:** Modify the script generated in Step 1.1.1 to also create essential blank starter files within the appropriate directories (e.g., `src/main.js`, `tests/test_main.js`, `README.md`, `docs/architecture.md`, `config/default.json`). For file types that support comments (e.g., `.js`, `.py`, `.md`), the script should inject relevant high-level plan comments (e.g., file purpose, related Phase/Task objective) into the newly created blank files. Skip comment injection for non-commentable file types (e.g., `.json`).
             * [ ] * **Step 1.1.3 [(Rule #26: CONF-EXT)](./STANDARDS_REPOSITORY/apex/APEX_STANDARDS.md#rule-26):** **Execute:** Run the generated setup script (`scripts/01_setup_project_structure.sh`) to create the directory structure and initial files. Capture any execution errors.
             * **Internal Success Criteria:**
                 * The setup script (`scripts/01_setup_project_structure.sh`) is created and contains correct commands for directory and file generation.
@@ -113,4 +113,4 @@ Regardless of specific Step instructions, the agent MUST continuously enforce an
 ## 5. Summary
 This enhanced template mandates strict adherence to the **Apex Software Compliance Standards Guide** (located at `STANDARDS_REPOSITORY/apex/APEX_STANDARDS.md` relative to the plan file) by requiring explicit, linked rule references in steps and verification checks. It emphasizes a **Test-Driven Development (TDD) mindset** and **rigorous use of development-time assertions** as core execution principles. It includes an early task for scripting the project structure generation. It enforces sequential, verifiable, and high-quality autonomous execution.
 
-*(Meta-structure v1.1.2 explanation updated 2025-04-11)*
+*(Meta-structure v1.2.0 explanation updated 2025-04-11)*
