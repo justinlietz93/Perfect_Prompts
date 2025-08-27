@@ -48,13 +48,11 @@ Directive: Execute a 3-phase process to review the complete conversation, extrac
     * **Success Check:** Verify the completeness and correctness of the process, and that the final summary meets all outlined objectives.
 
 ## Project Context
-# 🛑⚠️🛑⚠️ ‼️CRITICAL‼️ : ‼️IMPORTANT‼️ ⚠️🛑⚠️🛑
 - **Ultimate Goal:** [Describe the overarching objective or end-goal of the project/task]
 - **Current Strategy:** [Outline the current approach being taken to achieve the goal]
 - **Progress Status:** [Indicate the current stage of progress - e.g., planning, implementation, testing, refining]
 
 ## Implementation Details
-# 🛑⚠️🛑⚠️ ‼️CRITICAL‼️ : ‼️IMPORTANT‼️ ⚠️🛑⚠️🛑
 - **Files Updated:** 
   * [List all files that have been modified, created, or deleted]
   * [Include path and brief description of changes for each file]
@@ -65,7 +63,6 @@ Directive: Execute a 3-phase process to review the complete conversation, extrac
   * [Include any lessons learned]
 
 ## Final Summary List
-# 🛑⚠️🛑⚠️ ‼️CRITICAL‼️ : ‼️IMPORTANT‼️ ⚠️🛑⚠️🛑
 - **Files:** List all relevant files discussed or modified during the session.
 - **Important Metrics:** Include any key metrics or data points relevant to the conversation.
 - **Issues:** Note any unresolved issues, errors, or blockers identified during the session.
