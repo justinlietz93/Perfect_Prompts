@@ -1,5 +1,7 @@
 # Meta-Structure Definition for Autonomous LLM Execution Prompts
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/65871347c171465b8cad264a1a086b39)](https://app.codacy.com/gh/justinlietz93/Perfect_Prompts?utm_source=github.com&utm_medium=referral&utm_content=justinlietz93/Perfect_Prompts&utm_campaign=Badge_Grade)
+
 ## 1. Overall Purpose
 This document defines a standardized template structure for prompts intended to guide an Large Language Model (LLM) agent in executing complex, multi-step projects autonomously. The structure emphasizes absolute explicitness, sequential task execution, integrated quality checks, and minimizes ambiguity to ensure reliable completion according to predefined rules and requirements.
 
