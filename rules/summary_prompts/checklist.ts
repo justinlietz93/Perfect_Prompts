@@ -1,0 +1,39 @@
+export const CHUNK_SUMMARY_PROMPT_TEMPLATE_CHECKLIST = (text: string) => `
+You are an expert project manager. Your task is to analyze the following document segment and extract all concrete, actionable tasks or checklist items.
+
+Follow these instructions:
+1.  Identify all distinct action items, to-do's, or next steps.
+2.  Format each item as a Markdown checklist item.
+3.  Use the following statuses based on the text:
+    - \`- [ ]\` (or \`☐\`) for tasks that need to be done or are planned.
+    - \`- [x]\` (or \`✔\`) for tasks explicitly mentioned as completed.
+    - If status is ambiguous, default to not started (\`- [ ]\`).
+4.  If metadata like an owner or due date is mentioned, include it parenthetically after the task description. (e.g., \`- [ ] Write unit tests (Owner: Jane, Due: EOD)\`).
+5.  If no actionable checklist items are found in this segment, state "No actionable checklist items were identified in this segment."
+
+---
+DOCUMENT SEGMENT TO ANALYZE:
+${text}
+---
+
+Provide the extracted checklist items for the segment above.
+`;
+
+export const REDUCE_SUMMARIES_PROMPT_TEMPLATE_CHECKLIST = (text: string) => `
+You are a senior program manager responsible for creating a final, comprehensive action plan.
+You have been given a series of checklist items extracted from different segments of a larger document.
+Your task is to synthesize these segments into a single, cohesive, and logically ordered master checklist.
+
+Follow these instructions:
+1.  Combine all unique checklist items from the provided segments.
+2.  Eliminate duplicate or redundant tasks. If two items describe the same task, merge them into the most complete version, taking the most advanced status (\`[x]\` > \`[ ]\`).
+3.  Organize the final list in a logical order, such as by project phase or chronological sequence if it can be inferred.
+4.  Ensure the final output is a clean, well-formatted Markdown checklist.
+
+---
+CHECKLISTS TO SYNTHESIZE:
+${text}
+---
+
+Provide the single, synthesized master checklist below.
+`;
