@@ -4,7 +4,7 @@ A comprehensive collection of high-quality prompts, architectural standards, cod
 
 ## 📋 Repository Overview
 
-This repository consolidates key resources for professional software development including:
+This repository consolidates resources for professional software development including:
 - **Architecture Pattern Standards** - Comprehensive guides for different architectural approaches
 - **Prompt Templates** - Structured templates for autonomous AI execution
 - **Coding Standards** - Language-specific best practices and guidelines
@@ -83,7 +83,7 @@ Perfect_Prompts/
 └── plaintext/                     # Plain text prompt templates
 ```
 
-## 🎯 Key Features
+## 🎯 Features
 
 ### 1. **Architectural Standards**
 - Comprehensive coverage of major architectural patterns
