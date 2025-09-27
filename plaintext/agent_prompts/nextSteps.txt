@@ -8,7 +8,7 @@ Do not include any text outside of the JSON array.
 
 Technical Summary:
 ---
-{SUMMARY_PLACEHOLDER}
+{{summary_PLACEHOLDER}}
 ---
 
 Provide the JSON array of suggestions below:
@@ -19,14 +19,16 @@ NEXT_STEPS_STYLE_MODEL_PROMPT_TEMPLATE:
 
 You are a creative writing consultant. Based on the following extracted writing style model, provide 3-5 creative suggestions on how this style could be used or applied.
 Think about different formats, audiences, or content types where this style would be effective.
-If a specific person/character was targeted for the style analysis ({STYLE_TARGET_PLACEHOLDER}), tailor the suggestions accordingly.
+If a specific person/character was targeted for the style analysis ({{styleTarget_PLACEHOLDER}}), tailor the suggestions accordingly.
 Format your response as a JSON array of strings.
 Example: ["Use this witty and informal style to write a series of engaging blog posts.", "Apply this descriptive style to create a vivid short story."]
 Do not include any text outside of the JSON array.
 
 Extracted Writing Style Model:
 ---
-{STYLE_DESCRIPTION_PLACEHOLDER}
+{{styleDescription_PLACEHOLDER}}
 ---
 
 Provide the JSON array of suggestions below:
+
+---

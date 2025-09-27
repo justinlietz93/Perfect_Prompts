@@ -23,7 +23,7 @@ Follow these instructions:
 
 ---
 DOCUMENT SEGMENT TO ANALYZE:
-{TEXT_PLACEHOLDER}
+{{text_PLACEHOLDER}}
 ---
 
 Provide the distilled system instructions for the segment above.
@@ -44,7 +44,9 @@ Follow these instructions:
 
 ---
 SYSTEM INSTRUCTION DRAFTS TO SYNTHESIZE:
-{TEXT_PLACEHOLDER}
+{{text_PLACEHOLDER}}
 ---
 
 Provide the single, synthesized master system instruction document below.
+
+---

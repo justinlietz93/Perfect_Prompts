@@ -2,8 +2,8 @@ package summary_prompts
 
 import "fmt"
 
-// ChunkSummaryPromptTemplateAgentSystemInstructions generates a prompt for extracting system instructions from document segments
-func ChunkSummaryPromptTemplateAgentSystemInstructions(text string) string {
+// ChunkSummaryPromptAgentSystemInstructions generates a prompt template
+func ChunkSummaryPromptAgentSystemInstructions(text string) string {
 	return fmt.Sprintf(`
 You are an expert AI prompt engineer. Your task is to analyze the following document segment and distill its content into a set of system instructions for another AI agent.
 
@@ -35,8 +35,8 @@ Provide the distilled system instructions for the segment above.
 `, text)
 }
 
-// ReduceSummariesPromptTemplateAgentSystemInstructions generates a prompt for synthesizing system instruction drafts
-func ReduceSummariesPromptTemplateAgentSystemInstructions(text string) string {
+// ReduceSummariesPromptAgentSystemInstructions generates a prompt template
+func ReduceSummariesPromptAgentSystemInstructions(text string) string {
 	return fmt.Sprintf(`
 You are a senior AI prompt engineer responsible for creating a final, comprehensive system instruction document.
 You have been given a series of system instruction drafts from different segments of a larger document.

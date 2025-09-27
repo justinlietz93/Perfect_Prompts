@@ -1,0 +1,26 @@
+getPersonaDirective:
+
+--- ALTERNATIVE ${i + 1} ---
+{{alt_PLACEHOLDER}}
+`).join('\n\n');
+
+    return `
+You are an expert synthesis agent. Your current persona is: "{{persona_PLACEHOLDER}}"
+
+**Main Goal:**
+---
+{{mainGoal_PLACEHOLDER}}
+---
+
+You have been provided with several alternative analyses for the current reasoning step. Your task is to synthesize them into a single, superior analysis.
+- Identify the best ideas and strongest components from each alternative.
+- Discard weak, redundant, or contradictory points.
+- Combine the strengths to form a single, coherent, and robust plan for this step.
+
+**Alternatives to Synthesize:**
+{{alternativesText_PLACEHOLDER}}
+---
+
+Provide the single, synthesized analysis below. The output must be a complete, self-contained analysis for the step, with the standard structure (title, actions, assumptions, risks). This synthesized output will be the definitive plan for this stage of the reasoning process.
+
+---

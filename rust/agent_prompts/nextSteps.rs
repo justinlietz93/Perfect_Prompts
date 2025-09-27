@@ -1,4 +1,4 @@
-pub fn next_steps_technical_summary_prompt_template(summary: &str) -> String {
+pub fn next_steps_technical_summary_prompt(summary: &str) -> String {
     format!(r#"
 You are a helpful strategic assistant. Based on the provided technical summary, suggest 3-5 insightful and actionable next steps or areas for further investigation.
 These suggestions should be practical and relevant to the content of the summary.
@@ -15,8 +15,7 @@ Provide the JSON array of suggestions below:
 "#, summary)
 }
 
-pub fn next_steps_style_model_prompt_template(style_description: &str, style_target: Option<&str>) -> String {
-    let target = style_target.unwrap_or("not specified");
+pub fn next_steps_style_model_prompt(style_description: &str, style_target: Option<&str>) -> String {
     format!(r#"
 You are a creative writing consultant. Based on the following extracted writing style model, provide 3-5 creative suggestions on how this style could be used or applied.
 Think about different formats, audiences, or content types where this style would be effective.
@@ -27,9 +26,9 @@ Do not include any text outside of the JSON array.
 
 Extracted Writing Style Model:
 ---
-{}
+${{styleDescription}}
 ---
 
 Provide the JSON array of suggestions below:
-"#, target, style_description)
+"#, style_target.unwrap_or("not specified"), style_description.unwrap_or("not specified"))
 }

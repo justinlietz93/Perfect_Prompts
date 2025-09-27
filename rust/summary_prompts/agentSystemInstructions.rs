@@ -1,4 +1,4 @@
-pub fn chunk_summary_prompt_template_agent_system_instructions(text: &str) -> String {
+pub fn chunk_summary_prompt_agent_system_instructions(text: &str) -> String {
     format!(r#"
 You are an expert AI prompt engineer. Your task is to analyze the following document segment and distill its content into a set of system instructions for another AI agent.
 
@@ -30,7 +30,7 @@ Provide the distilled system instructions for the segment above.
 "#, text)
 }
 
-pub fn reduce_summaries_prompt_template_agent_system_instructions(text: &str) -> String {
+pub fn reduce_summaries_prompt_agent_system_instructions(text: &str) -> String {
     format!(r#"
 You are a senior AI prompt engineer responsible for creating a final, comprehensive system instruction document.
 You have been given a series of system instruction drafts from different segments of a larger document.

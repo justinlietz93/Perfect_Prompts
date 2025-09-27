@@ -1,5 +1,5 @@
-def chunk_summary_prompt_template_agent_system_instructions(text: str) -> str:
-    """Generate a prompt template for extracting system instructions from document segments."""
+def chunk_summary_prompt_agent_system_instructions(text: str) -> str:
+    """Generated prompt template function."""
     return f"""
 You are an expert AI prompt engineer. Your task is to analyze the following document segment and distill its content into a set of system instructions for another AI agent.
 
@@ -30,9 +30,8 @@ DOCUMENT SEGMENT TO ANALYZE:
 Provide the distilled system instructions for the segment above.
 """
 
-
-def reduce_summaries_prompt_template_agent_system_instructions(text: str) -> str:
-    """Generate a prompt template for synthesizing system instruction drafts."""
+def reduce_summaries_prompt_agent_system_instructions(text: str) -> str:
+    """Generated prompt template function."""
     return f"""
 You are a senior AI prompt engineer responsible for creating a final, comprehensive system instruction document.
 You have been given a series of system instruction drafts from different segments of a larger document.

@@ -2,8 +2,8 @@ package agent_prompts
 
 import "fmt"
 
-// NextStepsTechnicalSummaryPromptTemplate generates a prompt for suggesting next steps based on a technical summary
-func NextStepsTechnicalSummaryPromptTemplate(summary string) string {
+// NextStepsTechnicalSummaryPrompt generates a prompt template
+func NextStepsTechnicalSummaryPrompt(summary string) string {
 	return fmt.Sprintf(`
 You are a helpful strategic assistant. Based on the provided technical summary, suggest 3-5 insightful and actionable next steps or areas for further investigation.
 These suggestions should be practical and relevant to the content of the summary.
@@ -20,13 +20,18 @@ Provide the JSON array of suggestions below:
 `, summary)
 }
 
-// NextStepsStyleModelPromptTemplate generates a prompt for suggesting applications of a writing style model
-func NextStepsStyleModelPromptTemplate(styleDescription string, styleTarget *string) string {
-	target := "not specified"
-	if styleTarget != nil {
-		target = *styleTarget
+// NextStepsStyleModelPrompt generates a prompt template
+func NextStepsStyleModelPrompt(style_description string, style_target *string) string {
+	style_target_val := "not specified"
+	if style_target != nil {
+		style_target_val = *style_target
 	}
-	
+
+	style_description_val := "not specified"
+	if style_description != nil {
+		style_description_val = *style_description
+	}
+
 	return fmt.Sprintf(`
 You are a creative writing consultant. Based on the following extracted writing style model, provide 3-5 creative suggestions on how this style could be used or applied.
 Think about different formats, audiences, or content types where this style would be effective.
@@ -37,9 +42,9 @@ Do not include any text outside of the JSON array.
 
 Extracted Writing Style Model:
 ---
-%s
+${styleDescription}
 ---
 
 Provide the JSON array of suggestions below:
-`, target, styleDescription)
+`, style_target_val, style_description_val)
 }
