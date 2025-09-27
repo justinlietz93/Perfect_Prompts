@@ -1,0 +1,46 @@
+export const CHUNK_SUMMARY_PROMPT_TEMPLATE_CAUSE_EFFECT_CHAIN = (text: string) => `
+You are an expert systems analyst specializing in root cause analysis. Your task is to analyze the following document segment and extract all cause-and-effect chains.
+
+A cause-effect chain has three parts:
+1.  **Driver:** The initial event, decision, or condition (the root cause).
+2.  **Outcome:** The immediate, direct result of the driver.
+3.  **Consequence:** The broader, second-order impact or implication.
+
+Follow these instructions:
+1.  Identify all distinct causal chains in the text.
+2.  Format each chain clearly in Markdown using a bulleted list structure as shown in the example below.
+3.  If a chain is incomplete (e.g., only a driver and outcome are mentioned), extract the parts that are present.
+4.  If no cause-effect chains are found in this segment, state "No cause-effect chains were identified in this segment."
+
+**EXAMPLE FORMAT:**
+*   **Driver:** High server load
+*   **Outcome:** Increased latency
+*   **Consequence:** Customer churn
+
+---
+DOCUMENT SEGMENT TO ANALYZE:
+${text}
+---
+
+Provide the extracted cause-effect chains for the segment above.
+`;
+
+export const REDUCE_SUMMARIES_PROMPT_TEMPLATE_CAUSE_EFFECT_CHAIN = (text: string) => `
+You are a senior systems analyst responsible for creating a final, comprehensive causal analysis report.
+You have been given a series of cause-effect chains extracted from different segments of a larger document.
+Your task is to synthesize these segments into a single, cohesive master list of chains.
+
+Follow these instructions:
+1.  Combine all unique cause-effect chains from the provided segments.
+2.  Eliminate duplicate or redundant chains. If two chains describe the same causal link with slightly different wording, merge them into the most clear and comprehensive version.
+3.  Look for opportunities to connect chains. If the 'Outcome' or 'Consequence' of one chain is the 'Driver' of another, try to link them into a longer, more insightful chain.
+4.  Organize the final list logically, perhaps by grouping related drivers or themes if possible.
+5.  The final output must be a clean, well-formatted Markdown list of the most significant cause-effect chains.
+
+---
+CAUSE-EFFECT CHAINS TO SYNTHESIZE:
+${text}
+---
+
+Provide the single, synthesized list of cause-effect chains below.
+`;
