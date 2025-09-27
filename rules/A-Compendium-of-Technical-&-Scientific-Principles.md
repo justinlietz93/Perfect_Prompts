@@ -4,12 +4,6 @@
 
 ---
 
-## Generated Summary
-
-This document synthesizes critical technical rules, requirements, and constraints from various segments of a larger body of work, presented as a single, cohesive, and de-duplicated master list of principles.
-
----
-
 ### Foundational Principles & Critical Thinking
 
 *   Critically evaluate all definitions, recognizing their strong influence on conclusions and inherent potential for distortion.
