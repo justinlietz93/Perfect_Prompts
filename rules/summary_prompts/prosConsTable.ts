@@ -1,0 +1,53 @@
+
+export const CHUNK_SUMMARY_PROMPT_TEMPLATE_PROS_CONS_TABLE = (text: string) => `
+You are an expert strategic analyst. Your task is to analyze the following document segment and extract the pros and cons for any subjects being evaluated.
+
+Follow these instructions:
+1.  Identify the main **Option / Subject** being discussed (e.g., a tool, a strategy, a decision).
+2.  List all **Pros** (positive aspects, benefits, strengths) mentioned for that subject.
+3.  List all **Cons** (negative aspects, drawbacks, risks) mentioned for that subject.
+4.  Format the output as a clear Markdown list under the subject header.
+5.  If no pros or cons are identified in this segment, state "No pros or cons were identified in this segment."
+
+**EXAMPLE FORMAT:**
+### Option: Using Markdown for Reports
+*   **Pros:**
+    *   Human-readable and flexible.
+    *   Works across multiple platforms.
+*   **Cons:**
+    *   Limited native support in some enterprise tools.
+
+---
+DOCUMENT SEGMENT TO ANALYZE:
+${text}
+---
+
+Provide the extracted pros and cons for the segment above.
+`;
+
+export const REDUCE_SUMMARIES_PROMPT_TEMPLATE_PROS_CONS_TABLE = (text: string) => `
+You are a senior analyst responsible for creating a final, comprehensive Pros & Cons analysis.
+You have been given a series of notes extracted from a larger document, each detailing pros and cons for various options or subjects.
+Your task is to synthesize all these notes into a single, comprehensive Pros & Cons table in Markdown format.
+
+Follow these instructions:
+1.  Identify all unique **Options / Subjects** from the notes. Each unique option should be a row in your table.
+2.  Construct a Markdown table with the following columns: \`Option\`, \`Pros\`, and \`Cons\`.
+3.  For each option, consolidate all its pros and cons from the different notes.
+4.  The content of the 'Pros' and 'Cons' cells should be a bulleted list. Use \`<br>\` for line breaks within a cell to ensure proper Markdown table rendering.
+5.  Eliminate duplicate points and merge similar ideas into concise statements.
+6.  The final output must be a clean, well-formatted, and easy-to-read Markdown table. Do not include any text before or after the table.
+
+**EXAMPLE OUTPUT:**
+| Option     | Pros                                             | Cons                                            |
+| ---------- | ------------------------------------------------ | ----------------------------------------------- |
+| Markdown   | - Human-readable and flexible<br>- Works across platforms | - Limited native support in some enterprise tools |
+| JSON       | - Machine-friendly and structured for agents      | - Harder for humans to scan quickly               |
+
+---
+NOTES TO SYNTHESIZE:
+${text}
+---
+
+Provide the single, synthesized Pros & Cons Markdown table below.
+`;
