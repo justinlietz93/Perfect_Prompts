@@ -1,12 +1,8 @@
-# Into to General Systems Thinking
+# Rules for General Systems Thinking
 
 **Generated on:** September 25, 2025 at 10:45 PM CDT
 
 ---
-
-## Generated Summary
-
-Here are the extracted technical rules, syntax requirements, and constraints from the document segment:
 
 **Methodology & Principles**
 
