@@ -1,4 +1,4 @@
-import { CITATION_INSTRUCTION } from '../shared/citation';
+import { CITATION_INSTRUCTION } from '../agent_prompts/citations';
 
 export const CHUNK_SUMMARY_PROMPT_TEMPLATE_DEFAULT = (text: string) => `
 You are an expert technical analyst. Your task is to provide a comprehensive, detailed summary of the following segment of a technical document or transcript.
