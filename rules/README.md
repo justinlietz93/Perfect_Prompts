@@ -1,3 +1,3 @@
 # Index
-rules/Rules-for-Formal-Logic-Set-Theory-and-Discrete-Mathematics.md
+[Rules for Formal Logic, Set Theory, and Discrete Mathematics](/rules/Rules-for-Formal-Logic-Set-Theory-and-Discrete-Mathematics.md)
 
