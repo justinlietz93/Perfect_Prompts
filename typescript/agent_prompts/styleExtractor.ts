@@ -1,4 +1,4 @@
-import { CITATION_INSTRUCTION } from '../shared/citation';
+import { CITATION_INSTRUCTION } from './citations';
 
 export const SINGLE_TEXT_STYLE_EXTRACTION_PROMPT_TEMPLATE = (text: string, styleTarget?: string) => `
 You are an expert literary analyst. Your task is to analyze the following text and create a detailed "style model" or "style description".
