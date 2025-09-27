@@ -4,8 +4,6 @@
 
 ---
 
-## Generated Summary
-
 # Rules Distilled from Formal Logic, Set Theory, and Discrete Mathematics
 
 This document consolidates and synthesizes technical rules, syntax requirements, and constraints from various segments of a larger mathematical treatise, forming a comprehensive guide for logical construction, proof methodology, and definitional precision.
