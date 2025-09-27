@@ -1,14 +1,10 @@
-# Objective Decision-Making and Truth-Seeking
+# Rules for Objective Decision-Making and Truth-Seeking
+
+This document synthesizes principles, decision-making processes, collaborative strategies, and communication guidelines to foster objective decision-making and a truth-seeking mindset across all endeavors.
 
 **Generated on:** September 25, 2025 at 10:29 PM CDT
 
 ---
-
-## Generated Summary
-
-# Rules for Objective Decision-Making and Truth-Seeking
-
-This document synthesizes core principles, decision-making processes, collaborative strategies, and communication guidelines to foster objective decision-making and a truth-seeking mindset across all endeavors.
 
 ## I. Fundamental Principles & Mindset
 
