@@ -4,10 +4,6 @@
 
 ---
 
-## Generated Summary
-
----
-
 ## I. General Principles & Document Process
 
 *   Chapters on advanced or optional topics must be placed towards the end of Parts I, II, IV, and V.
