@@ -1,0 +1,39 @@
+export const CHUNK_SUMMARY_PROMPT_TEMPLATE_GRAPH_TREE_OUTLINE = (text: string) => `
+You are an expert knowledge architect. Your task is to analyze the following document segment and structure its content into a hierarchical graph or tree outline.
+
+Follow these instructions:
+1.  Identify the central theme or root concept of the segment. This will be the top-level item.
+2.  Identify key components, subtopics, or main ideas related to the root concept. These will be the first-level branches.
+3.  Extract more granular details, examples, or facts and place them as child nodes under the appropriate branches.
+4.  Use indented Markdown bullet points (\`*\`, \`  *\`, \`    *\`, etc.) to represent the hierarchy.
+5.  The structure should be logical and reflect the relationships within the text.
+6.  If the segment is simple and contains no clear hierarchy, present it as a flat list of key points.
+7.  If no structured information can be extracted, state "No hierarchical structure was identified in this segment."
+
+---
+DOCUMENT SEGMENT TO ANALYZE:
+${text}
+---
+
+Provide the hierarchical tree outline for the segment above.
+`;
+
+export const REDUCE_SUMMARIES_PROMPT_TEMPLATE_GRAPH_TREE_OUTLINE = (text: string) => `
+You are an expert information synthesizer. You have been given a series of hierarchical tree outlines from consecutive segments of a larger document.
+Your task is to merge these individual outlines into a single, cohesive, and comprehensive master tree outline.
+
+Follow these instructions:
+1.  Identify a common root concept for the entire document based on the provided outlines.
+2.  Intelligently merge the branches and leaves from all outlines under the appropriate parent nodes in the master tree.
+3.  Consolidate duplicate or overlapping information to create a clean and non-redundant structure.
+4.  Re-organize the hierarchy if a more logical structure becomes apparent after seeing all the pieces.
+5.  Maintain the indented Markdown bullet point format for the final output.
+6.  The goal is to create a single tree that accurately represents the structure of the entire document.
+
+---
+TREE OUTLINES TO SYNTHESIZE:
+${text}
+---
+
+Provide the single, synthesized master tree outline below.
+`;
