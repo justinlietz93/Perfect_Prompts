@@ -1,0 +1,81 @@
+[package]
+name = "prompt-templates-examples"
+version = "0.1.0"
+edition = "2021"
+
+[[bin]]
+name = "basic_usage"
+path = "basic_usage.rs"
+
+[[bin]]
+name = "axum_service"
+path = "axum_service.rs"
+
+[dependencies]
+# Core async runtime
+tokio = { version = "1.0", features = ["full"] }
+
+# Serialization
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+
+# Async trait support  
+async-trait = "0.1"
+
+# Futures utilities
+futures = "0.3"
+
+# Error handling
+thiserror = "1.0"
+anyhow = "1.0"
+
+# Date/time handling
+chrono = { version = "0.4", features = ["serde"] }
+
+# UUID generation
+uuid = { version = "1.0", features = ["v4", "serde"] }
+
+# HTTP client
+reqwest = { version = "0.11", features = ["json"] }
+
+# Web framework (for axum_service example)
+axum = { version = "0.7", optional = true }
+tower = { version = "0.4", optional = true }
+tower-http = { version = "0.5", features = ["cors", "trace"], optional = true }
+
+# Tracing for logging
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+
+# Validation
+validator = { version = "0.16", features = ["derive"], optional = true }
+
+# Configuration
+config = { version = "0.13", optional = true }
+
+[dev-dependencies]
+# Testing
+proptest = "1.0"
+tokio-test = "0.4"
+mockall = "0.11"
+
+[features]
+default = []
+web-service = ["axum", "tower", "tower-http", "validator", "config"]
+full = ["web-service"]
+
+[profile.release]
+# Optimize for performance
+opt-level = 3
+lto = true
+codegen-units = 1
+panic = "abort"
+
+[profile.dev]
+# Faster compilation in development
+opt-level = 0
+debug = true
+
+# Example usage:
+# cargo run --bin basic_usage
+# cargo run --bin axum_service --features web-service
