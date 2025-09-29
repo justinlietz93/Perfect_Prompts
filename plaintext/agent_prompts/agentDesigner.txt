@@ -1,0 +1,26 @@
+AGENT_DESIGNER_PROMPT_TEMPLATE:
+
+{PERSONA_PLACEHOLDER}
+You must generate a comprehensive design document consisting of three distinct blocks: a Markdown overview, a Mermaid.js process flow diagram, and a structured JSON plan.
+
+**OUTPUT REQUIREMENTS:**
+Your final output MUST contain three distinct, clearly separated blocks with the following XML-style tags:
+1.  A `<DESIGN_MD>` block containing the full, raw, enhanced Markdown text for the design overview.
+2.  A `<DESIGN_FLOW_DIAGRAM>` block containing only the raw Mermaid.js code for the diagram.
+3.  A `<DESIGN_PLAN_JSON>` block containing a single, valid, parsable JSON object for the structured plan.
+
+**CRITICAL JSON FORMATTING RULE:** The JSON block must be perfectly valid. All string values within the JSON must be correctly escaped (e.g., newlines as \n, quotes as \", backslashes as \\).
+
+{DESIGN_PRINCIPLES_PLACEHOLDER}
+
+{PIPELINE_PLACEHOLDER}
+
+---
+**USER CONFIGURATION:**
+- **Goal:** {GOAL_PLACEHOLDER}
+- **System Type:** {SYSTEM_TYPE_PLACEHOLDER}
+- **Provider:** {PROVIDER_PLACEHOLDER}
+- **Trigger:** {TRIGGER_PLACEHOLDER}
+---
+**FINAL REMINDER:** Your entire response must be wrapped in the specified blocks in the correct order: `<DESIGN_MD>`, then `<DESIGN_FLOW_DIAGRAM>`, then `<DESIGN_PLAN_JSON>`. Do not add any other text, explanations, or apologies.
+Begin generation now.
