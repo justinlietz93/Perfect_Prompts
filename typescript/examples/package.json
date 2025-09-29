@@ -1,0 +1,127 @@
+{
+  "name": "typescript-prompt-examples",
+  "version": "1.0.0",
+  "description": "TypeScript examples for Perfect Prompts templates",
+  "main": "basic_usage.ts",
+  "scripts": {
+    "build": "tsc",
+    "dev": "ts-node-dev --respawn --transpile-only",
+    "start:basic": "ts-node basic_usage.ts",
+    "start:express": "ts-node express_integration.ts",
+    "start:express-dev": "ts-node-dev --respawn express_integration.ts",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "lint": "eslint . --ext .ts",
+    "lint:fix": "eslint . --ext .ts --fix",
+    "format": "prettier --write .",
+    "type-check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "helmet": "^7.1.0",
+    "ws": "^8.14.2",
+    "zod": "^3.22.4",
+    "openai": "^4.20.1",
+    "@langchain/openai": "^0.0.14",
+    "@langchain/core": "^0.1.17",
+    "axios": "^1.6.2",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.4",
+    "@types/express": "^4.17.21",
+    "@types/cors": "^2.8.17",
+    "@types/ws": "^8.5.10",
+    "@types/uuid": "^9.0.7",
+    "@types/jest": "^29.5.8",
+    "typescript": "^5.3.3",
+    "ts-node": "^10.9.1",
+    "ts-node-dev": "^2.0.0",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.1.1",
+    "@typescript-eslint/parser": "^6.13.1",
+    "@typescript-eslint/eslint-plugin": "^6.13.1",
+    "eslint": "^8.54.0",
+    "prettier": "^3.1.0",
+    "msw": "^2.0.8",
+    "supertest": "^6.3.3",
+    "@types/supertest": "^2.0.16"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  },
+  "keywords": [
+    "typescript",
+    "ai",
+    "prompts",
+    "langchain",
+    "openai",
+    "express",
+    "examples"
+  ],
+  "author": "Perfect Prompts Contributors",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/justinlietz93/Perfect_Prompts.git",
+    "directory": "typescript/examples"
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "node",
+    "testMatch": ["**/__tests__/**/*.test.ts"],
+    "collectCoverageFrom": [
+      "*.ts",
+      "!*.d.ts",
+      "!node_modules/**"
+    ]
+  },
+  "eslintConfig": {
+    "parser": "@typescript-eslint/parser",
+    "plugins": ["@typescript-eslint"],
+    "extends": [
+      "eslint:recommended",
+      "@typescript-eslint/recommended"
+    ],
+    "rules": {
+      "@typescript-eslint/no-unused-vars": "warn",
+      "@typescript-eslint/no-explicit-any": "warn"
+    }
+  },
+  "prettier": {
+    "semi": true,
+    "trailingComma": "es5",
+    "singleQuote": true,
+    "tabWidth": 2,
+    "useTabs": false
+  },
+  "tsconfig": {
+    "compilerOptions": {
+      "target": "ES2020",
+      "module": "commonjs",
+      "lib": ["ES2020"],
+      "outDir": "./dist",
+      "rootDir": "./",
+      "strict": true,
+      "esModuleInterop": true,
+      "skipLibCheck": true,
+      "forceConsistentCasingInFileNames": true,
+      "resolveJsonModule": true,
+      "declaration": true,
+      "declarationMap": true,
+      "sourceMap": true,
+      "experimentalDecorators": true,
+      "emitDecoratorMetadata": true
+    },
+    "include": [
+      "*.ts",
+      "__tests__/**/*.ts"
+    ],
+    "exclude": [
+      "node_modules",
+      "dist"
+    ]
+  }
+}
