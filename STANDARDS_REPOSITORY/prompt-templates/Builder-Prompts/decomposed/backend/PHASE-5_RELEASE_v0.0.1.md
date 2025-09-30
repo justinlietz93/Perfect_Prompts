@@ -1,67 +1,49 @@
-**Subject: Phase 5: Backend Release Preparation, Deployment Finalization, and Operational Handoff for [Project Name]**
+**Subject: Phase 5: Backend Track — Release Preparation & Operations Handoff for [Project Name]**
 
-**Date:** [Enter Current Date: YYYY-MM-DD]
-**Time:** [Enter Current Time: HH:MM UTC+/-Offset]
+**Date:** [Enter Current Date]
+**Time:** [Enter Current Time & UTC Offset]
 
 **1. Overall Purpose**
-This prompt governs **Phase 5: Backend Release**. The agent must finalize documentation, deployment assets, and operational readiness for backend services. Objectives:
-    a. Prepare deployment artifacts (container images, manifests, migration packages) compliant with standards.
-    b. Finalize documentation (runbooks, API references, change logs, ADR updates).
-    c. Coordinate release readiness reviews, risk assessments, and approvals.
-    d. Execute deployment plan (staged/canary/blue-green) and validate post-deploy health.
-    e. Establish monitoring, alerting, and support processes for operations handoff.
+Finalize backend artifacts for production release, ensuring deployment pipelines, runbooks, and support processes are ready. Work is confined to backend assets and collaboration with operations/security.
 
-**2. Core Execution Principles & Global Rules**
-* Enforce Apex Standards: `DEPL-*`, `CONF-*`, `DOC-*`, `FINAL-*`, `OPER-*`.
-* Maintain dependency rule; ensure release artifacts do not introduce forbidden couplings.
-* Execute release plan sequentially; verify success criteria before completion.
-* Log release activities, approvals, and telemetry checks per Section 5.
+**2. Core Execution Principles & Global Rules (MANDATORY)**
+* Follow `REL-BACKEND`, `DOC-RUNBOOK`, `OPS-API`, `SEC-OPS`, and `DATA-OPS` standards.
+* Use validation outputs and architecture governance playbook as guidance.
+* Produce reproducible deployment artifacts (containers, migrations, configuration).
 
 **3. Mandatory Quality & Finalization Rules**
-* Deployment Standards (`DEPL-*`, `CONF-*`): pipelines, configuration segregation, secrets management.
-* Security Standards (`SEC-*`): vulnerability scans, key rotation, compliance evidence.
-* Operational Standards (`OPER-*`): monitoring dashboards, alerting, SLO/SLA definitions.
-* Documentation Standards (`DOC-*`): runbooks, API release notes.
-* Final Verification Standards (`FINAL-*`): go/no-go checklist, rollback plan.
+Store outputs in `backend/outputs/phase-5/`. Include release notes, rollback strategies, database migration plans, and on-call rotation details.
 
-**4. Directive Section: Phase 5 - Backend Release Execution**
+**4. Directive Section: Backend Phase 5 Tasks**
+* **Input Context:**
+    * Backend validation report, architecture governance playbook, release plan.
+    * Operations requirements (monitoring, alerting, scaling policies).
 
-* **Inputs:**
-    * `[Deployment Pipeline Config]`, `[Infrastructure as Code Templates]`.
-    * `[Release Notes Template]`, `[Runbook Template]`.
-    * `[Monitoring/Alerting Setup]`, `[Support Roster]`.
-    * `[Validation Report]` from Phase 4.
+* **Execution Tasks (sequential):**
+    - [ ] **Task 5.1: Deployment Artifact Finalization** *(Build)*
+        - [ ] Package backend services (container images or binaries) with version tags and checksums.
+        - [ ] Bundle migrations and seed scripts with rollback steps documented.
+    - [ ] **Task 5.2: Pipeline & Configuration Review** *(Automation)*
+        - [ ] Validate CI/CD pipeline stages, ensuring tests and security scans enforced.
+        - [ ] Document environment-specific configuration requirements.
+    - [ ] **Task 5.3: Operational Runbooks** *(Enablement)*
+        - [ ] Produce runbooks covering startup, shutdown, scaling, and incident response.
+        - [ ] Define monitoring dashboards, alert thresholds, and log aggregation expectations.
+    - [ ] **Task 5.4: Handoff & Training** *(Communication)*
+        - [ ] Conduct knowledge transfer with operations/security, capturing minutes and action items.
+        - [ ] Share release notes summarizing backend changes, APIs, and known limitations.
+    - [ ] **Task 5.5: Final Approvals & Archiving** *(Governance)*
+        - [ ] Collect sign-offs from architecture, security, and operations leads.
+        - [ ] Archive deployment artifacts and documentation with version metadata.
 
-* **Release Workflow:**
-    1.  **Documentation & Communication:**
-        * Update API documentation, change logs, ADRs, and release communications.
-        * Prepare stakeholder announcements detailing scope, risks, rollback plan.
-    2.  **Deployment Packaging:**
-        * Build/sign container images or artifacts, attach provenance metadata.
-        * Apply configuration for each environment using secure secrets management.
-        * Validate CI/CD pipeline steps (build, test, deploy) and AMD-compatible dependencies.
-    3.  **Readiness Review:**
-        * Conduct release readiness meeting summarizing validation results, residual risks, mitigation plans.
-        * Obtain approvals from product, security, operations leads.
-    4.  **Launch Execution:**
-        * Execute deployment (canary/blue-green/rolling) as defined.
-        * Run post-deploy smoke/health checks, database migration verification, and monitor telemetry (latency, error rate, queue depth).
-        * Capture evidence and respond to anomalies.
-    5.  **Operational Handoff:**
-        * Update runbooks, incident response procedures, on-call rotations.
-        * Configure dashboards and alerts; verify notifications reach correct channels.
-        * Schedule post-release review.
+* **Internal Success Criteria:** Deployment artifacts verified, pipelines reviewed, runbooks delivered, approvals obtained.
+* **Internal Verification Method:** Cross-check release deliverables against governance checklist and confirm storage locations.
 
-* **Internal Success Criteria:** Documentation complete; artifacts validated; approvals recorded; deployment executed successfully; monitoring active; logs updated.
-* **Internal Verification Method:** Review release checklist, verify artifact integrity, confirm documentation links, ensure monitoring alerts firing, validate rollback plan is ready.
+**5. Test Reporting Protocol (Internal)**
+Log release readiness and smoke test confirmations in `docs/Test_Result_Analysis.md` tagged `BACK-PH5`.
 
-**5. Test Reporting Protocol**
-* **Log File:** `docs/Test_Result_Analysis.md`
-* **Data Points:** Date/Time, Release Task, Tests (smoke, health checks), Metrics (latency, error rate, resource usage), Status, Notes.
-* **Update Frequency:** After each release activity and post-deploy validation.
-
-**6. Final Instruction**
-Execute release workflow, deliver final summary with deployment identifiers, telemetry snapshots, documentation references, and confirm transition to operations.
+**6. Final Instruction for this Phase**
+Hand off backend release package to operations and support go/no-go decision making.
 
 **7. Contextual Footer**
-*(Instructions generated: [Enter Current Date: YYYY-MM-DD HH:MM UTC+/-Offset]. Location context: [Enter City, State/Region, Country])* 
+*(Generated on: [Enter Current Date & Time]. Location: [Enter Locale].)*

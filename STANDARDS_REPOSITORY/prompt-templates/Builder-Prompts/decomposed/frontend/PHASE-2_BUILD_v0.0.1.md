@@ -1,84 +1,56 @@
-**Subject: Phase 2: Build Frontend Component: [Component Name] (STRICT UX SCOPE)**
+**Subject: Phase 2: Frontend Track — Implement Presentation Layer Modules for [Project Name]**
 
-**Date:** [Customizer: Current Date]
-**Time:** [Customizer: Current Time UTC+/-Offset]
+**Date:** [Enter Current Date]
+**Time:** [Enter Current Time & UTC Offset]
 
 **1. Overall Purpose**
-This prompt initiates **Phase 2: Frontend Component Build** for the UI element identified below: **[Component Name]** within the **[Project Name]** experience. The agent executing this prompt must:
-    a. Retrieve the detailed frontend specifications for **[Component Name]** from the approved Phase 1 blueprint and design system documentation.
-    b. Generate a standards-compliant execution plan (`Phase -> Task -> Step`, `- [ ]`) covering implementation, accessibility, state integration, testing, and documentation strictly for **[Component Name]**.
-    c. Execute the plan rigorously, producing verified, accessible, performant UI output that integrates correctly with established frontend contracts and backend interfaces while remaining inside scope.
+Execute the frontend build plan produced in Phase 1 by delivering UI components, routing, state management, and accessibility scaffolding. All work must stay within the presentation layer and respect backend interface boundaries defined by architecture.
 
-**2. Core Execution Principles & Global Rules (MANDATORY ADHERENCE - REITERATED)**
-*(This section is invariant; include verbatim in the final prompt)*
-* **Apex Standards Adherence:** Compliance with the **Apex Software Compliance Standards Guide** (located at `[User Input: Path to Standards Guide]`) is non-negotiable. All generated plans, code, styles, and tests for **[Component Name]** MUST comply, including references to `[(Rule #X: CODE)](...)`.
-* **Strict Sequential Execution:** Execute the generated component plan sequentially. Mark completion only when `Internal Success Criteria` are satisfied via the `Internal Verification Method`.
-* **Internal Verification & Standards Compliance:** Perform rigorous verification against all referenced rules, WCAG success criteria, performance budgets, and security mandates before marking tasks complete.
-* **Recursive Error Handling / Retry Logic:** Halt on failures, analyze causes, remediate, and re-verify.
-* **Autonomous Operation & Internal Logging:** Operate autonomously. Log results in `docs/Test_Result_Analysis.md` per Section 5.
+**2. Core Execution Principles & Global Rules (MANDATORY)**
+* Work only on frontend code within `<src_root>/presentation/...` as defined by the architecture documents.
+* Consume API contracts via typed clients or service interfaces generated per the backend guardrails; never invoke backend implementations directly.
+* Enforce `QUAL-FRONTEND`, `UI-STYLE`, `ACC-WCAG`, `TEST-UNIT`, and `TEST-VISUAL` rules.
+* Each module must include component documentation, storybook/demo entry (if applicable), and tests meeting coverage targets.
 
-**3. Mandatory Quality & Finalization Rules (Reference Standards Guide - Continuous Enforcement)**
-*(Invariant; include verbatim. Ensure path accuracy.)*
-Enforce relevant sections of the **Apex Software Compliance Standards Guide** (`[User Input: Path to Standards Guide]`) with frontend emphasis:
-* Code Quality & Structure (Section 8: `QUAL-*`, `QUAL-SIZE`, modular component structure).
-* Accessibility (Section 13: `SEC-*`, `QUAL-A11Y`).
-* Security (Section 13: `SEC-*` for client sanitization, CSP compliance).
-* Testing (Section 14: `TEST-*`, component/unit/interaction/visual tests).
-* Performance (Section 14: `TEST-PERF`, `QUAL-PERF`).
-* Documentation (Section 18: `DOC-*`, component usage docs, Storybook notes).
-* Implementation Correctness (Section 19: `IMPL-*`).
-* *(Add specific standards from Phase 1 blueprint: e.g., Design Token Governance Rule #?: `QUAL-DS`.)*
+**3. Mandatory Quality & Finalization Rules**
+* Place outputs under `frontend/src/` and `frontend/tests/` following architecture naming conventions.
+* Update `frontend_delivery_checklist.md` as tasks complete, keeping verification evidence.
+* Maintain changelog in `frontend/CHANGELOG.md` for each component release candidate.
 
-**4. Directive Section: Phase 2 - Frontend Component Planning and Execution**
+**4. Directive Section: Frontend Phase 2 Tasks**
+* **Input Context:**
+    * Phase 1 frontend plan and architecture guardrails.
+    * Mock API responses or schema definitions from backend track.
+    * Design assets or UX sign-offs.
 
-* **Context Provided by User:**
-    * `[Project Name]`: Name of the overall initiative.
-    * `[Component Name]`: Specific frontend component/surface to build. **ONLY THIS COMPONENT IS IN SCOPE.**
-    * `[Path to Phase 1 Output]`: Location of the frontend architecture blueprint and design system references.
-    * `[Path to Standards Guide]`: Location of Apex Standards.
-    * `[Current Project State Reference]`: Instructions for accessing existing codebase/design tokens.
+* **Execution Tasks (sequential):**
+    - [ ] **Task 2.1: Environment Preparation** *(Setup)*
+        - [ ] Confirm tooling (package manager, bundler, linting, formatting) matches standards.
+        - [ ] Scaffold base app shell aligned with routing/state strategy.
+    - [ ] **Task 2.2: Component Implementation** *(Development)*
+        - [ ] Implement prioritized UI modules following the plan’s sequence, ensuring atomic commits per module.
+        - [ ] Include storybook stories or equivalent previews for each component group.
+    - [ ] **Task 2.3: API Integration Layer** *(Integration)*
+        - [ ] Generate API clients or hooks using backend interface definitions; include contract tests or mocks verifying schema compliance.
+        - [ ] Document fallback behaviour for API latency/failure states.
+    - [ ] **Task 2.4: Accessibility & Performance Hardening** *(Quality)*
+        - [ ] Run accessibility audits (automated + manual checklists) and record results.
+        - [ ] Establish performance budgets (bundle size, render timings) and validate against tooling.
+    - [ ] **Task 2.5: Testing & Verification** *(Testing)*
+        - [ ] Author unit/component tests hitting coverage thresholds.
+        - [ ] Configure visual regression or snapshot suite for critical screens.
+    - [ ] **Task 2.6: Documentation Update** *(Documentation)*
+        - [ ] Update developer guides for component usage, theming, and integration boundaries.
+        - [ ] Note outstanding dependencies or blockers for integration phase.
 
-* **Instructions for Worker LLM:**
-
-    **STRICT SCOPE CONSTRAINT:** Work exclusively on **[Component Name]**. Do not modify unrelated components, global theming, or backend contracts beyond the explicit dependencies defined in Phase 1.
-
-    1.  **Load Context (for [Component Name] ONLY):**
-        * Parse Phase 1 blueprint and design references to extract functional requirements, UX acceptance criteria, accessibility notes, state interfaces, and API contracts for **[Component Name]**.
-        * Confirm awareness of performance budgets (First Input Delay, LCP, bundle size) applicable to **[Component Name]**.
-        * Ensure `[(Rule #? : QUAL-A11Y)](...)`, `[(Rule #? : QUAL-PERF)](...)`, and other relevant rules are at hand.
-        * Validate access to design tokens, shared libraries, and project repository.
-
-    2.  **Generate Detailed Component Execution Plan:**
-        * Produce a sequential plan covering:
-            * Component scaffolding and dependency injection alignment with Hybrid-Clean Architecture (Presentation layer depending only on BL interfaces).
-            * Styling/theming integration using approved tokens.
-            * State management wiring (selectors, dispatchers, service facades) in compliance with dependency inversion.
-            * Accessibility instrumentation (semantic markup, keyboard focus, ARIA, contrast).
-            * Testing strategy: unit, interaction, visual regression, accessibility automation.
-            * Documentation updates (Storybook MDX, usage notes).
-        * Reference applicable Apex rules inline.
-        * Define `Internal Success Criteria` and `Internal Verification Methods` per Task.
-
-    3.  **Execute Generated Plan:**
-        * Implement **[Component Name]** per plan, respecting layering rules (Presentation -> BL interfaces only).
-        * Ensure code organization prevents direct dependency on Infrastructure implementations.
-        * Run all defined tests, lighthouse/aXe audits as applicable, and record outcomes.
-        * Update documentation and visual catalogs.
-        * Log actions and results to `docs/Test_Result_Analysis.md`.
-
-* **Internal Success Criteria Check:** Confirm that only **[Component Name]** artifacts were modified, all tests/audits passed, documentation updated, and logs recorded.
-* **Internal Verification Method:** Review execution trace, confirm compliance with Apex rules, inspect component layering, rerun accessibility/performance checks if thresholds unmet.
+* **Internal Success Criteria:** All planned modules implemented with tests, documentation updated, checklists satisfied, and no scope bleed beyond frontend.
+* **Internal Verification Method:** Review commits and artifacts ensuring only frontend directories touched; cross-check with quality checklist.
 
 **5. Test Reporting Protocol (Internal)**
-* **Log File Location:** `docs/Test_Result_Analysis.md`
-* **Data Points per Entry:** Date/Time, Scope (Component: **[Component Name]**), Task/Step ID, Test Suite, Pass/Fail, Key Metrics (a11y score, bundle size, render latency), Summary Findings/Errors.
-* **Update Frequency:** After each significant test batch or verification step for **[Component Name]**.
+Capture unit, component, and accessibility test outcomes in `docs/Test_Result_Analysis.md` tagged `FRONT-PH2`.
 
-**6. Final Instruction (for Worker LLM)**
-Execute context loading, planning, and implementation strictly for **[Component Name]**. Upon completion:
-    * Provide success confirmation with references to updated files and commit hash.
-    * Report test/audit outcomes and updated documentation assets.
-    * Deliver the final execution plan with all items marked `- [x]`.
+**6. Final Instruction for this Phase**
+Prepare the integration demo package (component library, app shell) and notify backend and UX leads that the frontend is ready for API integration tests.
 
 **7. Contextual Footer**
-*(Instructions generated: [Timestamp]. Location context: [Location])* 
+*(Generated on: [Enter Current Date & Time]. Location: [Enter Locale].)*

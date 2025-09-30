@@ -1,71 +1,49 @@
-**Subject: Phase 3: Backend Integration, Cross-Service Assembly, and Infrastructure Enablement for [Project Name]**
+**Subject: Phase 3: Backend Track — Cross-Component Integration & Contract Verification for [Project Name]**
 
-**Date:** [Enter Current Date: YYYY-MM-DD]
-**Time:** [Enter Current Time: HH:MM UTC+/-Offset]
+**Date:** [Enter Current Date]
+**Time:** [Enter Current Time & UTC Offset]
 
 **1. Overall Purpose**
-This prompt initiates **Phase 3: Backend Integration**. The agent must assemble completed backend components, activate shared infrastructure, and validate service interactions. Objectives:
-    a. Inventory completed services, domain modules, repositories, and adapters ready for integration.
-    b. Compose application service orchestration, pipeline wiring, and DI container registrations.
-    c. Configure infrastructure dependencies (databases, message brokers) ensuring repository implementations align with interfaces.
-    d. Execute integration, contract, and performance smoke tests across service boundaries.
-    e. Document integration results, remediation, and configuration changes.
+Phase 3 integrates backend services with external systems (frontend, networking, security, data stores) and validates adherence to defined contracts. The worker agent ensures APIs, messaging, and persistence interactions behave as designed without implementing non-backend features.
 
-**2. Core Execution Principles & Global Rules**
-* Enforce Apex Standards, Hybrid-Clean dependency rule, and repository pattern.
-* Execute integration plan sequentially with `- [ ]` tasks.
-* Perform internal verification referencing relevant rules (`TEST-INTEG`, `DATA-TRANS`, `CONF-MAN`).
-* Apply iterative remediation for integration defects.
-* Log all activities per Section 5.
+**2. Core Execution Principles & Global Rules (MANDATORY)**
+* Follow architecture integration dashboard scheduling and ADR decisions.
+* Use `TEST-CONTRACT`, `TEST-E2E-BACK`, `SEC-API`, and `DATA-CONSIST` standards.
+* Changes limited to backend modules; escalate issues owned by other tracks.
 
 **3. Mandatory Quality & Finalization Rules**
-Maintain:
-* Code & Architecture Standards (`QUAL-*`, `ARCH-*`).
-* Security & Compliance (`SEC-*` for secrets, auth flows, encryption).
-* Data Consistency (`DATA-*`, migration checks).
-* Testing Standards (`TEST-INTEG`, `TEST-CONTRACT`, `TEST-PERF-SMOKE`).
-* Configuration Management (`CONF-*`, environment parity).
-* Documentation Updates (`DOC-*` for integration diagrams, runbooks).
+Capture integration artifacts in `backend/outputs/phase-3/`, including test logs, schema validation results, and issue registers. Ensure data migration scripts are versioned and reversible.
 
-**4. Directive Section: Phase 3 - Backend Integration Execution**
+**4. Directive Section: Backend Phase 3 Tasks**
+* **Input Context:**
+    * Frontend contract tests, networking deployment topology, security auth flows.
+    * Integration dashboard and risk register.
 
-* **Inputs:**
-    * `[Path to Phase 2 Outputs]`: Completed component plans and code references.
-    * `[Infrastructure Configuration Files]`: Database/messaging configuration templates.
-    * `[Path to Standards Guide]`
-    * `[Integration Targets List]`: Services/modules ready for assembly.
+* **Execution Tasks (sequential):**
+    - [ ] **Task 3.1: Environment Alignment** *(Setup)*
+        - [ ] Verify configuration for databases, message brokers, and external services matches architecture assumptions.
+        - [ ] Document environment variables/secrets required (without storing values) in `backend_env_requirements.md`.
+    - [ ] **Task 3.2: API Contract Verification** *(Testing)*
+        - [ ] Run automated contract tests against each endpoint, validating schemas, status codes, and error handling.
+        - [ ] Log discrepancies and collaborate with consuming tracks on remediation.
+    - [ ] **Task 3.3: Data Integration Testing** *(Data)*
+        - [ ] Execute integration tests covering persistence operations, migrations, and transactional integrity.
+        - [ ] Validate data seeding scripts and rollback procedures.
+    - [ ] **Task 3.4: Cross-Service Orchestration** *(Verification)*
+        - [ ] Test orchestrated workflows across backend modules (e.g., saga flows, event-driven pipelines).
+        - [ ] Monitor logs/metrics ensuring observability instrumentation meets expectations.
+    - [ ] **Task 3.5: Issue Tracking & Reporting** *(Communication)*
+        - [ ] Maintain `backend_integration_report.md` summarizing status, defects, and dependencies.
+        - [ ] Provide updates to architecture, networking, and security leads.
 
-* **Integration Workflow:**
-    1.  **Context Assembly:**
-        * Confirm readiness of each component via Phase 2 plan completion.
-        * Map required DI registrations, transaction scopes, and configuration keys.
-        * Identify shared resources (connection pools, caches) requiring setup.
-    2.  **Integration Plan Generation:**
-        * Produce sequential plan for wiring services, repositories, adapters, messaging subscriptions, and background jobs.
-        * Include tasks for schema migrations, seed data, and environment configuration updates.
-        * Define verification tasks: contract tests, integration suites, health checks, performance smoke tests.
-        * Reference relevant standards for each task, and define success criteria/verification method.
-    3.  **Execute Plan:**
-        * Apply DI configuration and module registration updates.
-        * Configure infrastructure resources (database migrations, queue/topic provisioning) per plan.
-        * Run integration/contract/performance smoke tests; capture results.
-        * Resolve defects iteratively until success criteria met.
-        * Update documentation (sequence diagrams, deployment notes) and logs.
-    4.  **Compliance Review:**
-        * Ensure dependency rule intact (no infrastructure leaking into business logic).
-        * Validate configuration secrets managed securely.
-        * Confirm tests and monitoring hooks (health endpoints) operational.
+* **Internal Success Criteria:** Integration tests passing, critical defects resolved or assigned, environment requirements documented.
+* **Internal Verification Method:** Review report, confirm evidence stored, ensure no scope creep beyond backend.
 
-* **Internal Success Criteria:** Integration plan executed, services communicating correctly, tests passing, configuration documented, logs updated.
-* **Internal Verification Method:** Final audit of plan vs execution, review dependency graph, rerun targeted tests if necessary.
+**5. Test Reporting Protocol (Internal)**
+Update `docs/Test_Result_Analysis.md` with integration test results tagged `BACK-PH3`.
 
-**5. Test Reporting Protocol**
-* **Log File:** `docs/Test_Result_Analysis.md`
-* **Data Points:** Date/Time, Scope (Service pair/module), Test Type (integration/contract/smoke), Metrics (latency, error rate), Status, Findings.
-* **Update Frequency:** After each integration cycle.
-
-**6. Final Instruction**
-Complete backend integration per plan, provide summary of wired services, configuration changes, test outcomes, and remediation steps.
+**6. Final Instruction for this Phase**
+Signal readiness for validation testing and coordinate any outstanding cross-track fixes.
 
 **7. Contextual Footer**
-*(Instructions generated: [Enter Current Date: YYYY-MM-DD HH:MM UTC+/-Offset]. Location context: [Enter City, State/Region, Country])* 
+*(Generated on: [Enter Current Date & Time]. Location: [Enter Locale].)*

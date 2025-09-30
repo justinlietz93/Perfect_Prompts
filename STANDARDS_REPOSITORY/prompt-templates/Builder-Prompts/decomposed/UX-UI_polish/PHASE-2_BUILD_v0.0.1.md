@@ -1,92 +1,48 @@
-**Subject: Phase 2: UX/UI Polish Focus - Build Architectural Component: [Component Name] (STRICT SCOPE)**
+**Subject: Phase 2: UX/UI Polish Track — Deliver Design Assets & Interaction Specifications for [Project Name]**
 
-**Date:** [Customizer: Fill with Current Date]
-**Time:** [Customizer: Fill with Current Time and Offset]
+**Date:** [Enter Current Date]
+**Time:** [Enter Current Time & UTC Offset]
 
 **1. Overall Purpose**
-This prompt initiates **Phase 2: Component Build** for the architectural component identified below: **[Component Name]**. This is part of the larger **[Project Name]** project. The objectives for the agent executing this prompt are:
-    a. **Contextualize:** Retrieve and internalize the detailed specifications for **[Component Name]** from the finalized Phase 1 Architectural Blueprint.
-    b. **Plan:** Generate a detailed, standards-compliant execution plan (Phase -> Task -> Step) based *only* on the retrieved specifications and the Apex Standards Guide, covering implementation, component-level testing, and documentation **strictly for [Component Name]**.
-    c. **Execute:** Rigorously execute the generated plan to produce verified, tested, and documented output **exclusively for this component, [Component Name]**, integrating it correctly with the existing project state as defined by its dependencies ONLY. **Work MUST NOT extend beyond this component's defined scope.**
+Create high-fidelity design assets, interaction specs, and accessibility guidance that frontend engineers will implement. Scope includes design deliverables and documentation; no frontend code changes.
 
-**2. Core Execution Principles & Global Rules (MANDATORY ADHERENCE - REITERATED)**
-*(Customizer Note: This section is invariant; include verbatim in the final prompt)*
-Adherence to these principles, established in Phase 1, remains **ABSOLUTELY MANDATORY** and non-negotiable for this component build:
+**2. Core Execution Principles & Global Rules (MANDATORY)**
+* Follow experience principles, design system alignment, and accessibility baseline from Phase 1.
+* Apply standards `UI-SPEC`, `UX-INTERACTION`, `ACC-GUIDE`, `DOC-UX`, and `BRAND`.
+* Ensure assets are versioned and annotated for developers.
 
-* **Apex Standards Adherence:** Compliance with the **Apex Software Compliance Standards Guide** (located at `[User Input: Path to Standards Guide]`) is paramount. All generated plans, code, tests, and documentation for **[Component Name]** MUST comply. Follow all referenced `[(Rule #X: CODE)](...)` links precisely.
-* **Strict Sequential Execution (Within Component Plan):** Execute the generated component plan (`Phase -> Task -> Step`, `- [ ]`) strictly sequentially. Completion requires meeting `Internal Success Criteria` via `Internal Verification Method` before marking `- [x]` and proceeding.
-* **Internal Verification & Standards Compliance Check:** Rigorous internal verification, explicitly including checks against all referenced `(Rule #X: CODE)` links, is required before marking any plan item complete.
-* **Recursive Error Handling / Retry Logic:** Failures require immediate halt, root cause analysis, correction, and re-verification until success.
-* **Autonomous Operation & Internal Logging:** Operate autonomously on the plan execution. Log results internally per the `Test Reporting Protocol` (Section 5).
+**3. Mandatory Quality & Finalization Rules**
+Store outputs in `UX-UI_polish/outputs/phase-2/`, including Figma (or equivalent) exports, interaction specs, motion prototypes, and accessibility annotations.
 
-**3. Mandatory Quality & Finalization Rules (Reference Standards Guide - Continuous Enforcement)**
-*(Customizer Note: This section is invariant; include verbatim. Ensure path is correct.)*
-Continuously enforce **all** applicable rules from the **Apex Software Compliance Standards Guide** (`[User Input: Path to Standards Guide]`) during the build of **[Component Name]**. This includes, but is not limited to:
-* Code Quality & Structure (Section 8: `QUAL-*`, incl. `QUAL-SIZE`)
-* Configuration Management (Section 12: `CONF-*`)
-* Security (Section 13: `SEC-*`)
-* Testing & Verification (Section 14: `TEST-*` - Focus on component-level tests)
-* Documentation (Section 18: `DOC-*`)
-* Implementation Correctness (Section 19: `IMPL-*`)
-* *(Customizer: Add any specific standard sections relevant to component implementation based on Phase 1 output or user override, if applicable)*
+**4. Directive Section: UX/UI Polish Phase 2 Tasks**
+* **Input Context:**
+    * Frontend build plan, architecture constraints, brand assets, user research insights.
 
-**4. Directive Section: Phase 2 - Component Planning and Execution (Single Component Focus)**
+* **Execution Tasks (sequential):**
+    - [ ] **Task 2.1: Component Library Updates** *(Design)*
+        - [ ] Design or refine UI components required for Phase 2 frontend implementation, including responsive states.
+        - [ ] Document usage guidelines and variations.
+    - [ ] **Task 2.2: Screen & Flow Design** *(Design)*
+        - [ ] Produce high-fidelity screens/wireflows for prioritized user journeys.
+        - [ ] Annotate layout, spacing, microcopy, and error states.
+    - [ ] **Task 2.3: Interaction & Motion Specs** *(Interaction Design)*
+        - [ ] Define motion parameters, transitions, and micro-interactions; provide prototypes or animation references.
+        - [ ] Include accessibility considerations for motion sensitivity.
+    - [ ] **Task 2.4: Accessibility Guidance** *(Accessibility)*
+        - [ ] Provide color contrast validations, semantic structure recommendations, and assistive tech notes.
+        - [ ] Update accessibility checklist for frontend testing.
+    - [ ] **Task 2.5: Developer Handoff Package** *(Documentation)*
+        - [ ] Compile `ux_ui_build_handoff.md` summarizing assets, acceptance criteria, and review cadence.
+        - [ ] Organize files with naming conventions and versioning.
 
-* **Context Provided by User (for Customizer):**
-    * `[User Input: Project Name]:` The overall project name.
-    * `[User Input: Component Name]:` The specific component to build in this iteration. **THIS IS THE ONLY COMPONENT TO BE WORKED ON.**
-    * `[User Input: Path to Phase 1 Output]:` The location of the finalized Phase 1 Architectural Blueprint document.
-    * `[User Input: Path to Standards Guide]:` The location of the Apex Standards Guide.
-    * `[User Input: Current Project State Reference]:` How the worker LLM accesses the current project state (e.g., "Current Git working directory", "Shared filesystem path: /path/to/project").
-
-* **Instructions for Worker LLM (Generated by Customizer):**
-
-    **CRITICAL SCOPE LIMITATION:** All actions performed in response to this prompt MUST be strictly confined to the planning and implementation of the **single designated component: [Component Name]**. Do NOT modify unrelated code, revisit Phase 1 architectural decisions, implement features beyond this component's retrieved specification, or perform work outside this component's defined scope and documented dependencies.
-
-    1.  **Load Context (for [Component Name] ONLY):**
-        * Identify the *sole* component to build: **[Component Name]**.
-        * Locate and parse the Phase 1 Architectural Blueprint at `[Path to Phase 1 Output]`.
-        * Extract *only* the specifications defined for **[Component Name]**: its requirements, relevant NFR impacts, dependencies, technology stack details, and architectural role/responsibilities.
-        * Confirm successful extraction or report failure immediately if details are missing/ambiguous for **[Component Name]**.
-        * Ensure awareness of the **Apex Standards Guide** at `[Path to Standards Guide]`.
-        * Acknowledge the current project state accessible via `[Current Project State Reference]`.
-
-    2.  **Generate Detailed Component Execution Plan (for [Component Name] ONLY):**
-        * Based *exclusively* on the extracted specifications for **[Component Name]** and the mandatory **Apex Standards Guide**, generate a detailed execution plan **solely for [Component Name]**.
-        * The plan MUST use the hierarchical `Phase -> Task -> Step` format (each item starting with `- [ ]`).
-        * The plan MUST comprehensively cover (within the scope of **[Component Name]**):
-            * Implementation of specified functionality.
-            * Creation and execution of **component-level tests** (e.g., unit tests) [(Rule #? : TEST-UNIT)](...).
-            * Generation of required code documentation [(Rule #? : DOC-CODE)](...).
-            * Implementation of integration points *only as defined by dependencies* in the blueprint.
-            * Explicit `[(Rule #N: CODE)](...)` links to *all* applicable standards.
-            * Clear `Internal Success Criteria` and `Internal Verification Methods` for each Task.
-            * *(Conditional): Include standard setup script task ONLY if **[Component Name]** is the very first component requiring it, as defined in Phase 1.*
-
-    3.  **Execute Generated Plan (for [Component Name] ONLY):**
-        * Rigorously execute the plan generated in the previous step, **confining all code generation, modification, testing, and documentation efforts strictly to the [Component Name] component's defined scope and necessary integration points with its direct dependencies.**
-        * Follow strict sequential order (`- [ ]` -> `- [x]`).
-        * Perform all `Internal Verification Methods`.
-        * Run all component tests for **[Component Name]** and ensure they pass.
-        * Generate/modify code and documentation for **[Component Name]**, ensuring 100% compliance with standards.
-        * Log execution progress for **[Component Name]** to the internal log (`docs/Test_Result_Analysis.md`) per the Reporting Protocol (Section 5).
-
-* **Internal Success Criteria Check (Worker LLM Self-Check):** Before reporting completion, verify: Was context for **[Component Name]** ONLY loaded? Was a detailed, compliant plan generated **strictly for [Component Name]**? Was the plan fully executed with successful verification/tests **within the scope of [Component Name]**? Is the resulting code/docs for **[Component Name]** compliant? Were logs updated? **Was work confined ONLY to [Component Name]?**
-* **Internal Verification Method (Worker LLM Self-Check):** Review own execution trace. Check final code against standards. Confirm log entries. **Verify that generated/modified files belong only to the [Component Name] component or its explicitly defined interface/integration points.**
+* **Internal Success Criteria:** All prioritized components/screens/specs delivered with annotations, accessibility guidance updated, handoff package ready.
+* **Internal Verification Method:** Confirm assets align with architecture constraints, meet brand standards, and are accessible by frontend team.
 
 **5. Test Reporting Protocol (Internal)**
-*(Customizer Note: This section is invariant; include verbatim.)*
-* **Log File Location:** `docs/Test_Result_Analysis.md` (relative to project root)
-* **Data Points per Entry:** Date/Time, Scope (Component: **[Component Name]**, Task/Step ID, Test Suite), Pass/Fail Status, Key Metrics, Summary Findings/Errors.
-* **Update Frequency:** After relevant Task/Phase/Component testing activities and verification steps during execution.
+Log design delivery status in `docs/Test_Result_Analysis.md` tagged `UX-PH2`.
 
-**6. Final Instruction (for Worker LLM)**
-Execute the context loading, detailed planning, and rigorous execution steps outlined in Section 4, focusing **EXCLUSIVELY** on the single component: **[Component Name]**. Upon successful completion of all steps and internal checks:
-    * Report overall success for the build of **[Component Name]**.
-    * Confirm all **[Component Name]** tests passed and logs are updated.
-    * Provide clear references (e.g., file paths, git commit hash) to the newly created or modified code and documentation files **belonging solely to [Component Name]**.
-    * Provide the finalized component execution plan for **[Component Name]** (with all items marked `- [x]`).
+**6. Final Instruction for this Phase**
+Walk through assets with frontend team to ensure understanding before integration work.
 
 **7. Contextual Footer**
-*(Customizer: Fill with Generation Timestamp and Location)*
-*(Instructions generated: [Timestamp]. Location context: [Location])*
+*(Generated on: [Enter Current Date & Time]. Location: [Enter Locale].)*

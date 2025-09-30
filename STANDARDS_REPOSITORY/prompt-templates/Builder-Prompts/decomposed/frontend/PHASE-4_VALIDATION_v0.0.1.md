@@ -1,72 +1,51 @@
-**Subject: Phase 4: Frontend Experience Validation, Hardening, and Pre-Release Readiness for [Project Name]**
+**Subject: Phase 4: Frontend Track — User-Facing Validation & Accessibility Certification for [Project Name]**
 
-**Date:** [Enter Current Date: YYYY-MM-DD]
-**Time:** [Enter Current Time: HH:MM UTC+/-Offset]
+**Date:** [Enter Current Date]
+**Time:** [Enter Current Time & UTC Offset]
 
 **1. Overall Purpose**
-This prompt activates **Phase 4: Frontend Validation**. The agent must execute comprehensive quality assurance across the assembled UI to ensure reliability, accessibility, performance, and security prior to release. Objectives include:
-    a. Planning and executing exhaustive validation across routes, states, and device/browser matrices.
-    b. Running automated and manual accessibility audits, performance profiling, and resilience testing.
-    c. Verifying security posture (CSP, XSS protections, token handling) and dependency rule adherence.
-    d. Capturing evidence, defects, and remediation actions while iterating until success criteria met.
-    e. Updating documentation and logs to reflect validation status and outstanding risks.
+Phase 4 validates the frontend experience against UX, accessibility, performance, and security acceptance criteria. The worker agent performs comprehensive testing and assembles the evidence package required by the architecture and testing tracks.
 
-**2. Core Execution Principles & Global Rules**
-* Maintain compliance with Apex Standards Guide and Hybrid-Clean Architecture boundaries.
-* Execute validation plan sequentially, marking `- [x]` only when success criteria satisfied.
-* Enforce rigorous internal verification referencing `[(Rule #X: CODE)](...)` for each validation task.
-* Apply iterative remediation cycles for failed tests or metrics.
-* Log all validation activities, results, and defects per Section 5.
+**2. Core Execution Principles & Global Rules (MANDATORY)**
+* Follow `UI-VAL`, `ACC-WCAG`, `PERF-UI`, `SEC-UI`, and `DOC-VAL` standards.
+* Validation must use release-candidate builds and production-like configuration.
+* Any defect outside frontend scope must be reported to the owning track instead of fixed here.
 
 **3. Mandatory Quality & Finalization Rules**
-Focus on enforcing:
-* Testing Standards (`TEST-*`: unit, integration, e2e, performance, accessibility, cross-browser).
-* Security Standards (`SEC-*`: CSP, clickjacking protection, input sanitization).
-* Performance Standards (`QUAL-PERF`: bundle size, render metrics, memory usage).
-* Accessibility Standards (`QUAL-A11Y`: WCAG 2.1 AA, keyboard navigation, screen reader support).
-* Documentation Standards (`DOC-*`: validation reports, known issues catalog).
-* Release Readiness (`FINAL-*`: `FINAL-SWEEP`, `FINAL-RISK`).
+Results stored in `frontend/outputs/phase-4/`. Evidence includes screenshots, performance reports, accessibility audits, and test logs. Annotate each with requirement IDs and standards references.
 
-**4. Directive Section: Phase 4 - Frontend Validation Execution**
+**4. Directive Section: Frontend Phase 4 Tasks**
+* **Input Context:**
+    * Integration report, architecture certification checklist, UX acceptance criteria.
+    * Testing track validation plan.
 
-* **Inputs Required:**
-    * `[Validation Matrix]`: Target browsers/devices/locales/accessibility assistive tech.
-    * `[Performance Budgets]`: Baseline thresholds for Core Web Vitals, bundle sizes.
-    * `[Security Checklist]`: Client-side security requirements and threat model.
-    * `[Path to Integration Output]`: Integrated frontend from Phase 3.
+* **Execution Tasks (sequential):**
+    - [ ] **Task 4.1: Validation Plan Finalization** *(Planning)*
+        - [ ] Align with testing track on scope, environments, and success thresholds.
+        - [ ] Document plan in `frontend_validation_plan.md`.
+    - [ ] **Task 4.2: Functional Acceptance Testing** *(Testing)*
+        - [ ] Execute scripted end-user scenarios covering all critical paths.
+        - [ ] Capture pass/fail status with evidence for each scenario.
+    - [ ] **Task 4.3: Accessibility Compliance** *(Accessibility)*
+        - [ ] Run WCAG AA audits (automated + manual assistive tech checks) and record compliance status.
+        - [ ] Document remediation or waivers for any outstanding issues.
+    - [ ] **Task 4.4: Performance & Resilience Testing** *(Performance)*
+        - [ ] Measure core web vitals, page weight, and responsiveness under load.
+        - [ ] Validate offline/poor network behaviour if applicable.
+    - [ ] **Task 4.5: Security & Privacy Checks** *(Security)*
+        - [ ] Verify frontend handles tokens/session data per security track rules.
+        - [ ] Confirm no sensitive data exposure in logs or browser storage.
+    - [ ] **Task 4.6: Evidence Pack Assembly** *(Documentation)*
+        - [ ] Compile all findings into `frontend_validation_report.md` with sign-off fields for UX, testing, and architecture leads.
 
-* **Validation Plan Requirements:**
-    1.  **Plan Validation Campaign:**
-        * Inventory test suites (unit, integration, e2e, visual, accessibility, performance) and ensure coverage of critical journeys.
-        * Define manual exploratory testing scenarios, edge cases, and regression targets.
-        * Establish acceptance gates per metric/standard.
-    2.  **Execute Automated Suites:**
-        * Run unit/integration/e2e suites with cross-browser automation.
-        * Run visual regression, accessibility (axe, pa11y), and performance (Lighthouse/WebPageTest) suites.
-        * Capture raw outputs, compare against thresholds, log deviations.
-    3.  **Perform Manual/Exploratory Validation:**
-        * Execute manual cross-device checks, screen reader validation, keyboard navigation, offline/resume flows.
-        * Validate localization, theming, and responsive breakpoints.
-    4.  **Security & Resilience Verification:**
-        * Validate CSP headers, token storage, input sanitization, anti-CSRF flows.
-        * Test error boundaries, fallback UI, and resilience under degraded network conditions.
-    5.  **Defect Management & Remediation:**
-        * Log defects with severity, root cause, remediation owner.
-        * Prioritize fixes, execute remediation sprints, and retest until all blockers resolved.
-    6.  **Evidence & Documentation:**
-        * Update validation dashboard/report summarizing results, metrics, and residual risks.
-        * Document known issues, mitigations, and recommendations for release gate.
+* **Internal Success Criteria:** Validation plan executed, evidence recorded, sign-off ready with no unresolved critical issues.
+* **Internal Verification Method:** Cross-check report against validation plan to ensure every item has evidence and responsible owner.
 
-* **Internal Success Criteria:** All planned validations executed; metrics within thresholds or approved exceptions documented; no open critical defects; documentation/logs updated; standards compliance confirmed.
-* **Internal Verification Method:** Conduct final audit referencing validation plan, verify evidence attachments, re-run spot checks on high-risk journeys, confirm compliance with dependency rule (no presentation direct infrastructure dependencies introduced during fixes).
+**5. Test Reporting Protocol (Internal)**
+Update `docs/Test_Result_Analysis.md` with validation outcomes tagged `FRONT-PH4`.
 
-**5. Test Reporting Protocol (Validation Focus)**
-* **Log File:** `docs/Test_Result_Analysis.md`
-* **Data Points:** Date/Time, Scope (Route/Feature), Test Suite, Metrics (LCP, CLS, accessibility score, CSP status), Pass/Fail, Defects, Remediation.
-* **Update Frequency:** After each automated suite run and manual validation cycle.
-
-**6. Final Instruction**
-Complete the validation campaign, document results and remediation, and provide a readiness assessment summarizing metrics, outstanding risks, and go/no-go recommendation for Phase 5.
+**6. Final Instruction for this Phase**
+Submit evidence to architecture and testing tracks for certification approval.
 
 **7. Contextual Footer**
-*(Instructions generated: [Enter Current Date: YYYY-MM-DD HH:MM UTC+/-Offset]. Location context: [Enter City, State/Region, Country])* 
+*(Generated on: [Enter Current Date & Time]. Location: [Enter Locale].)*

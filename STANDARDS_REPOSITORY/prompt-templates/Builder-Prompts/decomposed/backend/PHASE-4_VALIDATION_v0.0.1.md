@@ -1,69 +1,51 @@
-**Subject: Phase 4: Backend Validation, Reliability Hardening, and Pre-Release Assurance for [Project Name]**
+**Subject: Phase 4: Backend Track — Service Validation & Reliability Assurance for [Project Name]**
 
-**Date:** [Enter Current Date: YYYY-MM-DD]
-**Time:** [Enter Current Time: HH:MM UTC+/-Offset]
+**Date:** [Enter Current Date]
+**Time:** [Enter Current Time & UTC Offset]
 
 **1. Overall Purpose**
-This prompt initiates **Phase 4: Backend Validation**. The agent must ensure backend services meet functional, performance, reliability, and security expectations before release. Objectives:
-    a. Execute comprehensive automated and manual validation across APIs, messaging workflows, and data persistence.
-    b. Perform load, stress, and resilience testing; validate observability and alerting.
-    c. Verify security posture (authz, encryption, secrets management) and compliance requirements.
-    d. Capture evidence, log defects, perform remediation cycles until success criteria satisfied.
-    e. Update documentation (test reports, risk register) reflecting validation status.
+Validate backend services against functional, performance, reliability, and security requirements. The worker agent compiles objective evidence demonstrating that backend components comply with architecture standards and are ready for release.
 
-**2. Core Execution Principles & Global Rules**
-* Enforce Apex Standards; maintain dependency rule and repository pattern integrity during fixes.
-* Execute validation plan sequentially and perform rigorous internal verification referencing relevant rules.
-* Iterate on remediation for failing scenarios; document all outcomes.
-* Log validation activities per Section 5.
+**2. Core Execution Principles & Global Rules (MANDATORY)**
+* Apply `TEST-SVC`, `PERF-API`, `RESILIENCE`, `SEC-API`, and `DOC-VAL` standards.
+* Use release-candidate builds and production-like data fixtures.
+* Do not modify frontend/security artifacts except to request fixes.
 
 **3. Mandatory Quality & Finalization Rules**
-Focus on:
-* Testing Standards (`TEST-*`: unit, integration, contract, load, soak, chaos).
-* Performance Standards (`QUAL-PERF`, latency/error budgets, throughput targets).
-* Security Standards (`SEC-*`: authN/authZ, data protection, secrets management).
-* Reliability & Resilience (`QUAL-RES`, fallback strategies).
-* Documentation Standards (`DOC-*`, `FINAL-*` readiness checks).
+Store results in `backend/outputs/phase-4/`. Include test reports, performance metrics, chaos/resilience findings, and compliance summaries.
 
-**4. Directive Section: Phase 4 - Backend Validation Execution**
+**4. Directive Section: Backend Phase 4 Tasks**
+* **Input Context:**
+    * Integration report, testing track validation plan, architecture certification checklist.
+    * Monitoring/observability requirements.
 
-* **Inputs:**
-    * `[Validation Plan Template]`, `[Load Test Scenarios]`, `[Security Checklist]`.
-    * `[Monitoring/Alerting Configuration]`.
-    * `[Path to Integrated Backend Output]`.
+* **Execution Tasks (sequential):**
+    - [ ] **Task 4.1: Validation Plan Alignment** *(Planning)*
+        - [ ] Coordinate scope with testing track; define target environments and data sets.
+        - [ ] Document plan in `backend_validation_plan.md`.
+    - [ ] **Task 4.2: Functional & Regression Testing** *(Testing)*
+        - [ ] Execute automated regression suite covering service contracts and edge cases.
+        - [ ] Perform exploratory tests for complex workflows.
+    - [ ] **Task 4.3: Performance & Load Testing** *(Performance)*
+        - [ ] Run load/stress tests hitting defined throughput and latency goals.
+        - [ ] Capture resource utilization metrics and compare to budgets.
+    - [ ] **Task 4.4: Resilience & Chaos Exercises** *(Reliability)*
+        - [ ] Conduct failure injection scenarios (e.g., dependency outage, network latency) ensuring graceful degradation.
+        - [ ] Document recovery times and alerting behaviour.
+    - [ ] **Task 4.5: Security Verification** *(Security)*
+        - [ ] Validate authentication/authorization flows, input validation, and data protection requirements.
+        - [ ] Coordinate with security track on penetration test findings and remediations.
+    - [ ] **Task 4.6: Evidence Compilation** *(Documentation)*
+        - [ ] Assemble `backend_validation_report.md` summarizing results, open issues, and sign-off fields.
 
-* **Validation Workflow:**
-    1.  **Plan Validation Campaign:**
-        * Inventory test suites covering APIs, domain workflows, messaging, background jobs, database migrations.
-        * Define success metrics and acceptance thresholds for each suite.
-        * Schedule execution order and environment preparation.
-    2.  **Execute Automated Suites:**
-        * Run unit/integration/contract suites; ensure environment parity.
-        * Execute load/stress/soak tests capturing latency, throughput, resource utilization.
-        * Run chaos/resilience scenarios (network latency injection, dependency failure) if applicable.
-    3.  **Security Validation:**
-        * Validate authentication/authorization flows, token handling, secrets storage, encryption at rest/in transit.
-        * Run SAST/DAST/security scans; evaluate vulnerabilities and remediate.
-    4.  **Observability & Alerting Verification:**
-        * Confirm metrics, logs, traces cover critical operations.
-        * Test alert thresholds and escalation workflows.
-    5.  **Defect Management & Remediation:**
-        * Log defects with severity and remediation plan.
-        * Iterate on fixes, rerun impacted tests, confirm compliance with dependency rule.
-    6.  **Evidence & Documentation:**
-        * Compile validation report summarizing tests, metrics, residual risks.
-        * Update risk register, change log, and readiness checklist.
+* **Internal Success Criteria:** Validation plan executed, evidence recorded, no unresolved critical defects; sign-offs prepared.
+* **Internal Verification Method:** Ensure each requirement traced to validation evidence; confirm results stored and referenced.
 
-* **Internal Success Criteria:** All planned tests executed; thresholds met or documented exceptions; no unresolved critical defects; documentation/logs updated.
-* **Internal Verification Method:** Perform final audit vs validation plan, verify evidence attachments, confirm monitoring/alerting results, ensure architectural boundaries preserved.
+**5. Test Reporting Protocol (Internal)**
+Update `docs/Test_Result_Analysis.md` with validation outcomes tagged `BACK-PH4`.
 
-**5. Test Reporting Protocol**
-* **Log File:** `docs/Test_Result_Analysis.md`
-* **Data Points:** Date/Time, Scope (Service/API/Workflow), Test Type (load, contract, chaos), Metrics (latency, error %, resource usage), Status, Remediation.
-* **Update Frequency:** After each suite run and remediation cycle.
-
-**6. Final Instruction**
-Execute the validation campaign, deliver summarized metrics, remediation logs, and go/no-go recommendation for backend release readiness.
+**6. Final Instruction for this Phase**
+Provide validation report to architecture and testing leads for certification approval.
 
 **7. Contextual Footer**
-*(Instructions generated: [Enter Current Date: YYYY-MM-DD HH:MM UTC+/-Offset]. Location context: [Enter City, State/Region, Country])* 
+*(Generated on: [Enter Current Date & Time]. Location: [Enter Locale].)*

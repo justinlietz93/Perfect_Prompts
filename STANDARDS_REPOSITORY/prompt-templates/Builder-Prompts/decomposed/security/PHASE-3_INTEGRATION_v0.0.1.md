@@ -1,90 +1,49 @@
-**Subject: Phase 3: Security Focus - Cross-Component Integration, End-to-End Assembly, and Shared Infrastructure Enablement for [Project Name]**
+**Subject: Phase 3: Security Track — Cross-Track Security Integration & Verification for [Project Name]**
 
-**Date:** [Customizer: Enter Current Date]
-**Time:** [Customizer: Enter Current Time with UTC Offset]
+**Date:** [Enter Current Date]
+**Time:** [Enter Current Time & UTC Offset]
 
 **1. Overall Purpose**
-This prompt initiates **Phase 3: System Integration & Assembly** for the **[Project Name]** initiative. The autonomous agent executing this prompt must:
-    a. Consolidate outputs from previously completed component builds (Phase 2 iterations) and confirm readiness for integration.
-    b. Design and implement the cross-component wiring, shared infrastructure services, and interface contracts exactly as specified in the Phase 1 Architectural Blueprint and updated Phase 2 deliverables.
-    c. Execute comprehensive integration validation (functional, data, workflow) ensuring components operate cohesively within the target environment.
-    d. Update shared documentation, diagrams, and configuration artifacts to reflect the assembled system state.
+Ensure security controls integrate correctly across frontend, backend, networking, and testing activities. The worker agent validates enforcement points, telemetry, and incident response workflows while remaining within the security domain.
 
-**2. Core Execution Principles & Global Rules (MANDATORY - REITERATE WITH INTEGRATION FOCUS)**
-*(Customizer Note: Maintain verbatim structure; adjust bracketed content only.)*
+**2. Core Execution Principles & Global Rules (MANDATORY)**
+* Follow integration dashboard, threat model updates, and risk register.
+* Apply standards `SEC-TEST`, `SEC-MON`, `SEC-OPS`, and `PRIVACY-VAL`.
+* Collaborate with other tracks but avoid implementing their features.
 
-* **Apex Standards Adherence:** Continuous compliance with the **Apex Software Compliance Standards Guide** (located at `[User Input: Path to Standards Guide]`) is non-negotiable. Every integration artifact (code, scripts, infra definitions, tests, docs) must reference applicable `[(Rule #X: CODE)](...)` links.
-* **Strict Sequential Execution:** Follow the generated Phase 3 plan in strict `Phase -> Task -> Step` order (`- [ ]`). Do not advance until current items meet `Internal Success Criteria` validated through `Internal Verification Method`.
-* **Internal Verification & Standards Compliance:** Each integration task requires explicit verification against functional expectations and all linked standards.
-* **Recursive Error Handling / Retry Logic:** Halt on any integration defect, analyze the root cause, remediate, and re-run verifications until success.
-* **Autonomous Operation & Internal Logging:** Operate autonomously. Record integration outcomes and test metrics in the internal log as dictated by Section 5.
+**3. Mandatory Quality & Finalization Rules**
+Store evidence in `security/outputs/phase-3/` including integration test results, audit logs, and remediation plans. Update security checklist and risk register.
 
-**3. Mandatory Quality & Finalization Rules (Integration Emphasis)**
-*(Customizer Note: Keep structure; inject additional rules if Phase 1 blueprint mandates them.)*
+**4. Directive Section: Security Phase 3 Tasks**
+* **Input Context:**
+    * Backend/frontend integration artifacts, networking policies, logging infrastructure.
+    * Security tooling dashboards and alerting systems.
 
-Enforce all relevant rules from the **Apex Software Compliance Standards Guide** (`[User Input: Path to Standards Guide]`) with heightened attention to:
-* Code Quality & Structure (Section 8: `QUAL-*`, including `QUAL-SIZE` for shared modules)
-* Configuration Management (Section 12: `CONF-*`)
-* Security & Access Controls across components (Section 13: `SEC-*`)
-* Data Integrity & Migration (Reference applicable `DATA-*` rules if defined)
-* Testing & Verification (Section 14: `TEST-*`, focus on integration and regression coverage)
-* Deployment & Infrastructure (Section 17: `DEP-*` if applicable)
-* Documentation & Knowledge Transfer (Section 18: `DOC-*`)
-* Final Validation (Section 21: `FINAL-*`)
+* **Execution Tasks (sequential):**
+    - [ ] **Task 3.1: Access Control Verification** *(Testing)*
+        - [ ] Execute authentication and authorization test suites across user roles.
+        - [ ] Validate token issuance, revocation, and session management behaviours.
+    - [ ] **Task 3.2: Data Protection Checks** *(Security)*
+        - [ ] Confirm encryption-in-transit and at-rest configurations across environments.
+        - [ ] Inspect sensitive data handling in logs and storage systems.
+    - [ ] **Task 3.3: Telemetry & Alert Validation** *(Observability)*
+        - [ ] Ensure security events are emitted, aggregated, and alert thresholds trigger appropriately.
+        - [ ] Verify incident response workflows and escalation paths.
+    - [ ] **Task 3.4: Vulnerability Management** *(Risk Management)*
+        - [ ] Review SAST/DAST/dependency scanning results, track remediation with owning teams.
+        - [ ] Update risk register entries with mitigation status.
+    - [ ] **Task 3.5: Integration Reporting** *(Communication)*
+        - [ ] Produce `security_integration_report.md` summarizing findings, open issues, and required actions for other tracks.
+        - [ ] Communicate results to architecture and operations leads.
 
-**4. Directive Section: Phase 3 - System Integration & Assembly**
-
-* **Context Provided by User (Customizer Checklist):**
-    * `[User Input: Project Name]`
-    * `[User Input: List of Components Completed in Phase 2]`
-    * `[User Input: Phase 1 Blueprint Path]`
-    * `[User Input: Phase 2 Deliverables Path(s)]`
-    * `[User Input: Path to Standards Guide]`
-    * `[User Input: Current Environment/Repository State Reference]`
-
-* **Instructions for Worker LLM:**
-
-    1.  **Confirm Integration Scope:**
-        * Identify all components slated for integration in this phase using `[List of Components Completed in Phase 2]` and cross-reference dependencies from the Phase 1 blueprint.
-        * Enumerate integration interfaces, shared contracts, data exchange formats, and infrastructure services required.
-        * Validate availability of prerequisite artifacts (code modules, schemas, configs) from prior phases.
-
-    2.  **Generate Detailed Integration Execution Plan:**
-        * Produce a `Phase -> Task -> Step` plan (`- [ ]`) covering:
-            * Environment preparation and dependency synchronization.
-            * Interface binding, adapter creation, or API gateway configuration.
-            * Data migration/synchronization scripts if needed.
-            * Integration test suite development & execution.
-            * Observability, logging correlation, and resilience hardening.
-            * Documentation updates (architecture diagrams, runbooks).
-        * Ensure each step includes precise `[(Rule #? : CODE)](...)` references.
-
-    3.  **Execute Integration Plan Sequentially:**
-        * Perform all plan items in order, modifying only files relevant to integration scope.
-        * Run all integration tests and regression checks defined.
-        * Capture logs/metrics per Section 5 and attach results to verification notes.
-        * Update shared docs/configs to reflect new system state.
-
-    4.  **Self-Verify & Summarize:**
-        * Confirm the integrated system meets functional & NFR expectations defined in the Phase 1 blueprint.
-        * Validate all success criteria & verification methods have been satisfied.
-        * Prepare a concise integration summary (components involved, interfaces activated, tests executed, outstanding risks).
-
-* **Internal Success Criteria (Worker LLM Self-Check):** All components listed for integration are wired together per blueprint, integration tests pass, shared configs/docs updated, and logs captured.
-* **Internal Verification Method:** Review execution trace, confirm test results, ensure documentation alignment, verify standards compliance for all touched items.
+* **Internal Success Criteria:** Security controls verified across components, critical findings assigned, telemetry functioning.
+* **Internal Verification Method:** Review evidence, ensure traceability to threats/controls, confirm no scope creep beyond security tasks.
 
 **5. Test Reporting Protocol (Internal)**
-*(Customizer Note: Keep consistent across phases.)*
-* **Log File Location:** `docs/Test_Result_Analysis.md`
-* **Data Points per Entry:** Date/Time, Scope (Integration Phase), Components, Test Suites, Pass/Fail, Key Metrics (latency, throughput, error rates), Summary Findings.
-* **Update Frequency:** After each major integration test suite or milestone.
+Log integration results in `docs/Test_Result_Analysis.md` tagged `SEC-PH3`.
 
-**6. Final Instruction**
-Execute all directives in Section 4 sequentially. Upon completion:
-    * Report integration status for **[Project Name]**.
-    * Provide references to modified files/configs.
-    * Supply test evidence and highlight any residual issues.
-    * Deliver the finalized integration execution plan with all checkboxes marked `- [x]`.
+**6. Final Instruction for this Phase**
+Coordinate remediation with owning teams and confirm readiness for validation audits.
 
 **7. Contextual Footer**
-*(Instructions generated: [Customizer: Timestamp]. Location context: [Customizer: Location])* 
+*(Generated on: [Enter Current Date & Time]. Location: [Enter Locale].)*
