@@ -6,7 +6,7 @@ Usage:
 """
 from __future__ import annotations
 
-PROMPT_TEMPLATE = """Today's date is {todays_date}:
+CODEX_PROMPT = """Today's date is {todays_date}:
 Review and comprehensively and meticulously update the {checklist_name} and when that’s done, begin working through each item one step at a time.  
 
 For each step you take, reason about 5 possible high quality options / solutions. Then organize the options based on relevance and likelihood of success based on current context. Choose the top one, then critique your choice. Begin working if you still agree with decision, taking extra long to think and reason through each step. 
@@ -32,6 +32,6 @@ def build_prompt(todays_date: str, checklist_name: str) -> str:
     """
     Substitute placeholders into the prompt safely without disturbing other brace content.
     """
-    return (PROMPT_TEMPLATE
+    return (CODEX_PROMPT
             .replace("{todays_date}", todays_date)
             .replace("{checklist_name}", checklist_name))
