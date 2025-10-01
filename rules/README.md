@@ -19,4 +19,5 @@
 - [Rules for Particle Physics Reviews](/rules/physics/Rules-for-Particle-Physics-Reviews.md)
 - [Rules for Mathematical Functions from the NIST Digital Library](/rules/physics/Rules-for-Mathematical-Functions-from-the-NIST-Digital-Library)
 - [Rules for Physics Experimentation and Data Analysis](/rules/physics/Rules-for-Physics-Experimentation-and-Data-Analysis.md)
+- [Rules for Quantum Field Theory](/rules/physics/Rules-for-Quantum-Field-Theory.md)
 - [Rules for Solid State Physics](/rules/physics/Rules-for-Solid-State-Physics.md)
