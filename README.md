@@ -15,32 +15,51 @@ This repository consolidates resources for professional software development inc
 
 ### Core Architecture Patterns
 
-The repository includes comprehensive architectural standards following consistent structure and formatting:
+The repository includes comprehensive architectural standards following consistent structure and formatting, organized in the `STANDARDS_REPOSITORY/architecture_standards/` directory:
 
-1. **[Clean Architecture Standards](STANDARDS_REPOSITORY/CLEAN_ARCHITECTURE_STANDARDS.md)**
+#### Enterprise & Distributed Patterns
+
+1. **[Clean Architecture Standards](STANDARDS_REPOSITORY/architecture_standards/CLEAN_ARCHITECTURE_STANDARDS.md)**
    - Modular monolith with microservices decoupling
    - Layered clean architecture (presentation, application, domain, infrastructure)
    - Dependency inversion and interface-based design
 
-2. **[Hexagonal Architecture Standards](STANDARDS_REPOSITORY/HEXAGONAL_ARCHITECTURE_STANDARDS.md)**
+2. **[Hexagonal Architecture Standards](STANDARDS_REPOSITORY/architecture_standards/HEXAGONAL_ARCHITECTURE_STANDARDS.md)**
    - Ports and adapters pattern
    - Domain-centric design with external concerns isolation
    - Technology-agnostic core business logic
 
-3. **[Microservices Architecture Standards](STANDARDS_REPOSITORY/MICROSERVICES_ARCHITECTURE_STANDARDS.md)**
+3. **[Microservices Architecture Standards](STANDARDS_REPOSITORY/architecture_standards/MICROSERVICES_ARCHITECTURE_STANDARDS.md)**
    - Distributed system design with autonomous services
    - Event-driven communication and API-first approach
    - Independent deployment and scaling strategies
 
-4. **[Event-Driven Architecture Standards](STANDARDS_REPOSITORY/EVENT_DRIVEN_ARCHITECTURE_STANDARDS.md)**
+4. **[Event-Driven Architecture Standards](STANDARDS_REPOSITORY/architecture_standards/EVENT_DRIVEN_ARCHITECTURE_STANDARDS.md)**
    - Event sourcing and CQRS patterns
    - Reactive programming and asynchronous communication
    - Stream processing and eventual consistency
 
-5. **[Serverless Architecture Standards](STANDARDS_REPOSITORY/SERVERLESS_ARCHITECTURE_STANDARDS.md)**
+5. **[Serverless Architecture Standards](STANDARDS_REPOSITORY/architecture_standards/SERVERLESS_ARCHITECTURE_STANDARDS.md)**
    - Function-as-a-Service (FaaS) and cloud-native design
    - Auto-scaling and cost-optimized architectures
    - Event-driven serverless computing patterns
+
+#### Lightweight MVP Patterns
+
+6. **[MVC Architecture Standards](STANDARDS_REPOSITORY/architecture_standards/MVC_ARCHITECTURE_STANDARDS.md)**
+   - Classic Model-View-Controller separation
+   - Simple web application structure
+   - Clear scope boundaries between data, presentation, and control
+
+7. **[Three-Tier Architecture Standards](STANDARDS_REPOSITORY/architecture_standards/THREE_TIER_ARCHITECTURE_STANDARDS.md)**
+   - Presentation, Business Logic, and Data tiers
+   - Enterprise application structure
+   - Physical tier separation for scalability
+
+8. **[Layered Monolith Architecture Standards](STANDARDS_REPOSITORY/architecture_standards/LAYERED_MONOLITH_ARCHITECTURE_STANDARDS.md)**
+   - Simple layered structure with unidirectional dependencies
+   - Straightforward monolithic applications
+   - Clear layer boundaries for maintainability
 
 Each architecture document includes:
 - **Overview** - Core concepts and design principles
@@ -56,11 +75,15 @@ Each architecture document includes:
 ```
 Perfect_Prompts/
 ├── STANDARDS_REPOSITORY/           # Architecture and development standards
-│   ├── CLEAN_ARCHITECTURE_STANDARDS.md
-│   ├── HEXAGONAL_ARCHITECTURE_STANDARDS.md
-│   ├── MICROSERVICES_ARCHITECTURE_STANDARDS.md
-│   ├── EVENT_DRIVEN_ARCHITECTURE_STANDARDS.md
-│   ├── SERVERLESS_ARCHITECTURE_STANDARDS.md
+│   ├── architecture_standards/     # Comprehensive architecture patterns
+│   │   ├── CLEAN_ARCHITECTURE_STANDARDS.md
+│   │   ├── HEXAGONAL_ARCHITECTURE_STANDARDS.md
+│   │   ├── MICROSERVICES_ARCHITECTURE_STANDARDS.md
+│   │   ├── EVENT_DRIVEN_ARCHITECTURE_STANDARDS.md
+│   │   ├── SERVERLESS_ARCHITECTURE_STANDARDS.md
+│   │   ├── MVC_ARCHITECTURE_STANDARDS.md
+│   │   ├── THREE_TIER_ARCHITECTURE_STANDARDS.md
+│   │   └── LAYERED_MONOLITH_ARCHITECTURE_STANDARDS.md
 │   ├── apex/                       # Apex Software Compliance Standards
 │   ├── nasa/                       # NASA-derived standards
 │   └── prompt-templates/           # Structured prompt templates
