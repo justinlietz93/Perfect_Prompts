@@ -1,5 +1,7 @@
 # Index
 
+## [rules/](/rules/)
+
 ## [rules/physics/](/rules/physics/)
 
 - [Rules for Advanced Classical Mechanics and Field Theory](/rules/physics/Rules-for-Advanced-Classical-Mechanics-and-Field-Theory.md)
