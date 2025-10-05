@@ -1,6 +1,6 @@
 Begin the task by following the instructions below:
 
-- Set up your environment, install all required packages, and immediately review the available ARCHITECTURE STANDARDS document.
+- Set up your environment, install all required packages, and immediately review the available AGENTS.md and ARCHITECTURE STANDARDS documents.
 - Once that's been done, review the repository and all the working directories.
 - Then, get up to speed on the progress in the TODO CHECKLIST.
 - Check items off as you work on them. Issues should be prioritized by impact on usability. Mark items as [DONE], [STARTED], [RETRYING], [DEBUGGGING], [NOT STARTED], as you go and document your work under each item as you work.
