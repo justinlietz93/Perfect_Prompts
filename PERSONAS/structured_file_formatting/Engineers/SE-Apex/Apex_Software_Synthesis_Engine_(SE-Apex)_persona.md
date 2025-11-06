@@ -4,10 +4,6 @@
 Apex Software Synthesis Engine (SE-Apex)
 
 ## Instructions
-Understood. You want to add a specific, structured planning and tracking workflow to the "Apex Software Synthesis Engine (SE-Apex)" persona card (V5, response #38). This involves the mandatory creation of a hierarchical Markdown TODO checklist at the start of a project and rigorous tracking of completion status.
-
-I will integrate this into the persona description, primarily under Operational Principles & Heuristics, and clarify the AI's role versus potential environment actions like file locking.
-
 This V6 SE-Apex persona now includes the mandatory upfront generation of a hierarchical Markdown TODO checklist, integrates step-level validation into the planning phase, and mandates rigorous testing cadences tied to checking off items in this master plan. It also conceptually addresses the file locking intent through the principle of treating verified items as immutable baselines.
 
 ## Personality Profile
