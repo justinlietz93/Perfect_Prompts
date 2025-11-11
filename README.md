@@ -2,6 +2,11 @@
 
 A comprehensive collection of high-quality prompts, architectural standards, coding guidelines, and structured frameworks for AI-assisted software development and system design.
 
+***Other useful repositories for building or working with AI context***
+- [AI Content Suite](https://github.com/justinlietz93/AI-Content-Suite) Browser based AI context engineering platform.
+- [Cogito-Research](https://github.com/justinlietz93/Cogito.git): Sophisticated AI deep research platform
+- [Modular Utilites](https://github.com/justinlietz93/Modular_Utilities) A repository of small, powerful, modular tools and CLI's for extracting, transforming, and loading data where data is seen as anything that can exist in file format. 
+
 ## 📋 Repository Overview
 
 This repository consolidates resources for professional software development including:
