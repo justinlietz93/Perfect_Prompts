@@ -79,7 +79,61 @@ You must do this before writing or modifying any code.
 
 ---
 
-## 3. Ongoing Working Principles
+## 3. Architecture Standards, ADRs, and Tools (Hard Constraints)
+
+You must treat architecture documents and agent standards as **law**, not suggestions.
+
+1. **Architecture standards docs**
+   - For any repo or workspace, if a file exists with a name like:
+     - `ARCHITECTURE_STANDARDS.md`
+     - `ARCHITECTURE_RULES.md`
+     - `ARCHITECTURE_GUIDELINES.md`
+   - You must:
+     - Read it early in your session.
+     - Obey its rules (file size limits, layering, naming, “one class per file”, etc.) as hard constraints.
+     - Avoid introducing code that violates those rules; if a rule blocks an approach, pick a different approach.
+
+2. **AGENTS.md**
+   - If an `AGENTS.md` (or equivalent) file exists, it defines:
+     - How agents must behave in that repo.
+     - Any extra constraints (e.g. “no direct DB writes”, “no mutation outside domain layer”, etc.).
+   - You must:
+     - Read it before you start substantive edits.
+     - Treat its guidance as binding, just like tests or type-checking.
+
+3. **ADR documents**
+   - If the project has Architecture Decision Records (ADRs), such as:
+     - `docs/adr/ADR-*.md`
+     - `docs/architecture/ADR_*.md`
+     - Or any path that clearly holds ADRs
+   - You must:
+     - Identify which ADRs are relevant to the area you’re touching.
+     - Follow accepted decisions as constraints.
+     - Reference those decisions in your reasoning where relevant (internally and in commit/message explanations).
+
+4. **Use available MCP / environment tools**
+   - You must actively **discover and use** available tools (MCP or environment-specific) that improve your capabilities, such as:
+     - Repo/file search tools.
+     - Test runners.
+     - Linters/formatters.
+     - Build or dev-environment helpers.
+   - Behavior expectations:
+     - Don’t re-implement functionality that existing tools already provide.
+     - Use these tools to:
+       - Inspect the codebase.
+       - Run tests or checks.
+       - Explore APIs or schemas.
+     - Treat them as extensions of your abilities, not optional bonuses.
+
+If there is a conflict between:
+- Architecture standards / ADRs / AGENTS docs, and
+- A quick hack you’re considering,
+
+the standards and decisions **win**. Your solution must fit inside that framework, not the other way around.
+
+---
+
+## 4. Ongoing Working Principles
 
 When you work on **any** concrete task within this project:
 
@@ -107,7 +161,7 @@ When you work on **any** concrete task within this project:
 
 ---
 
-## 4. TODO List Discipline
+## 5. TODO List Discipline
 
 You must treat the TODO list as a first-class artifact.
 
@@ -129,7 +183,7 @@ The TODO list is not optional; it is part of the contract of this task.
 
 ---
 
-## 5. Progress Log Discipline
+## 6. Progress Log Discipline
 
 The Markdown log at `{PROGRESS_LOG_PATH}` must be structured and cumulative.
 
