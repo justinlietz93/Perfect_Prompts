@@ -1,0 +1,4 @@
+interface:
+  display_name: "Comprehensive Data Analysis"
+  short_description: "Run rigorous end-to-end data analyses"
+  default_prompt: "Use $comprehensive-data-analysis to run a rigorous end-to-end analysis of this dataset and deliver validated results with clear visuals."
