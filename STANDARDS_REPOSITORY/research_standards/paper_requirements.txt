@@ -1,0 +1,441 @@
+# VDM Publication Validation Requirements
+
+## 1. Purpose
+
+This document defines the minimum publication-standard validation requirements for any VDM Complete Formalism publication and its companion validation bundle.
+
+A publication is not complete when it merely states claims.
+A publication is complete only when its full formal burden is attacked across the paper, Lean4, SymPy, Jupyter, and hash/manifest layers so that no load-bearing derivation, theorem surface, operator law, assumption boundary, or falsifier is left unchecked.
+
+---
+
+## 2. Governing Rule
+
+For every publication:
+
+1. The **paper** shall carry the full load-bearing formal burden.
+2. **Lean4** shall prove every exact statement that can be forced into a precise formal theorem shape.
+3. **SymPy** shall attack every symbolic identity and operator law stated or used by the paper.
+4. **Jupyter** shall attack every numerical, geometric, statistical, and gate-facing consequence in reviewer-readable form.
+5. The **bundle manifest and hashes** shall make the entire validation package auditable, reproducible, and integrity-checkable.
+
+No claim may be treated as “covered” merely because it appears in one artifact.
+Coverage is complete only when each burden is attacked by the strongest artifact type available for that burden.
+
+---
+
+## 3. Required Artifacts
+
+Every publication bundle shall contain, at minimum:
+
+### 3.1 Paper
+
+A theorem-bearing manuscript containing:
+
+* intent
+* definitions
+* assumptions
+* claims
+* falsifiers / gates
+* derivations
+* formalism
+* provenance
+* exact non-claims
+* exact scope limits
+
+### 3.2 Lean4 package
+
+A runnable Lean4 package containing:
+
+* `lakefile.toml`
+* `lean-toolchain`
+* package source files
+* main entry point
+* any required auxiliary modules
+* package README with build and run instructions
+
+### 3.3 SymPy script
+
+A runnable symbolic-validation script containing:
+
+* exact symbolic attacks
+* identity checks
+* operator checks
+* explicit pass/fail thresholds where applicable
+* terminal summary ending in `FINAL_RESULT: PASS` or `FINAL_RESULT: FAIL`
+
+### 3.4 Jupyter notebook
+
+A reviewer-facing computational notebook containing:
+
+* claim-by-claim attacks
+* gate-by-gate attacks
+* clear figures
+* explicit residuals / thresholds
+* direct local conclusions
+* final coverage ledger
+
+### 3.5 README
+
+A human-readable bundle guide containing:
+
+* artifact list
+* purpose of each artifact
+* exact run instructions
+* dependency notes
+* coverage map from paper burdens to artifact locations
+* expected outputs
+* interpretation of pass/fail results
+
+### 3.6 SHA256SUMS
+
+A machine-readable hash file containing SHA-256 for:
+
+* paper
+* Lean4 package files or archive
+* SymPy script
+* Jupyter notebook
+* README
+* any auxiliary manifest or data files required for execution
+
+---
+
+## 4. Load-Bearing Burden Model
+
+The publication burden shall be divided into the following classes.
+
+### 4.1 Ontological / theorem-bearing burden
+
+These belong first to the **paper**:
+
+* primitive definitions
+* theorem statements
+* derivation chains
+* operator meanings
+* assumption boundaries
+* falsifier definitions
+* scope boundaries
+* exact non-claims
+
+### 4.2 Logical / formal burden
+
+These belong first to **Lean4**:
+
+* exact theorem-shape claims
+* equivalence theorems
+* implication chains
+* algebraically exact closure steps
+* forcing statements
+* impossibility statements
+* exact reduction statements
+
+### 4.3 Algebraic / symbolic burden
+
+These belong first to **SymPy**:
+
+* closed-form identities
+* tensor/operator identities
+* derivative identities
+* projection identities
+* bracket identities
+* inverse / duality identities
+* symbolic residual checks
+* algebraic negative controls
+
+### 4.4 Empirical / executable burden
+
+These belong first to **Jupyter**:
+
+* numerical gates
+* Monte Carlo attacks
+* regression/model-comparison gates
+* coordinate-invariance checks
+* response-function diagnostics
+* simulation falsifiers
+* figure-level reviewer evidence
+* robustness sweeps and negative controls
+
+---
+
+## 5. Paper Requirements
+
+The paper shall not function as front matter only.
+It shall be the load-bearing source of the full publication.
+
+The paper must include all of the following:
+
+### 5.1 Exact claims
+
+Every primary claim must be explicitly stated, uniquely identified, and paired with:
+
+* decisive metric
+* falsifier
+* assumption dependence
+* scope classification
+
+### 5.2 Full derivational burden
+
+Every load-bearing derivation used by the publication must appear in the paper or be explicitly imported with exact dependency and role.
+
+No step may be hidden behind:
+
+* “standard argument”
+* “it is well known”
+* “follows similarly”
+* “left to the notebook”
+* “checked numerically”
+  unless the paper also states exactly what is being delegated and why.
+
+### 5.3 Operator and identity surface
+
+Every symbolic operator relation used downstream must appear in theorem-grade or definition-grade form in the paper.
+
+### 5.4 Assumption ledger
+
+Every assumption must be explicit, scoped, and typed as one of:
+
+* inherited
+* local
+* regime-specific
+* computational
+* unproved but required
+
+### 5.5 Non-claims
+
+The paper must explicitly state what it does **not** prove.
+
+### 5.6 Gate inventory
+
+Every gate must be stated in the paper with:
+
+* gate ID
+* quantity measured
+* pass condition
+* fail condition
+* interpretation of failure
+
+---
+
+## 6. Lean4 Requirements
+
+Lean4 shall prove every exact statement that can be formalized without dishonest weakening.
+
+### 6.1 Required Lean4 coverage
+
+Lean4 must cover:
+
+* exact theorem-shape statements
+* exact equivalences
+* exact implication chains
+* exact algebraic closures
+* exact projection / degeneracy theorems
+* exact operator identities
+* exact normal-form statements
+* exact impossibility theorems where applicable
+
+### 6.2 Forbidden Lean4 failure mode
+
+Lean4 may not be a cosmetic companion containing only trivial examples while the real theorem burden remains outside it.
+
+### 6.3 If a paper statement is not formalized
+
+If a paper statement is not included in Lean4, the package must explicitly classify it as one of:
+
+* non-formalizable in current encoding
+* numerical rather than exact
+* symbolic rather than theorem-shape
+* intentionally deferred
+
+Each such omission must include an exact reason.
+
+### 6.4 Lean4 deliverable standard
+
+The Lean4 package must:
+
+* build cleanly
+* have a main entry point or documented target
+* identify pass/fail build status
+* contain a machine-readable theorem inventory or manifest
+
+---
+
+## 7. SymPy Requirements
+
+SymPy shall attack every symbolic identity and operator law in the paper.
+
+### 7.1 Required SymPy coverage
+
+SymPy must cover:
+
+* symbolic definitions used computationally
+* exact derivative identities
+* exact Hessian / covariance / duality identities
+* projection formulas
+* bracket formulas
+* symmetry / antisymmetry checks
+* PSD-form checks where symbolically meaningful
+* negative controls where relevant
+
+### 7.2 SymPy closure requirement
+
+The SymPy script must terminate in an explicit global result:
+
+* `FINAL_RESULT: PASS`
+  or
+* `FINAL_RESULT: FAIL`
+
+It must also exit nonzero on failure.
+
+### 7.3 Forbidden SymPy failure mode
+
+SymPy may not consist of illustrative algebra only.
+It must act as an adversarial symbolic audit.
+
+---
+
+## 8. Jupyter Requirements
+
+The notebook shall be reviewer-facing, not an internal compliance dashboard.
+
+### 8.1 Required notebook tone and structure
+
+The notebook must read like a skeptical-reviewer computational appendix:
+
+* objective
+* exact claim being attacked
+* why the attack is honest
+* figure / evidence
+* thresholded result
+* local conclusion
+* final coverage ledger
+
+### 8.2 Required Jupyter coverage
+
+Jupyter must attack:
+
+* every numerical claim
+* every gate
+* every measurable consequence
+* every geometry-facing invariant
+* every response diagnostic
+* every model-comparison burden
+* every robustness burden that cannot be closed symbolically or formally
+
+### 8.3 Required reviewer clarity
+
+Every figure must be unambiguous:
+
+* one burden per figure where possible
+* labeled thresholds
+* explicit residual or score
+* clear pass/fail meaning
+
+### 8.4 Negative controls
+
+Where applicable, Jupyter must include false constructions, wrong metrics, shuffled controls, broken-coordinate implementations, or baseline models strong enough to make the pass meaningful.
+
+### 8.5 Forbidden Jupyter failure mode
+
+The notebook may not depend on source-paper file existence, hidden CSVs, or internal-only manifests unless those files are explicitly bundled as publication artifacts.
+
+---
+
+## 9. README and SHA256 Requirements
+
+### 9.1 README must provide
+
+* what the publication claims
+* what each artifact attacks
+* how to run each artifact
+* what a pass means
+* what a fail means
+* where each claim/gate is covered
+
+### 9.2 SHA256SUMS must provide
+
+A complete integrity map for every required artifact in the bundle.
+
+### 9.3 Coverage map requirement
+
+The README must include a burden-to-artifact coverage table with, at minimum:
+
+* burden ID
+* burden type
+* paper location
+* Lean4 location
+* SymPy location
+* Jupyter location
+* status
+
+---
+
+## 10. Bundle Completeness Rule
+
+A publication bundle is complete only if **all** of the following are true:
+
+1. Every load-bearing claim in the paper is explicitly identified.
+2. Every exact formalizable statement is covered in Lean4 or explicitly classified with reason.
+3. Every symbolic identity/operator law is covered in SymPy.
+4. Every numerical/geometric/statistical/gate-facing consequence is covered in Jupyter.
+5. Every artifact is runnable from the README instructions.
+6. Every artifact is hash-listed in SHA256SUMS.
+7. The coverage map shows no unclassified burden.
+8. Every unresolved item is explicitly marked unresolved or falsified, not silently omitted.
+
+---
+
+## 11. Failure Conditions
+
+The bundle shall be marked **incomplete** if any of the following occur:
+
+* the paper contains claims not mapped to any validation artifact
+* Lean4 omits formalizable theorem-shape statements without explicit classification
+* SymPy lacks explicit pass/fail closure
+* Jupyter skips declared gates
+* README lacks run instructions or coverage mapping
+* hashes are missing
+* an artifact is non-runnable
+* a claim is treated as validated by assertion rather than attack
+
+---
+
+## 12. Minimum Publication-Certificate Schema
+
+Every completed publication shall end with a closure certificate containing:
+
+* publication ID
+* artifact inventory
+* total claim count
+* total gate count
+* total theorem-shape statements
+* total symbolic identities
+* total executable tests
+* unresolved count
+* falsified count
+* complete / incomplete status
+* hash verification status
+
+---
+
+## 13. Required Standard Statement
+
+The standard for a VDM publication is:
+
+> The paper must carry every load-bearing derivation, theorem surface, operator relation, assumption boundary, and falsifier. Lean4 must prove every exact formalizable statement that can be forced into a precise theorem shape. SymPy must attack every symbolic identity and operator law from that paper and end in an explicit pass/fail closure. Jupyter must attack every numerical, geometric, statistical, and gate-facing consequence in a reviewer-readable way. The README and SHA256SUMS must hash, map, and operationalize the whole bundle.
+
+---
+
+## 14. Enforcement Rule
+
+No publication may be described as “validated” unless the full bundle satisfies this document.
+
+If any burden remains untested, the publication must be labeled:
+
+* incomplete,
+* partial,
+* unresolved,
+  or
+* falsified,
+
+but not validated.
+
