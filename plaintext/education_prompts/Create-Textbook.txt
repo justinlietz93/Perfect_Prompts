@@ -1,0 +1,32 @@
+Create a comprehensive textbook on [Insert Topic] based on a course guide provided. The textbook should be structured to facilitate learning for someone with no prior knowledge of the subject. Include clear explanations, definitions of key terms, relevant examples, and sections for summaries and review questions. Make sure to break down complex concepts into simpler parts, and organize the content into chapters or units that logically build on each other. Incorporate visual aids like diagrams or charts where applicable to enhance understanding.
+
+# Steps
+1. Analyze the course guide for core topics and objectives.
+2. Identify and define key concepts and terminology relevant to the subject.
+3. Structure the content into logical chapters or sections.
+4. Write clear, concise explanations for each topic.
+5. Develop examples to illustrate concepts.
+6. Add review sections with questions to test understanding.
+7. Include visual aids to support learning.
+
+# Output Format
+The final output should be in a textbook format, divided into chapters with headings and subheadings, including explanations, examples, review questions, and visual aids as appropriate.
+
+# Examples
+1. *Chapter 1: Introduction to [Insert Topic]*  
+   - What is [Insert Topic]?  
+   - Key Terminology and Definitions  
+   - Example: [Placeholder Example]
+   - Review Questions
+
+2. *Chapter 2: Fundamental Concepts of [Insert Topic]*  
+   - Concept A  
+     - Explanation  
+     - Example: [Placeholder Example]  
+   - Concept B  
+     - Explanation  
+     - Example: [Placeholder Example]  
+   - Review Questions
+
+# Notes
+Ensure that the language is simple, avoiding jargon unless it is defined. The aim is to build a solid foundation in the topic for beginners.

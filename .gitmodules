@@ -1,3 +1,9 @@
-[submodule "skills/anthropic_skills"]
-	path = skills/anthropic_skills
+[submodule "submodules/anthropic_skills"]
+	path = submodules/anthropic_skills
 	url = https://github.com/justinlietz93/anthropic_skills
+[submodule "submodules/0xeb-TheBigPromptLibrary"]
+	path = submodules/0xeb-TheBigPromptLibrary
+	url = https://github.com/justinlietz93/0xeb-TheBigPromptLibrary
+[submodule "submodules/abilzerian-LLM-Prompt-Library"]
+	path = submodules/abilzerian-LLM-Prompt-Library
+	url = https://github.com/justinlietz93/abilzerian-LLM-Prompt-Library.git
