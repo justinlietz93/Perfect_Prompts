@@ -12,7 +12,7 @@ This is a working repository, not a polished prompt pack.
 
 This repository has grown organically over time, and its current structure reflects that history.
 
-I do intend to clean up, consolidate, and reorganize it eventually, but that is not a priority at the moment. Expect duplicate concepts, parallel implementations, inconsistent naming, archived generations, experimental material, and files at different levels of maturity.
+I do intend to clean up, consolidate, and reorganize it eventually, but that is not a priority at the moment. Expect parallel implementations across languages and formats, historical generations, inconsistent naming, experimental material, and files at different levels of maturity. Many apparently duplicated artifacts are intentional: prompts are often embedded directly in language-specific source files so they can be reused without translation into another representation.
 
 That is intentional for now. I would rather preserve useful work and the evolution of ideas than spend time prematurely normalizing the entire repository.
 
