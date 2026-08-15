@@ -1,3 +1,5 @@
+<img width="1774" height="887" alt="perfect-prompts-banner" src="https://github.com/user-attachments/assets/2ef86d9f-a64f-40e8-a9ad-fc4593ccb3b7" />
+
 # Perfect Prompts
 
 A working corpus of prompt engineering, context engineering, agent control, AI-assisted software development, research methodology, and reusable LLM tooling.
