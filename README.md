@@ -1,179 +1,287 @@
-# Perfect Prompts Repository
+# Perfect Prompts
 
-A comprehensive collection of high-quality prompts, architectural standards, coding guidelines, and structured frameworks for AI-assisted software development and system design.
+A working corpus of prompt engineering, context engineering, agent control, AI-assisted software development, research methodology, and reusable LLM tooling.
 
-***Other useful repositories for building or working with AI context***
-- [AI Content Suite](https://github.com/justinlietz93/AI-Content-Suite) Browser based AI context engineering platform.
-- [Cogito-Research](https://github.com/justinlietz93/Cogito.git): Sophisticated AI deep research platform
-- [_Neuroca](https://github.com/Neuroca-Inc/_Neuroca) A sophisticated, multi-tier, biology-inspire dynamic memory framework for LLMs. 
-- [Modular Utilites](https://github.com/justinlietz93/Modular_Utilities) A repository of small, powerful, modular tools and CLI's for extracting, transforming, and loading data where data is seen as anything that can exist in file format. 
+Despite the name, this repository has grown far beyond a collection of prompts. It contains prompt harnesses, agent instruction files, architecture and engineering standards, research protocols, reusable skills, context builders, personas, rulesets, structured templates, and multiple generations of experiments developed through active use.
 
-## 📋 Repository Overview
+This is a working repository, not a polished prompt pack.
 
-This repository consolidates resources for professional software development including:
-- **Architecture Pattern Standards** - Comprehensive guides for different architectural approaches
-- **Prompt Templates** - Structured templates for autonomous AI execution
-- **Coding Standards** - Language-specific best practices and guidelines
-- **Rules and Guidelines** - Rigorous technical and scientific principles
-- **Personas** - Specialized AI agent personas for different domains
+## Repository Status
 
-## 🏗️ Architecture Standards
+This repository has grown organically over time, and its current structure reflects that history.
 
-### Core Architecture Patterns
+I do intend to clean up, consolidate, and reorganize it eventually, but that is not a priority at the moment. Expect duplicate concepts, parallel implementations, inconsistent naming, archived generations, experimental material, and files at different levels of maturity.
 
-The repository includes comprehensive architectural standards following consistent structure and formatting, organized in the `STANDARDS_REPOSITORY/architecture_standards/` directory:
+That is intentional for now. I would rather preserve useful work and the evolution of ideas than spend time prematurely normalizing the entire repository.
 
-#### Enterprise & Distributed Patterns
+Do not assume every file is canonical or represents my current preferred approach. Some files are current tools, some are reusable references, and some are retained because they document earlier approaches or useful experiments.
 
-1. **[Clean Architecture Standards](STANDARDS_REPOSITORY/architecture_standards/CLEAN_ARCHITECTURE_STANDARDS.md)**
-   - Modular monolith with microservices decoupling
-   - Layered clean architecture (presentation, application, domain, infrastructure)
-   - Dependency inversion and interface-based design
+## What Is In This Repository?
 
-2. **[Hexagonal Architecture Standards](STANDARDS_REPOSITORY/architecture_standards/HEXAGONAL_ARCHITECTURE_STANDARDS.md)**
-   - Ports and adapters pattern
-   - Domain-centric design with external concerns isolation
-   - Technology-agnostic core business logic
+The repository currently includes several overlapping kinds of material.
 
-3. **[Microservices Architecture Standards](STANDARDS_REPOSITORY/architecture_standards/MICROSERVICES_ARCHITECTURE_STANDARDS.md)**
-   - Distributed system design with autonomous services
-   - Event-driven communication and API-first approach
-   - Independent deployment and scaling strategies
+### Prompt and Agent Harnesses
 
-4. **[Event-Driven Architecture Standards](STANDARDS_REPOSITORY/architecture_standards/EVENT_DRIVEN_ARCHITECTURE_STANDARDS.md)**
-   - Event sourcing and CQRS patterns
-   - Reactive programming and asynchronous communication
-   - Stream processing and eventual consistency
+Reusable prompts for tasks such as:
 
-5. **[Serverless Architecture Standards](STANDARDS_REPOSITORY/architecture_standards/SERVERLESS_ARCHITECTURE_STANDARDS.md)**
-   - Function-as-a-Service (FaaS) and cloud-native design
-   - Auto-scaling and cost-optimized architectures
-   - Event-driven serverless computing patterns
+* agent and multi-agent design
+* project scaffolding
+* task, phase, and step generation
+* reasoning and analysis
+* critique and review
+* rewriting and style extraction
+* citation handling
+* mathematical formatting
+* Mermaid diagram generation
+* request decomposition
+* next-step generation
+* deep research
+* session recovery and handoff
+* context synthesis and persistence
 
-#### Lightweight MVP Patterns
+Many prompt families exist in multiple representations so they can be copied directly, imported into applications, or adapted to different agent runtimes.
 
-6. **[MVC Architecture Standards](STANDARDS_REPOSITORY/architecture_standards/MVC_ARCHITECTURE_STANDARDS.md)**
-   - Classic Model-View-Controller separation
-   - Simple web application structure
-   - Clear scope boundaries between data, presentation, and control
+### Multi-Language Prompt Implementations
 
-7. **[Three-Tier Architecture Standards](STANDARDS_REPOSITORY/architecture_standards/THREE_TIER_ARCHITECTURE_STANDARDS.md)**
-   - Presentation, Business Logic, and Data tiers
-   - Enterprise application structure
-   - Physical tier separation for scalability
+Several prompt collections are implemented in parallel across:
 
-8. **[Layered Monolith Architecture Standards](STANDARDS_REPOSITORY/architecture_standards/LAYERED_MONOLITH_ARCHITECTURE_STANDARDS.md)**
-   - Simple layered structure with unidirectional dependencies
-   - Straightforward monolithic applications
-   - Clear layer boundaries for maintainability
+* Python
+* TypeScript
+* Rust
+* Go
+* plaintext
+* JSON
+* structured Markdown and related formats
 
-Each architecture document includes:
-- **Overview** - Core concepts and design principles
-- **Implementation Guidelines** - Practical implementation strategies
-- **Example Project Structure** - Detailed directory layouts
-- **AI Agent Guidelines** - Rules for AI-assisted development
-- **Testing Strategies** - Comprehensive testing approaches
-- **Performance Optimization** - Speed and resource optimization
-- **Security Considerations** - Security best practices
+The language implementations are useful when prompts need to live directly inside application code rather than being maintained as detached text files.
 
-## 📁 Repository Structure
+### Agent Instruction Files
 
-```
+The repository contains instruction sets intended to govern how autonomous or semi-autonomous coding and reasoning agents operate.
+
+Examples include:
+
+* `AGENTS_library/No-Assumptions_AGENTS.md`
+* `Methodologies/Germinal_Theory/Emergence_Based_Design_AGENTS.md`
+* tool-specific agent/persona formats for systems such as GitHub Copilot and Roo Code
+
+These files focus less on one-shot prompting and more on persistent behavioral constraints, architecture discipline, evidence requirements, and reliable execution.
+
+### Methodologies
+
+The `Methodologies/` directory contains higher-level approaches for designing interactions with AI systems.
+
+#### Guided Autonomy Prompting
+
+`Methodologies/Guided_Autonomy_Prompting/`
+
+Guided Autonomy Prompting is built around providing the model with clear constraints, goals, invariants, and reasons while avoiding unnecessary implementation micromanagement. The intent is to preserve useful model autonomy without sacrificing correctness or control.
+
+The repository currently includes domain-agnostic and physics-oriented variants.
+
+#### Germinal Theory / Emergence-Based Design
+
+`Methodologies/Germinal_Theory/`
+
+This material explores architecture and agent guidance based on discovering structure from the actual problem rather than imposing a preferred design pattern in advance.
+
+The associated AGENTS file is designed to make an agent inspect evidence, constraints, existing structure, and failure modes before introducing architecture.
+
+### Architecture and Engineering Standards
+
+`STANDARDS_REPOSITORY/`
+
+This area contains software architecture, implementation, documentation, testing, research, and engineering standards.
+
+Architecture material currently includes:
+
+* Clean Architecture
+* Hexagonal Architecture
+* Microservices
+* Event-Driven Architecture
+* Lite Event-Driven Architecture
+* Serverless Architecture
+* MVC
+* Three-Tier Architecture
+* Layered Monolith
+* Dual-Plane Architecture
+* Emergence-Based Architecture
+* SGDA documentation architecture
+* SGHM architecture
+
+The standards repository also contains:
+
+* Apex software compliance standards
+* NASA-derived software standards and source documents
+* prompt templates
+* research and publication standards
+* figure and presentation standards
+* critique templates
+* arXiv-oriented paper templates
+* Lean-oriented review material
+
+### Research and Reasoning Rules
+
+`rules/`
+
+This is a broad collection of reusable instruction sets for technical and scientific reasoning.
+
+Topics include:
+
+* formal logic and discrete mathematics
+* rigorous mathematical inquiry
+* technical and logical discourse
+* objective decision making and truth seeking
+* systems thinking
+* Bayesian reasoning
+* probability and information theory
+* machine learning
+* classical mechanics
+* quantum field theory
+* solid-state physics
+* experimental physics and statistical analysis
+* Linux system management
+* software development
+* technical writing
+* cross-domain scientific reasoning
+
+These are typically intended to be inserted into a system prompt, agent context, research workflow, or review process when a task needs stronger domain-specific constraints.
+
+### Personas
+
+`PERSONAS/`
+
+The persona library contains specialized AI roles for software engineering, data analysis, mathematics, physics, formal logic, research, project orchestration, creative work, systems reasoning, and other domains.
+
+Several personas are represented in multiple formats, including:
+
+* Markdown
+* YAML
+* JSON
+* XML
+* Roo Code persona formatting
+* GitHub Copilot agent formatting
+
+The goal is portability across different model and agent environments rather than dependence on a single provider.
+
+### Skills
+
+`skills/`
+
+The repository also contains reusable skill packages and skill definitions for more complete workflows.
+
+Current examples include:
+
+* Guided Autonomy Prompting
+* rigorous research
+* comprehensive data analysis
+* session handoff and state preservation
+* PDF work
+* audit-and-instruct workflows
+* README generation
+* visual game asset creation
+
+Unlike a simple prompt, these may define procedures, supporting files, schemas, validation steps, or expected outputs.
+
+### Context Builders and Session State
+
+Several files focus on preserving and reconstructing context across long-running work.
+
+Examples include:
+
+* Universal Context Synthesis Engine material
+* session state persistence protocols
+* session handoff prompts
+* session handoff skills
+* active-state snapshots and context packaging
+
+These are intended for workflows where the important problem is not merely generating an answer, but preserving decisions, constraints, rejected paths, unresolved questions, and working state across agents or sessions.
+
+## Repository Map
+
+```text
 Perfect_Prompts/
-├── STANDARDS_REPOSITORY/           # Architecture and development standards
-│   ├── architecture_standards/     # Comprehensive architecture patterns
-│   │   ├── CLEAN_ARCHITECTURE_STANDARDS.md
-│   │   ├── HEXAGONAL_ARCHITECTURE_STANDARDS.md
-│   │   ├── MICROSERVICES_ARCHITECTURE_STANDARDS.md
-│   │   ├── EVENT_DRIVEN_ARCHITECTURE_STANDARDS.md
-│   │   ├── SERVERLESS_ARCHITECTURE_STANDARDS.md
-│   │   ├── MVC_ARCHITECTURE_STANDARDS.md
-│   │   ├── THREE_TIER_ARCHITECTURE_STANDARDS.md
-│   │   └── LAYERED_MONOLITH_ARCHITECTURE_STANDARDS.md
-│   ├── apex/                       # Apex Software Compliance Standards
-│   ├── nasa/                       # NASA-derived standards
-│   └── prompt-templates/           # Structured prompt templates
-├── rules/                          # Technical and scientific principles  
-│   ├── Rules-for-Formal-Logic-Set-Theory-and-Discrete-Mathematics.md
-│   ├── Rules-for-General-Systems-Thinking.md
-│   ├── Rules-for-Objective-Decision-Making-and-Truth-Seeking.md
-│   ├── Rules-for-Probabilistic-Modeling-Information-Theory-and-Machine-Learning.md
-│   ├── Rules-for-Rational-Inference-and-Bayesian-System-Design.md
-│   ├── Rules-for-Rigorous-Mathematical-Inquiry-and-Presentation.md
-│   ├── Rules-for-Rigorous-Technical-and-Logical-Discourse.md
-│   └── Rules-for-Technical-&-Scientific-Principles.md
-├── PERSONAS/                       # Specialized AI agent personas
-│   └── structured_file_formatting/ # Domain-specific personas
-├── general_guidelines/             # General development guidelines
-├── go/                            # Go-specific prompts and utilities
-├── python/                        # Python-specific prompts and utilities
-├── rust/                          # Rust-specific prompts and utilities
-├── typescript/                    # TypeScript-specific prompts and utilities
-└── plaintext/                     # Plain text prompt templates
+├── AGENTS_library/          # Reusable agent instruction files
+├── Methodologies/           # Higher-level prompting and architecture methods
+├── PERSONAS/                # Domain-specific personas in multiple formats
+├── STANDARDS_REPOSITORY/    # Architecture, engineering, prompt, and research standards
+├── general_guidelines/      # Cross-cutting reasoning and truth-seeking guidance
+├── go/                      # Go prompt harnesses and examples
+├── json/                    # Structured prompt/context data
+├── plaintext/               # Plaintext prompts and templates
+├── python/                  # Python prompt harnesses and examples
+├── rules/                   # Scientific, technical, mathematical, and domain rulesets
+├── rust/                    # Rust prompt harnesses and examples
+├── skills/                  # Reusable agent/LLM skill packages
+├── structured_text/         # Structured context-builder prompts
+├── submodules/              # Additional prompt-library references
+└── typescript/              # TypeScript prompt harnesses and examples
 ```
 
-## 🎯 Features
+## How I Use This Repository
 
-### 1. **Architectural Standards**
-- Comprehensive coverage of major architectural patterns
-- Consistent structure and formatting across all documents
-- Practical implementation guidelines with real-world examples
-- AI agent development rules and best practices
+This repository is primarily a source library.
 
-### 2. **Prompt Engineering**
-- Structured templates for autonomous AI execution
-- Hierarchical task organization (Phase → Task → Step)
-- Built-in quality assurance and verification mechanisms
-- Error handling and retry logic frameworks
+Typical use looks like:
 
-### 3. **Language-Specific Resources**
-- Dedicated directories for Go, Python, Rust, and TypeScript
-- Language-specific best practices and patterns
-- Code generation and analysis utilities
+1. Find a prompt, ruleset, persona, methodology, or standard relevant to the task.
+2. Copy or import the useful parts into the target agent or application.
+3. Combine it with project-specific context and constraints.
+4. Modify it based on observed model behavior.
+5. Preserve useful revisions or new variants here.
 
-### 4. **Technical Guidelines**
-- Rigorous mathematical and scientific principles
-- Formal logic and systems thinking approaches
-- Decision-making and truth-seeking methodologies
-- Probabilistic modeling and machine learning guidelines
+For agentic work, I generally treat prompts as part of the system architecture rather than as isolated strings. Instructions, context, tools, state, validation, handoff behavior, and implementation constraints all interact.
 
-### 5. **Specialized Personas**
-- Domain-specific AI agent personas
-- Expert-level knowledge in specialized fields
-- Structured formatting for consistent outputs
+That is why this repository contains much more than conventional prompt templates.
 
-## 🚀 Getting Started
+## Choosing What To Use
 
-1. **Choose an Architecture Pattern**: Review the architecture standards to select the most appropriate pattern for your project
-2. **Apply Development Standards**: Use the comprehensive guidelines for code quality, testing, and documentation
-3. **Leverage Prompt Templates**: Utilize structured prompts for AI-assisted development tasks
-4. **Follow Language Guidelines**: Apply language-specific best practices from the dedicated directories
-5. **Use Specialized Personas**: Engage domain-specific AI agents for expert-level assistance
+There is no single "best prompt" in this repository.
 
-## 📖 Documentation Standards
+Different materials solve different problems:
 
-All architecture documents follow a consistent structure:
-- **Overview** with core principles and conceptual approach
-- **Example Project Structure** with detailed directory layouts
-- **Implementation Guidelines** with practical strategies
-- **AI Agent Development Guidelines** with critical rules and checklists
-- **Comprehensive Testing Strategies** covering all testing types
-- **Performance and Security Considerations** with optimization techniques
-- **Integration and Communication Patterns** for system interoperability
+* Use `plaintext/` when you want something easy to inspect or paste directly.
+* Use `python/`, `typescript/`, `rust/`, or `go/` when the prompt should live inside application code.
+* Use `AGENTS_library/` or methodology-specific AGENTS files for persistent agent behavior.
+* Use `rules/` when a task needs strong reasoning or domain constraints.
+* Use `PERSONAS/` when role specialization is useful.
+* Use `STANDARDS_REPOSITORY/` when the work needs architecture, engineering, publication, or review standards.
+* Use `skills/` when the task requires a reusable multi-step procedure rather than a single prompt.
+* Use context-builder and session-handoff material for long-running work where preserving state matters.
 
-## 🤝 Contributing
+When multiple versions exist, inspect them rather than assuming the newest-looking filename is automatically the best fit.
 
-This repository maintains high standards for documentation quality and consistency. When contributing:
-- Follow the established document structure and formatting
-- Ensure comprehensive coverage of architectural concepts
-- Include practical examples and implementation guidance
-- Maintain consistency with existing AI agent guidelines
-- Test all code examples and verify technical accuracy
+## Cloning
 
-## 📄 License
+Some additional prompt libraries are referenced as Git submodules.
 
-This repository is available under the MIT License. See the [LICENSE](LICENSE) file for full details.
+```bash
+git clone --recurse-submodules https://github.com/justinlietz93/Perfect_Prompts.git
+```
+
+If you already cloned the repository without submodules:
+
+```bash
+git submodule update --init --recursive
+```
+
+## Related Repositories
+
+* [AI Content Suite](https://github.com/justinlietz93/AI-Content-Suite) - Browser-based AI context engineering platform.
+* [Cogito Research](https://github.com/justinlietz93/Cogito.git) - Deep research tooling and agent workflows.
+* [_Neuroca](https://github.com/Neuroca-Inc/_Neuroca) - Dynamic memory architecture for LLM systems.
+* [Modular Utilities](https://github.com/justinlietz93/Modular_Utilities) - Modular tools and CLIs for extracting, transforming, and loading file-based data.
+
+## Contributions
+
+Issues and pull requests are welcome when they add something useful, fix a concrete problem, improve technical accuracy, or contribute a materially better formulation.
+
+Because this repository is also a working archive, cleanup for its own sake is not necessarily an improvement. Changes should preserve useful history unless there is a clear reason to remove it.
+
+## License
+
+This repository is available under the MIT License. See [LICENSE](LICENSE) for details.
 
 ---
 
-*This repository represents a curated collection of professional software development resources, architectural patterns, and AI-assisted development frameworks designed to accelerate high-quality software delivery.*
+The repository started as a place to keep good prompts. It has gradually become a broader archive of practical methods for controlling, constraining, specializing, auditing, and transferring state between AI systems.
