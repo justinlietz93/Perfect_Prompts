@@ -1,0 +1,6 @@
+.perfect-prompts/
+Application/.venv/
+Application/.pytest_cache/
+Application/.ruff_cache/
+**/__pycache__/
+*.py[cod]

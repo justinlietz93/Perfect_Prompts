@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "perfect-prompts"
+version = "0.2.1"
+description = "Filesystem-first prompt and context engineering library with a Lamina-style desktop interface and Prompt Beacon search."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = []
+
+[project.optional-dependencies]
+gui = ["PySide6>=6.6"]
+pdf = ["pypdf>=4.0"]
+dev = ["pytest>=8.0", "ruff>=0.5", "Pillow>=10.0"]
+all = ["PySide6>=6.6", "pypdf>=4.0"]
+
+[project.gui-scripts]
+perfect-prompts = "perfect_prompts.main:main"
+
+[project.scripts]
+perfect-prompts-cli = "perfect_prompts.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+"perfect_prompts.assets" = ["*.png", "*.ico"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.ruff]
+target-version = "py310"
+line-length = 110
+src = ["src", "tests", "scripts"]

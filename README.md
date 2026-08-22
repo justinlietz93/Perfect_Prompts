@@ -1,289 +1,150 @@
-<img width="1774" height="887" alt="perfect-prompts-banner" src="https://github.com/user-attachments/assets/2ef86d9f-a64f-40e8-a9ad-fc4593ccb3b7" />
+![Perfect Prompts Banner](https://github.com/user-attachments/assets/2ef86d9f-a64f-40e8-a9ad-fc4593ccb3b7)
 
 # Perfect Prompts
 
-A working corpus of prompt engineering, context engineering, agent control, AI-assisted software development, research methodology, and reusable LLM tooling.
+A filesystem-first library for **prompt engineering, context engineering, agent control, reusable AI workflows, research methodology, and LLM tooling**, with an optional desktop application for fast search and library management.
 
-Despite the name, this repository has grown far beyond a collection of prompts. It contains prompt harnesses, agent instruction files, architecture and engineering standards, research protocols, reusable skills, context builders, personas, rulesets, structured templates, and multiple generations of experiments developed through active use.
+Perfect Prompts is intentionally useful in two completely independent ways:
 
-This is a working repository, not a polished prompt pack.
+1. **Open the repository normally** in your file manager, editor, terminal, or GitHub and browse/copy the artifacts directly.
+2. **Launch the Perfect Prompts desktop application** when you want indexed search, batch queries, previews, or GUI-based add/remove operations.
 
-## Repository Status
+The GUI does not own the library. The files do.
 
-This repository has grown organically over time, and its current structure reflects that history.
+## Repository organization
 
-I do intend to clean up, consolidate, and reorganize it eventually, but that is not a priority at the moment. Expect parallel implementations across languages and formats, historical generations, inconsistent naming, experimental material, and files at different levels of maturity. Many apparently duplicated artifacts are intentional: prompts are often embedded directly in language-specific source files so they can be reused without translation into another representation.
-
-That is intentional for now. I would rather preserve useful work and the evolution of ideas than spend time prematurely normalizing the entire repository.
-
-Do not assume every file is canonical or represents my current preferred approach. Some files are current tools, some are reusable references, and some are retained because they document earlier approaches or useful experiments.
-
-## What Is In This Repository?
-
-The repository currently includes several overlapping kinds of material.
-
-### Prompt and Agent Harnesses
-
-Reusable prompts for tasks such as:
-
-* agent and multi-agent design
-* project scaffolding
-* task, phase, and step generation
-* reasoning and analysis
-* critique and review
-* rewriting and style extraction
-* citation handling
-* mathematical formatting
-* Mermaid diagram generation
-* request decomposition
-* next-step generation
-* deep research
-* session recovery and handoff
-* context synthesis and persistence
-
-Many prompt families exist in multiple representations so they can be copied directly, imported into applications, or adapted to different agent runtimes.
-
-### Multi-Language Prompt Implementations
-
-Several prompt collections are implemented in parallel across:
-
-* Python
-* TypeScript
-* Rust
-* Go
-* plaintext
-* JSON
-* structured Markdown and related formats
-
-The language implementations are useful when prompts need to live directly inside application code rather than being maintained as detached text files.
-
-### Agent Instruction Files
-
-The repository contains instruction sets intended to govern how autonomous or semi-autonomous coding and reasoning agents operate.
-
-Examples include:
-
-* `AGENTS_library/No-Assumptions_AGENTS.md`
-* `Methodologies/Germinal_Theory/Emergence_Based_Design_AGENTS.md`
-* tool-specific agent/persona formats for systems such as GitHub Copilot and Roo Code
-
-These files focus less on one-shot prompting and more on persistent behavioral constraints, architecture discipline, evidence requirements, and reliable execution.
-
-### Methodologies
-
-The `Methodologies/` directory contains higher-level approaches for designing interactions with AI systems.
-
-#### Guided Autonomy Prompting
-
-`Methodologies/Guided_Autonomy_Prompting/`
-
-Guided Autonomy Prompting is built around providing the model with clear constraints, goals, invariants, and reasons while avoiding unnecessary implementation micromanagement. The intent is to preserve useful model autonomy without sacrificing correctness or control.
-
-The repository currently includes domain-agnostic and physics-oriented variants.
-
-#### Germinal Theory / Emergence-Based Design
-
-`Methodologies/Germinal_Theory/`
-
-This material explores architecture and agent guidance based on discovering structure from the actual problem rather than imposing a preferred design pattern in advance.
-
-The associated AGENTS file is designed to make an agent inspect evidence, constraints, existing structure, and failure modes before introducing architecture.
-
-### Architecture and Engineering Standards
-
-`STANDARDS_REPOSITORY/`
-
-This area contains software architecture, implementation, documentation, testing, research, and engineering standards.
-
-Architecture material currently includes:
-
-* Clean Architecture
-* Hexagonal Architecture
-* Microservices
-* Event-Driven Architecture
-* Lite Event-Driven Architecture
-* Serverless Architecture
-* MVC
-* Three-Tier Architecture
-* Layered Monolith
-* Dual-Plane Architecture
-* Emergence-Based Architecture
-* SGDA documentation architecture
-* SGHM architecture
-
-The standards repository also contains:
-
-* Apex software compliance standards
-* NASA-derived software standards and source documents
-* prompt templates
-* research and publication standards
-* figure and presentation standards
-* critique templates
-* arXiv-oriented paper templates
-* Lean-oriented review material
-
-### Research and Reasoning Rules
-
-`rules/`
-
-This is a broad collection of reusable instruction sets for technical and scientific reasoning.
-
-Topics include:
-
-* formal logic and discrete mathematics
-* rigorous mathematical inquiry
-* technical and logical discourse
-* objective decision making and truth seeking
-* systems thinking
-* Bayesian reasoning
-* probability and information theory
-* machine learning
-* classical mechanics
-* quantum field theory
-* solid-state physics
-* experimental physics and statistical analysis
-* Linux system management
-* software development
-* technical writing
-* cross-domain scientific reasoning
-
-These are typically intended to be inserted into a system prompt, agent context, research workflow, or review process when a task needs stronger domain-specific constraints.
-
-### Personas
-
-`PERSONAS/`
-
-The persona library contains specialized AI roles for software engineering, data analysis, mathematics, physics, formal logic, research, project orchestration, creative work, systems reasoning, and other domains.
-
-Several personas are represented in multiple formats, including:
-
-* Markdown
-* YAML
-* JSON
-* XML
-* Roo Code persona formatting
-* GitHub Copilot agent formatting
-
-The goal is portability across different model and agent environments rather than dependence on a single provider.
-
-### Skills
-
-`skills/`
-
-The repository also contains reusable skill packages and skill definitions for more complete workflows.
-
-Current examples include:
-
-* Guided Autonomy Prompting
-* rigorous research
-* comprehensive data analysis
-* session handoff and state preservation
-* PDF work
-* audit-and-instruct workflows
-* README generation
-* visual game asset creation
-
-Unlike a simple prompt, these may define procedures, supporting files, schemas, validation steps, or expected outputs.
-
-### Context Builders and Session State
-
-Several files focus on preserving and reconstructing context across long-running work.
-
-Examples include:
-
-* Universal Context Synthesis Engine material
-* session state persistence protocols
-* session handoff prompts
-* session handoff skills
-* active-state snapshots and context packaging
-
-These are intended for workflows where the important problem is not merely generating an answer, but preserving decisions, constraints, rejected paths, unresolved questions, and working state across agents or sessions.
-
-## Repository Map
+The repository is now organized by **what an artifact is**, with format/runtime differences below that level instead of dominating the root structure.
 
 ```text
 Perfect_Prompts/
-├── AGENTS_library/          # Reusable agent instruction files
-├── Methodologies/           # Higher-level prompting and architecture methods
-├── PERSONAS/                # Domain-specific personas in multiple formats
-├── STANDARDS_REPOSITORY/    # Architecture, engineering, prompt, and research standards
-├── general_guidelines/      # Cross-cutting reasoning and truth-seeking guidance
-├── go/                      # Go prompt harnesses and examples
-├── json/                    # Structured prompt/context data
-├── plaintext/               # Plaintext prompts and templates
-├── python/                  # Python prompt harnesses and examples
-├── rules/                   # Scientific, technical, mathematical, and domain rulesets
-├── rust/                    # Rust prompt harnesses and examples
-├── skills/                  # Reusable agent/LLM skill packages
-├── structured_text/         # Structured context-builder prompts
-├── submodules/              # Additional prompt-library references
-└── typescript/              # TypeScript prompt harnesses and examples
+├── Agent_Instructions/      persistent agent operating instructions
+├── Guidelines/              cross-cutting guidance
+├── Methodologies/           reusable interaction/design methods
+├── Personas/                role/persona definitions and target formats
+├── Prompts/
+│   ├── Templates/           standalone and specialized prompt templates
+│   ├── Portable/            plaintext, structured-text, and JSON forms
+│   └── Runtime_Bindings/    Python, TypeScript, Rust, and Go implementations
+├── Rules/                   scoped technical/scientific/domain rulesets
+├── Skills/                  reusable procedural skill packages
+├── Standards/
+│   ├── APEX/
+│   ├── Architecture/
+│   ├── NASA/
+│   └── Research/
+├── External_References/     separately maintained/reference prompt libraries
+├── Application/             optional Perfect Prompts desktop application
+├── REPOSITORY_MAP.md        old → new path map and organization rationale
+├── install.py               optional desktop-app installer
+├── LICENSE
+└── README.md
 ```
 
-## How I Use This Repository
+See [`REPOSITORY_MAP.md`](REPOSITORY_MAP.md) for the migration map from the older organically grown layout.
 
-This repository is primarily a source library.
+## Browse it directly
 
-Typical use looks like:
+No application is required.
 
-1. Find a prompt, ruleset, persona, methodology, or standard relevant to the task.
-2. Copy or import the useful parts into the target agent or application.
-3. Combine it with project-specific context and constraints.
-4. Modify it based on observed model behavior.
-5. Preserve useful revisions or new variants here.
+If you want an ordinary prompt you can start in `Prompts/`. If you need a persistent agent instruction, start in `Agent_Instructions/`. For procedural capability packages use `Skills/`; for scoped reasoning constraints use `Rules/`; for architecture/research/engineering authority use `Standards/`; and for role specialization use `Personas/`.
 
-For agentic work, I generally treat prompts as part of the system architecture rather than as isolated strings. Instructions, context, tools, state, validation, handoff behavior, and implementation constraints all interact.
+The representation split inside `Prompts/` is deliberate:
 
-That is why this repository contains much more than conventional prompt templates.
+- `Portable/` is for directly inspectable/copyable prompt and context forms.
+- `Runtime_Bindings/` keeps prompt implementations embedded in Python, TypeScript, Rust, and Go so application code can use them without translating them into a detached format.
+- `Templates/` contains standalone/specialized prompt-template families.
 
-## Choosing What To Use
+Parallel implementations are not automatically assumed to be identical. They remain inspectable as their own artifacts.
 
-There is no single "best prompt" in this repository.
+## Desktop application
 
-Different materials solve different problems:
+The desktop application is also called **Perfect Prompts** and uses the existing Perfect Prompts logo as its native application icon.
 
-* Use `plaintext/` when you want something easy to inspect or paste directly.
-* Use `python/`, `typescript/`, `rust/`, or `go/` when the prompt should live inside application code.
-* Use `AGENTS_library/` or methodology-specific AGENTS files for persistent agent behavior.
-* Use `rules/` when a task needs strong reasoning or domain constraints.
-* Use `PERSONAS/` when role specialization is useful.
-* Use `STANDARDS_REPOSITORY/` when the work needs architecture, engineering, publication, or review standards.
-* Use `skills/` when the task requires a reusable multi-step procedure rather than a single prompt.
-* Use context-builder and session-handoff material for long-running work where preserving state matters.
+Its intentionally small workflow is:
 
-When multiple versions exist, inspect them rather than assuming the newest-looking filename is automatically the best fit.
+```text
+Search → inspect/open/copy → use the artifact
+                   ↘ remove when needed
 
-## Cloning
+Batch → run several independent searches
 
-Some additional prompt libraries are referenced as Git submodules.
+Library → browse the real filesystem → add/remove/open artifacts
+```
+
+The primary feature is **Prompt Beacon**, a Perfect Prompts-specific version of the Beacon indexing/query system. It provides:
+
+- local SQLite FTS5 indexing;
+- broad prefix search for ordinary terms;
+- strict quoted-phrase search;
+- BM25 ranking;
+- path, type, area, runtime, and source filters;
+- single-query JSON export;
+- independent batch-query execution and exports;
+- extraction from ordinary text/source files, notebooks, Office/OpenDocument files, ZIP/skill packages, and PDFs when PDF support is installed;
+- incremental synchronization after files are added, changed, moved, or removed.
+
+The search database lives under `.perfect-prompts/` and is disposable. Delete it at any time; the application rebuilds it from the repository.
+
+### Filesystem and GUI stay in sync
+
+You can manage the library either way:
+
+- add, move, edit, or remove files using your OS file manager, Git, terminal, or editor;
+- add or remove artifacts from the **Library** tab in the GUI;
+- remove a search result directly from the **Search** workspace;
+- press **Sync** at any time, or let the application synchronize automatically while it is running.
+
+The GUI uses the same repository paths. There is no private application-only artifact store.
+
+## Install the desktop application
+
+From the repository root:
 
 ```bash
-git clone --recurse-submodules https://github.com/justinlietz93/Perfect_Prompts.git
+python install.py
 ```
 
-If you already cloned the repository without submodules:
+The installer creates an isolated environment under `Application/.venv/`, installs the GUI dependencies, builds the initial search index, and creates native launchers where supported:
+
+- Linux application menu entry;
+- Linux desktop launcher;
+- Windows Start Menu shortcut;
+- Windows desktop shortcut.
+
+The launcher uses the supplied Perfect Prompts icon.
+
+After installation you can also run the programmatic CLI:
 
 ```bash
-git submodule update --init --recursive
+perfect-prompts-cli sync
+perfect-prompts-cli query "session handoff" --source-scope project
+perfect-prompts-cli batch --queries 'architecture, "prompt template", context synthesis'
+perfect-prompts-cli add ./new-skill --to Skills
+perfect-prompts-cli remove Prompts/Portable/Plaintext/old-prompt.md
 ```
 
-## Related Repositories
+## What is in the library
 
-* [AI Content Suite](https://github.com/justinlietz93/AI-Content-Suite) - Browser-based AI context engineering platform.
-* [Cogito Research](https://github.com/justinlietz93/Cogito.git) - Deep research tooling and agent workflows.
-* [_Neuroca](https://github.com/Neuroca-Inc/_Neuroca) - Dynamic memory architecture for LLM systems.
-* [Modular Utilities](https://github.com/justinlietz93/Modular_Utilities) - Modular tools and CLIs for extracting, transforming, and loading file-based data.
+The corpus includes multiple generations of material developed through active use, including:
 
-## Contributions
+- agent and multi-agent prompts;
+- project scaffolding and task-generation prompts;
+- context builders and session-state systems;
+- rewriting, citation, mathematical-formatting, Mermaid, reasoning, critique, and analysis prompts;
+- persistent AGENTS-style instructions;
+- Guided Autonomy and emergence-oriented methodologies;
+- software, research, architecture, documentation, NASA-derived, and APEX standards;
+- scientific and technical rulesets;
+- personas in several target formats;
+- reusable skill packages;
+- Python, TypeScript, Rust, Go, plaintext, JSON, and structured representations;
+- scripts and examples that accompany those artifacts;
+- external/reference prompt and skill libraries.
 
-Issues and pull requests are welcome when they add something useful, fix a concrete problem, improve technical accuracy, or contribute a materially better formulation.
+This remains a working corpus. The reorganization improves navigation without pretending every historical artifact is current or every parallel implementation is equivalent.
 
-Because this repository is also a working archive, cleanup for its own sake is not necessarily an improvement. Changes should preserve useful history unless there is a clear reason to remove it.
+## Design rule
 
-## License
+> **Meaning first, representation second; filesystem first, application second.**
 
-This repository is available under the MIT License. See [LICENSE](LICENSE) for details.
-
----
-
-The repository started as a place to keep good prompts. It has gradually become a broader archive of practical methods for controlling, constraining, specializing, auditing, and transferring state between AI systems.
+A person should be able to understand and use the repository by browsing it normally. The desktop application exists to make a large library faster to search and manage, not to make the files dependent on the application.
