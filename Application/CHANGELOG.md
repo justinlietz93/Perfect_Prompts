@@ -1,5 +1,17 @@
 # Changelog
 
+## 2.0.1 — 2026-08-22
+
+### Fixed
+
+- Fixed Linux launcher/icon resolution by writing an absolute icon path into generated `.desktop` files instead of relying solely on icon-theme name lookup.
+- Installed the complete hicolor icon-size set when available, while retaining the 256 px fallback.
+- Added Linux desktop identity metadata (`StartupWMClass=perfect-prompts`) and Qt desktop-file identity so running windows associate with the Perfect Prompts launcher instead of a generic application/gear icon.
+- Refreshes desktop-entry and icon caches after launcher installation when the platform tools are available.
+- Desktop-folder resolution now uses `xdg-user-dir DESKTOP` when available instead of assuming `~/Desktop`.
+- Added `python install.py --repair-launcher` for a fast launcher/icon repair without dependency reinstall or index rebuild.
+
+
 ## 2.0.0 — 2026-08-22
 
 First Perfect Prompts release after the published `v1.0.0` repository release. This is a major release because it both adds the optional desktop application and reorganizes repository paths, which can break consumers that referenced the previous filesystem layout directly.

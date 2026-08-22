@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "claims.schema.json",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "publication_id",
+    "claims"
+  ],
+  "properties": {
+    "claims": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "claim_id",
+          "claim_class",
+          "exact_claim",
+          "paper_location",
+          "scope",
+          "decisive_metric",
+          "falsifier",
+          "burdens",
+          "status"
+        ]
+      }
+    }
+  }
+}

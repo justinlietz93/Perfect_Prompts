@@ -2,7 +2,7 @@
 
 # Perfect Prompts
 
-**Current release: v2.0.0**
+**Current release: v2.0.1**
 
 A filesystem-first library for **prompt engineering, context engineering, agent control, reusable AI workflows, research methodology, and LLM tooling**, with an optional desktop application for fast search and library management.
 

@@ -1,0 +1,29 @@
+{
+  "schema_version": "2.0.0",
+  "publication_id": "REPLACE_ME",
+  "coverage": [
+    {
+      "claim_id": "C001",
+      "formal": {
+        "status": "MISSING",
+        "reason": "",
+        "artifacts": []
+      },
+      "symbolic": {
+        "status": "MISSING",
+        "reason": "",
+        "artifacts": []
+      },
+      "numerical": {
+        "status": "MISSING",
+        "reason": "",
+        "artifacts": []
+      },
+      "figure": {
+        "status": "MISSING",
+        "reason": "",
+        "artifacts": []
+      }
+    }
+  ]
+}

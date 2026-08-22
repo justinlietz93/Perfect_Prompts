@@ -1,0 +1,103 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%   Formal Derivation Whitepaper Template
+%   A clean, standard format for mathematical and scientific derivations.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[11pt, letterpaper]{article}
+
+% PACKAGES
+\usepackage[margin=1in]{geometry} % Set page margins
+\usepackage{amsmath, amssymb}     % For advanced math typesetting
+\usepackage{graphicx}             % For including figures
+\usepackage{hyperref}             % For clickable links and references
+\usepackage{lipsum}               % For generating placeholder text
+
+% --- DOCUMENT INFORMATION ---
+\title{Formal Derivation of [Your Topic Here]}
+\author{Justin K. Lietz \\[0.2em] \textit{Founder of Neuroca, Inc.}}
+\date{\today} % Or \date{August 24, 2025} for a specific date
+
+% --- BEGIN DOCUMENT ---
+\begin{document}
+
+\maketitle
+
+% --- ABSTRACT ---
+\begin{abstract}
+    This document presents a formal, step-by-step derivation of [briefly state the result]. Starting from the foundational principles of [mention starting principles], we systematically develop the continuum equations of motion. The analysis clarifies the origin of key terms and ensures dimensional consistency throughout the derivation process. The final result provides a rigorous mathematical foundation for [mention the application or significance].
+    \vspace{1cm} % Adds some space after the abstract
+\end{abstract}
+
+
+% --- SECTIONS ---
+
+\section{Introduction}
+\lipsum[1] % Placeholder text. Replace with your introduction.
+The primary objective is to bridge the gap between the discrete formulation and its macroscopic continuum limit. We will begin by outlining the initial assumptions and definitions.
+
+\section{Preliminaries and Definitions}
+Before proceeding with the main derivation, we must establish the foundational concepts and notation.
+
+\subsection{The Discrete Dynamical Law}
+The system originates from a local update rule governing the state $W_i(t)$ of a discrete node $i$. The fundamental law is given by:
+\begin{equation}
+    \frac{\Delta W_i}{\Delta t} = (\alpha - \beta)W_i - \alpha W_i^2 + J \sum_{j\in \mathrm{nbr}(i)} (W_j - W_i)
+    \label{eq:discrete_law}
+\end{equation}
+Here, $\alpha$ and $\beta$ represent on-site parameters, and $J$ is the coupling constant.
+
+\subsection{Continuum Field Postulate}
+We postulate a continuous scalar field $\phi(\mathbf{x}, t)$ that represents the coarse-grained average of the discrete states $W_i(t)$. The mapping is formally expressed as:
+$$
+    W_i(t) \quad \to \quad \phi(\mathbf{x}_i, t)
+$$
+where $\mathbf{x}_i$ is the spatial position of node $i$.
+
+\section{Main Derivation}
+This section contains the core mathematical steps of the derivation.
+
+\subsection{Temporal Approximation}
+In the limit of an infinitesimally small time step, $\Delta t \to 0$, the left-hand side of Equation \ref{eq:discrete_law} becomes a partial time derivative:
+\begin{equation}
+    \lim_{\Delta t \to 0} \frac{\Delta W_i}{\Delta t} = \frac{\partial \phi}{\partial t}
+\end{equation}
+
+\subsection{Spatial Approximation (Discrete Laplacian)}
+The interaction term is a discrete representation of the Laplacian operator. For a regular lattice with spacing $a$, a Taylor series expansion reveals this relationship. The derivation proceeds as follows:
+\begin{align}
+    \sum_{j\in \mathrm{nbr}(i)} (W_j - W_i) &\approx \sum_{j\in \mathrm{nbr}(i)} \left( \phi(\mathbf{x}_i + \mathbf{\delta}_j) - \phi(\mathbf{x}_i) \right) \\
+    &\approx C_L a^2 \nabla^2 \phi
+\end{align}
+where $C_L$ is a lattice-dependent constant and we define the diffusion coefficient $D = J C_L a^2$.
+
+\subsection{Assembling the Final Equation}
+By substituting the temporal and spatial approximations into the discrete law, we arrive at the final continuum partial differential equation
+\begin{equation}
+    \partial_t \phi = D\, \nabla^{2}\phi + r\, \phi - u\, \phi^{2}
+    \label{eq:final_pde}
+\end{equation}
+where we have defined $r = \alpha - \beta$ and $u = \alpha$ for clarity.
+
+\section{Analysis and Discussion}
+\lipsum[2] % Placeholder text. Replace with your analysis of the result.
+Equation \ref{eq:final_pde} is a well-known Reaction-Diffusion equation. The stability of its fixed points can be analyzed by setting the time and spatial derivatives to zero.
+
+\section{Conclusion}
+\lipsum[3] % Placeholder text. Replace with your conclusion.
+This document has formally derived the continuum equation of motion from the model's discrete foundations, providing a rigorous link between the microscopic rules and the macroscopic behavior.
+
+\vspace{2cm} % Add vertical space before the signature
+
+% --- SIGNATURE BLOCK ---
+\noindent % Prevents indentation
+\begin{minipage}{0.5\linewidth}
+    \hrulefill \\ % The signature line
+    \vspace{0.5em}
+    \noindent \textbf{Justin K. Lietz} \\
+    \textit{Founder of Neuroca, Inc.}
+\end{minipage}
+
+
+\end{document}

@@ -1,0 +1,136 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://neuroca.example/schemas/skill-package-metadata.schema.json",
+  "title": "Skill Package Metadata",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "skill_id",
+    "title",
+    "version",
+    "status",
+    "purpose",
+    "entrypoint",
+    "use_when",
+    "do_not_use_when"
+  ],
+  "properties": {
+    "skill_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "DRAFT",
+        "CANDIDATE",
+        "CANONICAL",
+        "DEPRECATED",
+        "ARCHIVED"
+      ]
+    },
+    "purpose": {
+      "type": "string",
+      "minLength": 1
+    },
+    "capability_scope": {
+      "type": "string"
+    },
+    "entrypoint": {
+      "type": "string",
+      "minLength": 1
+    },
+    "use_when": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    },
+    "do_not_use_when": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    },
+    "activation_triggers": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "modes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "name",
+          "description"
+        ],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "selected_when": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "supporting_artifacts": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "outputs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "runtime_bindings": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "dependencies": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "validation_contract": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "source_lineage": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "supersedes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "schema_version": "2.0.0",
+  "package_type": "orchestra_research_package_template",
+  "template_version": "2.0.0",
+  "package_id": "p#-b#-v#",
+  "title": "REPLACE_ME",
+  "slug": "research-package-name",
+  "created_at": "REPLACE_ME",
+  "phase": null,
+  "branch": null,
+  "version": null,
+  "parent_package_id": null,
+  "parent_manifest_sha256": null,
+  "origin_role": "REPLACE_ME",
+  "target_role": "REPLACE_ME",
+  "branch_goal": "REPLACE_ME",
+  "terminal_condition": "REPLACE_ME",
+  "active_authority": [],
+  "authority_exclusions": [],
+  "status": "TEMPLATE",
+  "supersedes": [],
+  "superseded_by": null
+}

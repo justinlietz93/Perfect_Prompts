@@ -16,6 +16,7 @@ def main() -> int:
     parser.add_argument("--no-menu", action="store_true")
     parser.add_argument("--skip-index", action="store_true")
     parser.add_argument("--without-pdf", action="store_true")
+    parser.add_argument("--repair-launcher", action="store_true", help="Rewrite native launcher/icon integration without reinstalling dependencies or rebuilding the index")
     args = parser.parse_args()
 
     application_dir = Path(__file__).resolve().parents[1]
@@ -30,12 +31,16 @@ def main() -> int:
     else:
         python = env_dir / "bin" / "python"
         cli = env_dir / "bin" / "perfect-prompts-cli"
-    extras = "gui" if args.without_pdf else "gui,pdf"
-    print("Installing Perfect Prompts and GUI dependencies…")
-    subprocess.run([str(python), "-m", "pip", "install", "-e", f"{application_dir}[{extras}]"], check=True)
-    if not args.skip_index:
-        print("Building initial Prompt Beacon index…")
-        subprocess.run([str(cli), "index", "--root", str(repository_root)], check=True)
+    if args.repair_launcher:
+        if not cli.is_file():
+            raise SystemExit("Perfect Prompts is not installed in Application/.venv yet. Run: python install.py")
+    else:
+        extras = "gui" if args.without_pdf else "gui,pdf"
+        print("Installing Perfect Prompts and GUI dependencies…")
+        subprocess.run([str(python), "-m", "pip", "install", "-e", f"{application_dir}[{extras}]"], check=True)
+        if not args.skip_index:
+            print("Building initial Prompt Beacon index…")
+            subprocess.run([str(cli), "index", "--root", str(repository_root)], check=True)
     launcher = [str(cli), "install-launcher", "--root", str(repository_root)]
     if args.no_desktop:
         launcher.append("--no-desktop")
@@ -43,7 +48,7 @@ def main() -> int:
         launcher.append("--no-menu")
     print("Installing native launcher(s)…")
     subprocess.run(launcher, check=True)
-    print("Perfect Prompts is installed.")
+    print("Perfect Prompts launcher repaired." if args.repair_launcher else "Perfect Prompts is installed.")
     return 0
 
 

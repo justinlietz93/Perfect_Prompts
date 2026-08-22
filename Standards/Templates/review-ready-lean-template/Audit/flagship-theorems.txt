@@ -1,0 +1,3 @@
+# One fully-qualified theorem name per line.
+ReviewReadyTemplate.isZero_zero
+ReviewReadyTemplate.add_zero_right

@@ -39,8 +39,18 @@ def main(argv: list[str] | None = None) -> int:
             pass
 
     app = QApplication([sys.argv[0], *qt_args])
-    app.setApplicationName("Perfect Prompts")
+    # Keep the human-facing display name while giving Linux desktop shells a
+    # stable machine identity that matches perfect-prompts.desktop. This is
+    # what allows taskbars/panels to associate the running Qt window with the
+    # installed launcher instead of showing a generic application icon.
+    app.setApplicationName("perfect-prompts")
+    app.setApplicationDisplayName("Perfect Prompts")
     app.setOrganizationName("Neuroca")
+    if os.name != "nt":
+        try:
+            app.setDesktopFileName("perfect-prompts")
+        except (AttributeError, TypeError):
+            pass
     app.setWindowIcon(QIcon(str(icon_png_path())))
     settings = UserSettingsStore()
     root = args.root.expanduser().resolve() if args.root else settings.load_last_root() or discover_repository_root()

@@ -1,0 +1,36 @@
+How to Improve the Quality of Your Scientific Figures
+Perspective
+Figures are an important part of your research. They visually convey your findings to support how you verbally describe your research.
+
+Figures are also a key part of the first impression you make on your readers. Many readers look at your figures before they read your manuscript. Some online databases show thumbnails of your figures alongside the abstract. Posters are filled with figures that entice people to read them. And in presentations, your figures are the gateway to your audience understanding your message.
+
+An important thing to consider is that some readers feel that the quality of your figures reflects the quality of your research. If you use unclear or unappealing graphics, you might tarnish your reader’s opinion of your work, even if your science is solid. 
+
+Want to make a great first impression? Here are eight tips to create quality figures that effectively showcase your research.
+
+1. Send a clear message
+Each figure should convey a clear message. A simple way to think about this is to ensure that each figure answers a specific question, such as how a compound affects expression of a protein or how a drug affects heart rate.
+
+2. Choose the best plot type
+Charts and graphs help researchers and reviewers analyze data, identify trends, and make educated decisions. In the sciences, researchers commonly show data in bar graphs, line graphs, and scatter plots. But there are many ways to plot data. You need to choose a plot type that conveys your message in the simplest and most accurate way possible.
+
+3. Be selective
+As a researcher, you likely collect a lot of data. It helps you to answer more questions. However, you do not need to include all of your data in your figures. You want to use as little data as needed to accurately represent your findings. For example, if you analyzed a certain parameter every day for a month, you may only need to show weekly changes in your figure. 
+
+4. Use color effectively
+Many programs have default settings that assign colors, shading, and patterns that do not look good or clutter your figures. In graphs, patterns should be avoided altogether. They tend to obscure data. Instead, use shades of gray. If you have a lot of categories, use colors that are easy on the eyes and look good when printed. 
+
+5. Cut out the clutter
+There are many creative ways to display data. But you want to use the simplest way possible. Avoid using gridlines in the chart area, patterns in the graph bars, and extra tick marks that don’t have labels. When possible, stick with two-dimensional plots, solid fills, and lots of white space. Use just enough words that your reader will easily understand your figure.
+
+Here is an example of data shown in a cluttered graph (left) and a simplified graph (right):
+
+
+6. Be consistent
+Along with cutting out the clutter, the style of your figures should be consistent throughout your project. You want your figures to complement one another. Make sure that all of your figures use the same font style and size. And use the same color scheme and line weight for your graphs.
+
+7. Use simplified figure legends
+Avoid crowding your figure legends with too much information. Use clear, succinct labels for your graphs. Include color when it adds clarity. If space allows, include labels and legends within the graph area. 
+
+8. Create quality illustrative diagrams
+Schematics are a great way to visually display mechanisms, features, or systems. They can help readers more easily understand how something looks or works. While you might get away with creating these diagrams with simple presentation software, you can find some great tools to create more professional—and compelling—figures. You can also enlist the help of a scientific illustrator or graphics designer.

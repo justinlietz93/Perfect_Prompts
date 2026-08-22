@@ -1,0 +1,73 @@
+% LaTeX preamble with required packages for scientific papers with mathematical content
+% This preamble is designed to be compatible with standard LaTeX distributions
+
+% Basic packages
+\usepackage[utf8]{inputenc}     % Input encoding
+\usepackage[T1]{fontenc}        % Font encoding
+\usepackage{lmodern}            % Latin Modern fonts
+\usepackage{amsmath,amssymb}    % AMS math and symbols
+\usepackage{mathtools}          % Enhanced math tools
+\usepackage{graphicx}           % Graphics inclusion
+\usepackage{xcolor}             % Color management
+
+% Scientific packages
+\usepackage{siunitx}            % SI units
+\usepackage{booktabs}           % Professional tables
+\usepackage{array}              % Enhanced tables
+\usepackage{tabularx}           % Flexible tables
+\usepackage{float}              % Better figure/table positioning
+
+% Code and algorithms
+\usepackage{listings}           % Code listings
+\usepackage{algorithm}          % Algorithm environments
+\usepackage{algorithmic}        % Algorithm content
+
+% References and citations - Using natbib only (removed biblatex to avoid conflicts)
+\usepackage[square,numbers]{natbib}
+
+% Layout and formatting
+\usepackage{geometry}           % Page layout
+\usepackage{setspace}           % Line spacing
+\usepackage{enumitem}           % List customization
+\usepackage{caption}            % Figure and table captions
+
+% Configure page geometry
+\geometry{a4paper, margin=1in}
+
+% Hyperlinks - Load after other packages
+\usepackage{hyperref}           % Hyperlinks and PDF metadata
+\hypersetup{
+    colorlinks=true,            % Colored links
+    linkcolor=blue,             % Color of internal links
+    citecolor=blue,             % Color of citation links
+    urlcolor=blue,              % Color of URL links
+    pdfauthor={Cogito Research},  % Default PDF metadata
+    pdftitle={Cogito Research Scientific Methodology Analysis},
+    pdfsubject={Scientific Critique},
+    pdfkeywords={methodology, analysis, critique}
+}
+
+% Configure listings for code
+\lstset{
+    basicstyle=\small\ttfamily,
+    numbers=left,
+    numberstyle=\tiny,
+    frame=single,
+    breaklines=true,
+    showstringspaces=false
+}
+
+% Custom environments and commands
+\newenvironment{scientificabstract}
+    {\begin{abstract}\itshape}
+    {\end{abstract}}
+
+\newcommand{\keywords}[1]{\textbf{Keywords:} #1}
+\newcommand{\methodologyref}[1]{\textit{Methodology:} #1}
+\newcommand{\resultssummary}[1]{\textbf{Results Summary:} #1}
+
+% Additional math commands for scientific notation
+\newcommand{\vect}[1]{\boldsymbol{#1}}
+\newcommand{\deriv}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\norm}[1]{\left\|#1\right\|}

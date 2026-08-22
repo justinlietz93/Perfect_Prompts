@@ -1,6 +1,6 @@
 # Perfect Prompts Desktop Application — Product Definition
 
-**Version:** 2.0.0  
+**Version:** 2.0.1  
 **Product name:** Perfect Prompts
 
 Perfect Prompts is a filesystem-first prompt/context engineering library with an optional desktop interface over the same repository.

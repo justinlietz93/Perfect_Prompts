@@ -1,0 +1,23 @@
+{
+  "template_status": "TEMPLATE_ONLY",
+  "title": "REPLACE_ME",
+  "resource_type": "publication-preprint",
+  "publication_date": "REPLACE_ME",
+  "creators": [
+    {
+      "family_name": "Lietz",
+      "given_name": "Justin K.",
+      "orcid": "0009-0008-9028-1366",
+      "affiliation": "Neuroca, Inc."
+    }
+  ],
+  "description": "REPLACE_ME",
+  "version": "REPLACE_ME",
+  "license": "REPLACE_ME",
+  "keywords": [
+    "Phase Calculus"
+  ],
+  "related_identifiers": [],
+  "repository_url": null,
+  "notes": "Verify fields against the current Zenodo deposit form before publication."
+}

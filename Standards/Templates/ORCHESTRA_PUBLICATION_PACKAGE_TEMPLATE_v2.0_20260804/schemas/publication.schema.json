@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "publication.schema.json",
+  "title": "Orchestra Publication Package",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "package_type",
+    "publication_id",
+    "title",
+    "slug",
+    "version",
+    "release_level",
+    "scientific_status",
+    "closure_status",
+    "authors",
+    "license",
+    "source_research_packages",
+    "primary_claim_ids"
+  ],
+  "properties": {
+    "package_type": {
+      "enum": [
+        "orchestra_publication_package_template",
+        "orchestra_publication_package"
+      ]
+    },
+    "release_level": {
+      "enum": [
+        "template",
+        "draft",
+        "preprint",
+        "final"
+      ]
+    },
+    "closure_status": {
+      "enum": [
+        "OPEN",
+        "CLOSED"
+      ]
+    },
+    "source_research_packages": {
+      "type": "array"
+    },
+    "primary_claim_ids": {
+      "type": "array"
+    }
+  }
+}

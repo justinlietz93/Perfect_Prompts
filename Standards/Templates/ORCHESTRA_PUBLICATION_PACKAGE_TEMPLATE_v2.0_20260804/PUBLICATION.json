@@ -1,0 +1,42 @@
+{
+  "schema_version": "2.0.0",
+  "package_type": "orchestra_publication_package_template",
+  "template_version": "2.0.0",
+  "publication_id": "REPLACE_ME",
+  "title": "Publication Package Template",
+  "short_title": "Publication Template",
+  "slug": "publication-package-template",
+  "version": "0.0.0-template",
+  "created_at": "2026-08-04T22:56:00-05:00",
+  "publication_date": "2026-08-04",
+  "release_level": "template",
+  "scientific_status": "UNVALIDATED_TEMPLATE",
+  "closure_status": "OPEN",
+  "authors": [
+    {
+      "family_name": "Lietz",
+      "given_names": "Justin K.",
+      "orcid": "0009-0008-9028-1366",
+      "affiliation": "Neuroca, Inc.",
+      "email": "justin@neuroca.ai",
+      "website": "https://www.neuroca.ai"
+    }
+  ],
+  "license": "REPLACE_ME",
+  "language": "en",
+  "keywords": [
+    "Phase Calculus"
+  ],
+  "external_identifiers": {
+    "doi": null,
+    "zenodo_record": null,
+    "arxiv_id": null
+  },
+  "repository_url": null,
+  "source_research_packages": [],
+  "primary_claim_ids": [],
+  "paper_pdf": "paper.pdf",
+  "arxiv_source_archive": "arxiv-source.zip",
+  "supersedes_publication_id": null,
+  "superseded_by_publication_id": null
+}

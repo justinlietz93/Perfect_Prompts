@@ -1,0 +1,185 @@
+{
+  "manifest_version": "1.0",
+  "files": [
+    {
+      "path": "00_MASTER_ROADMAP/DEPENDENCY_GRAPH.md",
+      "bytes": 900,
+      "sha256": "e5f2fedebd881b6aa46d6944b9709a47e2eaa0b9ada6584cc1160285bb937d9a"
+    },
+    {
+      "path": "00_MASTER_ROADMAP/DIAGNOSTIC_LAYER.md",
+      "bytes": 1300,
+      "sha256": "ab29ee42d79bac6fecaa6fa66e2a0278c5f5ac25b19138962dc77f5b0a449a49"
+    },
+    {
+      "path": "00_MASTER_ROADMAP/MASTER_PROGRESS.md",
+      "bytes": 905,
+      "sha256": "767bcd39009ce0bfa8f7e690c27c499de1afe99206b234b3b0813279a69ec295"
+    },
+    {
+      "path": "00_MASTER_ROADMAP/README.md",
+      "bytes": 1061,
+      "sha256": "f59d240e5f34907cb859ec35cee1d51318712385204d7d6995509853f0906e66"
+    },
+    {
+      "path": "00_MASTER_ROADMAP/RESOURCE_ACQUISITION_QUEUE.md",
+      "bytes": 594,
+      "sha256": "be6fa142d6d3a3bf1d1af2f9ca335ed166a2e444aed0cede817f7e3021a6f618"
+    },
+    {
+      "path": "00_MASTER_ROADMAP/RESOURCE_INVENTORY.md",
+      "bytes": 531,
+      "sha256": "d79fa9e8a475dadc34a1691e6731733e8b197b1afc58090ef0b8abd829bf06c9"
+    },
+    {
+      "path": "00_MASTER_ROADMAP/RESOURCE_STATUS_KEY.md",
+      "bytes": 875,
+      "sha256": "7f7508e5565787bbfd9cf8ac34c5b97db1d7da8a71bff2e79a475fa302551120"
+    },
+    {
+      "path": "00_MASTER_ROADMAP/SOFTWARE_BY_GROUP.md",
+      "bytes": 403,
+      "sha256": "6e77b7790431a3e62652b000b460cb77998bcc9919631d6768ce1742b97c9e84"
+    },
+    {
+      "path": "00_MASTER_ROADMAP/STRICT_ORDER_AND_START_GATES.md",
+      "bytes": 1405,
+      "sha256": "d2cfafb4d4e1b00a24ecdb8b8bdf7ea8246bcf10c21839a9bd43e5f88922abac"
+    },
+    {
+      "path": "90_RESEARCH_METHODS/CLAIM_AUDIT_POINTER.md",
+      "bytes": 419,
+      "sha256": "9366839460be64b320e12e9c172889fb53ce3d56e4f24862446baba55013878a"
+    },
+    {
+      "path": "90_RESEARCH_METHODS/CONCEPT_TRANSFER_RECORD.md",
+      "bytes": 696,
+      "sha256": "3028698b35040c6e176af7476b0b2969989cc4b8e43270e3bac9e0ccb979204b"
+    },
+    {
+      "path": "90_RESEARCH_METHODS/GAP_REPAIR_RECORD.md",
+      "bytes": 490,
+      "sha256": "3222b49af50b20f44ab15b21b36fb748539bb3cdf3ed06bca7ed0af6e533ad34"
+    },
+    {
+      "path": "90_RESEARCH_METHODS/README.md",
+      "bytes": 882,
+      "sha256": "9c6b7404509470cef7ce00fe88eefbaf93a851753292d44ba72669d661c05f1e"
+    },
+    {
+      "path": "99_CURRENT_WORK_ALIGNMENT/ACTIVE_QUESTIONS.md",
+      "bytes": 255,
+      "sha256": "1135f6e947932bbaa8a6c22623db0d54fe9e3676970c7fd5b0915592c6a25bb7"
+    },
+    {
+      "path": "99_CURRENT_WORK_ALIGNMENT/README.md",
+      "bytes": 535,
+      "sha256": "4915240877a444167fd69db243a860fbbfe0a3092aea0c3233f4016c050fcc04"
+    },
+    {
+      "path": "99_CURRENT_WORK_ALIGNMENT/TRANSFER_MAP.md",
+      "bytes": 699,
+      "sha256": "2daab3d145953a28eecb8005c6597313508ed21f476d1b495a2534e723613f34"
+    },
+    {
+      "path": "AUTHORITY.md",
+      "bytes": 5137,
+      "sha256": "f5e8f0769eb7b1a217f3a3a106d775336be5be51f35f26462fd995c0f8203873"
+    },
+    {
+      "path": "BUILD_CHECKLIST.md",
+      "bytes": 1714,
+      "sha256": "b83b49cc04740a470c5f7958a113040efbe81c6b52a0214dcb4c673fcb33e626"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "bytes": 1170,
+      "sha256": "12c6bef2798eb44b83afa930477d356b3e2d9003c8b69911f37648059e506f5c"
+    },
+    {
+      "path": "CURRICULUM_SPEC.json",
+      "bytes": 729,
+      "sha256": "c5b30d8d193e190446db5e62c8c68deb95adc472bbf77221d7b8f93ab36af164"
+    },
+    {
+      "path": "INSTANTIATION_GUIDE.md",
+      "bytes": 3070,
+      "sha256": "ebe57b67d66c471a068bd1fe01117f50ff9e8271fc1282b641ec520959140b30"
+    },
+    {
+      "path": "PACKAGE.json",
+      "bytes": 431,
+      "sha256": "282c6b311e15a307225a1de709652265b278d8e09ac1bf3cb488cc598c7114d8"
+    },
+    {
+      "path": "README.md",
+      "bytes": 3045,
+      "sha256": "0db5be19a0057afb7d5adb509be677623159dbac9ba05e43190d6f6a988df8c6"
+    },
+    {
+      "path": "SOURCE_MAP.md",
+      "bytes": 2265,
+      "sha256": "18dfa0f18865d1557db60bf973d1329b954153c025900f8f69a6ee4da1119672"
+    },
+    {
+      "path": "TEMPLATE_STATUS.md",
+      "bytes": 798,
+      "sha256": "2882e2849d81884243a9c7977bee8eb5b58e6dcc8a62dc8639e931544823e5ac"
+    },
+    {
+      "path": "_GROUP_TEMPLATE/PROGRESS.md",
+      "bytes": 1379,
+      "sha256": "e5f22a97a9d7b2583d9264ac558d9d9043dc37b6ee414702224b68b2de05ca58"
+    },
+    {
+      "path": "_GROUP_TEMPLATE/README.md",
+      "bytes": 1967,
+      "sha256": "3244c8c3d98ad0013333e9dd26bf91c91c2ba10a3c9c66007e5f3ff0c98e1089"
+    },
+    {
+      "path": "_GROUP_TEMPLATE/SOFTWARE.md",
+      "bytes": 703,
+      "sha256": "972443e24525956f712db60334481e52c01fe04f20ae8a938131cadb2785d480"
+    },
+    {
+      "path": "_GROUP_TEMPLATE/resources/README.md",
+      "bytes": 562,
+      "sha256": "f4df2f44a976514216f06ca0d528989a94af4f53a98640d07dfc806ebe5a98d6"
+    },
+    {
+      "path": "examples/CURRICULUM_SPEC.example.json",
+      "bytes": 2441,
+      "sha256": "263a2186e63724abf1bd1eabccbe70afb99ccd5f9fe89ed0909ee5bd00031d3b"
+    },
+    {
+      "path": "schemas/curriculum-spec.schema.json",
+      "bytes": 2819,
+      "sha256": "0e39038c664565500f9e0739cb4c7cd503386d6850f4735ab4bc0ae8b2624352"
+    },
+    {
+      "path": "tools/README.md",
+      "bytes": 807,
+      "sha256": "afacc8e3049f5b65db960c9a2157524b278266fc646570e060d53a431748e419"
+    },
+    {
+      "path": "tools/build_manifest.py",
+      "bytes": 1007,
+      "sha256": "1632cadb70fbd104cce439829a77fb03ad99d81ab18c5ceef77180c513c20beb"
+    },
+    {
+      "path": "tools/init_curriculum.py",
+      "bytes": 6492,
+      "sha256": "e75f20ccfb07ffea8ae8325998000320e83693f4c58ca40d7cf9712397084028"
+    },
+    {
+      "path": "tools/validate_curriculum.py",
+      "bytes": 3439,
+      "sha256": "36cb556ee80b1a7b8f3e8d7183ea2701c4fe5e880f1cffbc5975a49b38c01f1f"
+    },
+    {
+      "path": "work/README.md",
+      "bytes": 463,
+      "sha256": "9d517d6248d6f861c65ad4f49840236b42f21b92ed4afb2f444f75669b3a3b5e"
+    }
+  ]
+}

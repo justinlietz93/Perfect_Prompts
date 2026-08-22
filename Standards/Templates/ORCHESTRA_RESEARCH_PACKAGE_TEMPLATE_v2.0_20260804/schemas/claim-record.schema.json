@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Orchestra claim record",
+  "type": "object",
+  "required": ["claim_id", "evidence_class", "claim", "burden", "falsifier", "status", "artifacts"],
+  "properties": {
+    "claim_id": {"type": "string", "pattern": "^C[0-9]{3,}$"},
+    "evidence_class": {"enum": ["RULE", "CURRENT-CANON RESULT", "RECOVERED", "PROVISIONAL", "CONDITIONAL DOWNSTREAM"]},
+    "status": {"enum": ["UNTESTED", "IN_PROGRESS", "PASS", "FAIL", "BLOCKED", "SUPERSEDED", "NOT_APPLICABLE"]},
+    "artifacts": {"type": "array"}
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+message: "TEMPLATE ONLY - initialize before citation"
+title: "Publication Package Template"
+version: "0.0.0-template"
+date-released: 2026-08-04
+authors:
+  - family-names: "Lietz"
+    given-names: "Justin K."
+    orcid: "https://orcid.org/0009-0008-9028-1366"
+repository-code: "REPLACE_ME"
+license: "REPLACE_ME"

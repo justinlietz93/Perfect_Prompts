@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "lineage.schema.json",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "publication_id",
+    "source_packages",
+    "claim_migrations"
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "skill_id": "{{SKILL_ID}}",
+  "title": "{{SKILL_TITLE}}",
+  "version": "0.1.0",
+  "status": "DRAFT",
+  "purpose": "{{PURPOSE}}",
+  "capability_scope": "{{CAPABILITY_SCOPE}}",
+  "entrypoint": "SKILL.md",
+  "use_when": [
+    "{{USE_WHEN}}"
+  ],
+  "do_not_use_when": [
+    "{{DO_NOT_USE_WHEN}}"
+  ],
+  "activation_triggers": [],
+  "modes": [],
+  "supporting_artifacts": [],
+  "outputs": [],
+  "runtime_bindings": [],
+  "dependencies": [],
+  "validation_contract": [],
+  "source_lineage": [],
+  "supersedes": []
+}

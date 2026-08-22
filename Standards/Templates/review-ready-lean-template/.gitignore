@@ -1,0 +1,10 @@
+.lake/
+build/
+.DS_Store
+docbuild/.lake/
+docbuild/.cache/
+Audit/AxiomAudit.generated.lean
+Audit/axioms-report.txt
+__pycache__/
+*.pyc
+.ipynb_checkpoints/

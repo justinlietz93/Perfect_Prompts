@@ -1,0 +1,26 @@
+{
+  "schema_version": "2.0.0",
+  "publication_id": "REPLACE_ME",
+  "claims": [
+    {
+      "claim_id": "C001",
+      "claim_class": "PRIMARY",
+      "evidence_class": "PROVISIONAL",
+      "exact_claim": "REPLACE_ME",
+      "paper_location": "REPLACE_ME",
+      "scope": "REPLACE_ME",
+      "decisive_metric": "REPLACE_ME",
+      "falsifier": "REPLACE_ME",
+      "assumption_ids": [],
+      "burdens": {
+        "formal": "REQUIRED",
+        "symbolic": "REQUIRED",
+        "numerical": "REQUIRED",
+        "figure": "REQUIRED"
+      },
+      "status": "UNTESTED",
+      "supporting_artifacts": [],
+      "contradicting_artifacts": []
+    }
+  ]
+}

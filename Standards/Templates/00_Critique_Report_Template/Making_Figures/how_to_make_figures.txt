@@ -1,0 +1,60 @@
+How to Make Figures for Scientific Papers – A Step-by-Step Guide to Make Compelling Scientific Figures
+A lot of authors underestimate the importance of figures in scientific papers. Here’s how to make scientific figures, including how to write compelling figure legends in scientific papers.
+
+Figures are the central part of almost every scientific paper because they provide a visual representation of the key findings of your paper. Scientific figures are also often the first thing a reader will notice. This is because our brains can register images faster than text. Figures in scientific papers should not only complement the story of your scientific paper but be a part of it. In this blog post, you’ll get an exclusive peak into the Journal Publication Formula, the writing system we teach inside the Researchers’ Writing Academy.
+
+HOW TO MAKE SCIENTIFIC FIGURES IN 10 STEPS:
+
+1.  Define the message of each scientific figure
+When you decide which and how many figures you want to show in your scientific paper, decide on one message that you want to communicate with each scientific figure. It should ideally represent one of your conclusions or parts of it. When you follow through the next steps, use this message as a decision filter.
+
+
+2. PICK THE MOST SUITABLE PLOT TYPE WHEN YOU MAKE FIGURES FOR SCIENTIFIC PAPERS
+Choose a plot type that conveys your message (see step #1) in the simplest and most accurate manner. This could be a bar chart, a scatter or line plot, a heat map or a histogram. If you are unsure whether you have chosen the right one, show your scientific figure to a colleague and check whether their interpretation of your data matches your intended message.    
+
+
+3. BE SELECTIVE WHEN CHOOSING DATA FOR FIGURES IN SCIENTIFIC PAPERS
+When you select the data that you want to present in your scientific figure, be minimalist. Put as little data in your plots and have as few scientific figures as needed to accurately represent your findings. You recorded several sets of reproducible data? That’s great to mention in your main text or something to show in the Supplemental Information but there is no need to put all sets of data in the main figures of your scientific paper. Including error bars can sometimes be a way to reduce the number of data sets (and is always encouraged anyway). If you still need to show a large number of data sets, consider splitting them up into two half-size plots. 
+
+
+4. DETERMINE THE APPROPRIATE AXIS INTERCEPT FOR YOUR SCIENTIFIC FIGURE
+Play around with the axis scales to find the section that captures your message most accurately. For example, if you need to display an absolute magnitude, showing the whole scale might be most suitable. If you want to show the difference between various data points or series, a zoom into the section where this difference becomes visible would be the way to go. When you adjust the axis ranges, always make sure to not distort the data to mislead the reader. To not waste any space available in the figures in scientific papers, let your data fill the whole plot.
+
+
+5. DECLUTTER YOUR SCIENTIFIC FIGURE
+The simpler your plot, the easier and quicker your reader will grasp it. In some data visualisation programs such as Excel, the default options are full of clutter. So, remove everything you can from your scientific figure while still telling the same message. That holds true for 3D effects, background grids, background shading, excessive tick marks, frames around legends etc. If you only have a few data sets to show, it might be appropriate to skip the key and put labels right next to the graphs shown in your scientific figure. Another thing to bear in mind is to choose a 2D over a 3D plot whenever possible – perhaps a second y-axis would do the trick?
+
+This guide on figures in scientific papers is an exclusive excerpt of the Journal Publication Formula, our academic writing online course. If you feel like you lack the self-confidence to write well-articulated and clear articles that market your work in the best way possible, then I highly recommend signing up for this free introduction lesson into the Journal Publication Formula. It’s free and all you have to do is sign up. ✨👇🏽
+
+Promo graphic for our free scientific writing course
+>> WATCH NOW <<
+
+6. CHOOSE INFORMATIVE TITLES FOR THE AXES AND KEYS OF YOUR SCIENTIFIC FIGURE
+Try to find titles and descriptions for your scientific figure axes and keys that one can understand quickly, and that match the rest of the manuscript. If you use many different acronyms in your manuscript, however, it might be better to spell them out in the axis titles. Someone looking at your scientific figure might not have read the full paper. You’ll quickly lose them if they have to skim through several pages to find out what an (uncommon) acronym stands for. Is it needless to say that units always have to be included? In the legend/key of figures in scientific papers, I suggest leaving out everything that isn’t absolutely necessary. For example, instead of repeating “current voltage curve 1st run”, “current voltage curve 2nd run” and “current voltage curve 3rd run” in your scientific figure legend, you can simply label the data series as “1st run”, “2nd run” and “3rd run”.
+
+
+7. USE A CONSISTENT DESIGN WHEN YOU MAKE FIGURES FOR SCIENTIFIC PAPERS
+A clear and consistent design in the figures in your scientific paper will make it easy for your reader to gather the presented information. For this, I suggest to use the same colour and symbols for each variable throughout all your scientific figures. Sample 1 is displayed as red triangles in Figure 1? Make sure it is in Figure 5 too. Do also use consistent fonts, font, marker and line sizes etc. Try to match the font size used in your scientific figures to that of the main text in the final article format. For example, Nature recommends a font size of 8 pt and Science of 9 pt in the final scientific figure. If you show different panels in your scientific figure, use a design trick: Imagine an invisible grid in the background (or make it visible in the program you use) so that all panels are aligned.
+
+
+8. DECIDE ON A SUITABLE COLOUR PALETTE FOR YOUR SCIENTIFIC FIGURE
+There are better and worse colours you can use in figures in scientific papers. Firstly, colours that are hard to see on the screen or in print, such as yellow or beige, should be avoided. In order for colour blind people to be able to comprehend your scientific figure, don’t use red and green together. If you need many different colours, for example for a heat map, experts don’t recommend the rainbow colour scale. More intuitive are the different colour schemes provided by the website Color Brewer that distinguish between sequential, diverging and qualitative data. Another point to keep in mind is that we often connect different meanings to different colours. For instance, we typically interpret darker colours as “more” and blue as more abstract.
+
+
+9.  ADD NECESSARY EXTRAS TO YOUR SCIENTIFIC FIGURE
+No, this isn’t a contradiction. Although we aim for as simple as possible figure in scientific papers, we still want to assist the reader with interpreting it. Perhaps a curve fit or a line as a guide for the eye would be helpful to see trends? Or does your graph show different ranges that could be divided by using dashed vertical or horizontal lines? Do the ranges correspond to different states in your model system that can be visualised with a simple graphic or scheme? Include them then! Your reader might also need arrows, an insert showing the measurement conditions or a zoom into a specific region to get your key message (see step #1).
+
+
+10.  PROVIDE INFORMATIVE FIGURE LEGENDS/CAPTIONS FOR YOUR SCIENTIFIC FIGURE
+One of the most common questions I get is what the figure legends in scientific papers should include. It’s worth spending some time on the figure legends (also called figure captions)! Providing figure legends in scientific papers that give your reader all the necessary information in the shortest way possible is as important as having a visually clear and compelling scientific figure, in my opinion. As a point of reference, Nature restricts their caption to 250 words, and Science to 200 words.
+
+I recommend starting your figure legend/caption with one title sentence that captures the main result of your scientific figure. Then explain everything depicted in the figure, such as all panels, variables and any methodological information necessary to understand the data. The goal should be for your reader to understand the results of your paper by just looking at your scientific figures — without them having to read the text in your Results section! Figure legends in scientific papers are not, however, the ideal place for interpretations or conclusions you have drawn from your data.
+
+figures in scientific papers – best practices
+This guide focuses on data visualisation because this is the most common type of scientific figures in the sciences. However, most of the tips shared above also apply to scientific figures consisting of schemes, flow-charts, drawings etc.
+
+Whatever your scientific figure will show, there are three key points to consider when you make figures for scientific papers:  
+
+Have a clear message for each scientific figure
+Make your scientific figure as simple as possible while still conveying the key message
+Adhere to the best ethical practices when you present your data in figures in scientific papers

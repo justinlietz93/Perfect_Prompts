@@ -1,0 +1,71 @@
+\documentclass{article}
+
+\usepackage{arxiv}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage[nameinlink,capitalise,noabbrev]{cleveref}
+
+\clubpenalty=10000
+\widowpenalty=10000
+\displaywidowpenalty=10000
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{proposition}{Proposition}
+\newtheorem{corollary}{Corollary}
+\newtheorem{conjecture}{Conjecture}
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}
+
+\newenvironment{claimblock}[3]{%
+  \paragraph{Claim #1}\textbf{Decisive metric:} #2.\\
+  \textbf{Falsifier:} #3.\par\noindent}{\medskip}
+
+\newenvironment{gateblock}[3]{%
+  \paragraph{Gate #1}\textbf{Pass:} #2.\\
+  \textbf{Fail:} #3.\par\noindent}{\medskip}
+
+\newcommand{\orcidicon}[1]{%
+  \href{https://orcid.org/#1}{\includegraphics[height=1.6ex]{orcid.pdf}}%
+}
+
+\input{metadata.tex}
+
+\title{\PaperTitle}
+\author{\PaperAuthorName~\orcidicon{\PaperAuthorORCID}\\
+\href{\PaperWebsite}{\PaperAffiliation}\\
+\href{mailto:\PaperEmail}{\texttt{\PaperEmail}}\\
+\href{\PaperDOIURL}{\PaperDOIText}}
+\date{\PaperDate\quad Version \PaperVersion}
+
+\renewcommand{\headeright}{\PaperReleaseStatus}
+\renewcommand{\undertitle}{Research preprint or draft}
+\renewcommand{\shorttitle}{\PaperShortTitle}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+This compiled manuscript is a neutral template used to test the publication-package build path. It contains no scientific result. Replace every template section with the full load-bearing paper before release.
+\end{abstract}
+
+\keywords{\PaperKeywords}
+
+\input{sections/01_introduction.tex}
+\input{sections/02_claim_architecture.tex}
+\input{sections/03_validation.tex}
+\input{sections/04_scope_and_limitations.tex}
+\input{sections/05_conclusion.tex}
+\input{bibliography.tex}
+
+\end{document}

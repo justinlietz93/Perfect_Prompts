@@ -25,7 +25,10 @@ python install.py --no-desktop
 python install.py --no-menu
 python install.py --skip-index
 python install.py --without-pdf
+python install.py --repair-launcher
 ```
+
+`--repair-launcher` rewrites the native launcher/icon integration using the existing `Application/.venv` without reinstalling dependencies or rebuilding Prompt Beacon. It is the fastest way to repair an already-installed Linux launcher after upgrading.
 
 `--without-pdf` disables the optional PDF text-extraction dependency; PDFs remain searchable by path/name.
 
@@ -48,4 +51,4 @@ The library itself does not need uninstalling because it is ordinary repository 
 
 ## Native icon installation
 
-Windows shortcuts use the packaged multi-resolution `perfect-prompts.ico`. Linux installation copies the transparent 256 px icon into `~/.local/share/icons/hicolor/256x256/apps/perfect-prompts.png` and registers launchers with `Icon=perfect-prompts`. The original supplied artwork is retained separately under `Application/assets/source/`.
+Windows shortcuts use the packaged multi-resolution `perfect-prompts.ico`. Linux installation copies the available hicolor PNG sizes into `~/.local/share/icons/hicolor/<size>/apps/perfect-prompts.png`; generated `.desktop` files use the absolute 256 px icon path so the icon does not depend on a stale desktop/icon-theme cache. The launcher also declares `StartupWMClass=perfect-prompts`, and the Qt application publishes the matching desktop-file identity so running windows bind to the Perfect Prompts launcher instead of a generic gear icon. The installer refreshes desktop/icon caches when the relevant platform utilities are available. The original supplied artwork is retained separately under `Application/assets/source/`.

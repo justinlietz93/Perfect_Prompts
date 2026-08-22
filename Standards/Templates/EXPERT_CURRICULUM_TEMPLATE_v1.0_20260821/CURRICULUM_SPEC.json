@@ -1,0 +1,29 @@
+{
+  "schema_version": "1.0",
+  "template_version": "1.0",
+  "curriculum": {
+    "name": "{{CURRICULUM_NAME}}",
+    "domain": "{{DOMAIN}}",
+    "learner": "{{LEARNER}}",
+    "capability_target": "{{CAPABILITY_TARGET}}",
+    "purpose": "{{PURPOSE}}",
+    "allow_parallel_branches": true,
+    "allow_targeted_activation": true,
+    "active_load": {
+      "primary_spine_groups": 1,
+      "parallel_branches": 1,
+      "diagnostic_layers": 1,
+      "note": "Change only when a different active load is intentionally desired."
+    }
+  },
+  "resource_roles": [
+    "DIAGNOSTIC",
+    "CORE_PASS",
+    "DEEPENING_PASS",
+    "REFERENCE",
+    "OPTIONAL",
+    "RECREATIONAL_CONTEXTUAL"
+  ],
+  "groups": [],
+  "single_thread_fallback": []
+}

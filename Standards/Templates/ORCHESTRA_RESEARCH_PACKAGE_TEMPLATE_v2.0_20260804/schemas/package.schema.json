@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Orchestra research package metadata",
+  "type": "object",
+  "required": ["schema_version", "package_type", "template_version", "package_id", "title", "slug", "created_at", "phase", "branch", "version", "origin_role", "target_role", "branch_goal", "terminal_condition", "active_authority", "status"],
+  "properties": {
+    "package_type": {"enum": ["orchestra_research_package_template", "orchestra_research_package"]},
+    "phase": {"type": ["integer", "null"], "minimum": 0},
+    "branch": {"type": ["integer", "null"], "minimum": 0},
+    "version": {"type": ["integer", "null"], "minimum": 0},
+    "active_authority": {"type": "array"}
+  },
+  "additionalProperties": true
+}

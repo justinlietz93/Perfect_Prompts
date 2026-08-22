@@ -1,115 +1,64 @@
-# Perfect Prompts v2.0.0 Validation Report
+# Perfect Prompts v2.0.1 Validation Report
 
-## Release lineage
+## Scope
 
-`v2.0.0` is the first Perfect Prompts release after the published `v1.0.0` repository release.
+`v2.0.1` is a patch release over `v2.0.0` focused on Linux desktop identity and native icon resolution. The filesystem-first repository reorganization and desktop GUI introduced in `v2.0.0` are otherwise unchanged.
 
-The major-version increment is intentional. The desktop GUI is additive, but this release also reorganizes repository paths into the filesystem-first semantic taxonomy documented by `REPOSITORY_MAP.md`. Direct path consumers of the v1.0.0 layout can therefore require migration, so the release is treated as semantically breaking rather than as `v1.1.0`.
+## Repository continuity
 
-The earlier local `0.2.x` labels were development-package numbering and were never the correct Perfect Prompts release lineage. They have been removed from release metadata.
-
-## Repository migration
-
-The source-corpus migration represented by `REORGANIZATION_MANIFEST.json` remains:
+The `v2.0.0` source-corpus migration authority remains `REORGANIZATION_MANIFEST.json`:
 
 - source files: **3,036**;
 - mapped: **3,036 / 3,036**;
 - missing: **0**;
 - unmapped: **0**;
-- unexpected changes: **0**;
 - byte-identical relocations: **3,026**;
 - documented intentional source edits: **10**.
 
-`REORGANIZATION_MANIFEST.json` is the old→new source-path authority.
+## Linux icon/launcher repair
 
-## Application tests
+The reported failure mode was reproduced from the installed launcher state: the icon file existed at the standard user hicolor location, while the `.desktop` entry referenced only `Icon=perfect-prompts`. That leaves rendering dependent on desktop/icon-theme lookup and cache behavior, and it does not by itself guarantee that the running Qt window will associate with the launcher.
 
-```text
-18 passed
-```
+`v2.0.1` changes that contract:
 
-The suite includes search/index/sync/add/remove/batch/settings/launcher/package tests, native icon validation, and a real PySide6 window-construction smoke test using Qt's offscreen platform.
+- generated `.desktop` files use an **absolute `Icon=` path** to the installed 256 px PNG;
+- all packaged hicolor raster sizes are installed when available (16, 24, 32, 48, 64, 128, 256, 512 px);
+- `StartupWMClass=perfect-prompts` is included in the launcher;
+- Qt publishes the matching `perfect-prompts` application/desktop-file identity while retaining the visible display name **Perfect Prompts**;
+- `update-desktop-database` and `gtk-update-icon-cache` are invoked opportunistically after installation when present;
+- desktop shortcut placement uses `xdg-user-dir DESKTOP` when available rather than assuming `~/Desktop`.
 
-Python bytecode compilation of application source, tests, and scripts also passed.
+The original user-supplied image remains preserved unchanged under `Application/assets/source/`. Native PNG and ICO assets remain derived from that source.
 
-## Native icon validation
-
-The original user-supplied image is preserved unchanged at:
-
-```text
-Application/assets/source/perfect-prompts-logo-source.png
-```
-
-Source SHA-256:
+## Automated tests
 
 ```text
-e655cb15971ed1e035183dba432db12e944342907d461d68eaa0f94c2d94bf18
+20 passed
 ```
 
-Derived launcher assets:
+The suite now includes launcher tests that verify:
+
+- absolute icon paths in Linux `.desktop` files;
+- matching `StartupWMClass`;
+- installation of the complete packaged hicolor size set;
+- preservation of the real 256 px source asset rather than replacing it with fallback data.
+
+The existing search/index/sync/add/remove/batch/settings/package/icon tests also remain passing.
+
+## Direct launcher smoke test
+
+A temporary HOME and fake installed `perfect-prompts` executable were used to execute the real Linux launcher installer against the repository. The generated entry contained:
 
 ```text
-Application/assets/perfect-prompts-icon.png
-Application/assets/perfect-prompts-icon-256.png
-Application/assets/perfect-prompts.ico
+Icon=<absolute HOME path>/.local/share/icons/hicolor/256x256/apps/perfect-prompts.png
+StartupWMClass=perfect-prompts
 ```
 
-Validation results:
-
-- 1024×1024 PNG is RGBA with transparent exterior corners;
-- visible artwork is inset from the canvas rather than hard-cropped to the square boundary;
-- 256×256 Linux PNG is RGBA with transparent exterior corners;
-- Windows file identifies as an MS Windows icon resource;
-- `.ico` contains 10 native sizes: 16, 20, 24, 32, 40, 48, 64, 96, 128, and 256 px;
-- 256 px ICO surface has transparent exterior corners;
-- internal logo artwork is preserved;
-- derivation is reproducible through `Application/scripts/build_icons.py`.
-
-Derived SHA-256 values:
-
-```text
-76b2e2a5b52bed3b79543f6624754e1a5777c494fd6ee75c82ccebba8176c900  perfect-prompts-icon.png
-681431f0b8b07f37cbe858de21bfd43ad62181cf3e0842e2afae6a5e6131e665  perfect-prompts-icon-256.png
-526ad85914527f55c6121686e4568adb6f1e034a8eb681ea29c13143c3726b2b  perfect-prompts.ico
-```
-
-## Launcher behavior
-
-Windows shortcuts use the multi-resolution `.ico`. The GUI sets the stable `PerfectPrompts.Desktop` AppUserModelID so Windows taskbar and pinned surfaces identify the process as Perfect Prompts rather than as a generic Python application.
-
-Linux launcher installation copies the transparent 256 px icon to:
-
-```text
-~/.local/share/icons/hicolor/256x256/apps/perfect-prompts.png
-```
-
-The `.desktop` launcher uses the native icon name `perfect-prompts`.
-
-## Distribution smoke test
-
-A clean wheel was built from the v2.0.0 application source:
-
-```text
-perfect_prompts-2.0.0-py3-none-any.whl
-```
-
-Wheel SHA-256 during validation:
-
-```text
-d451fe3d43ffb56aaa5f88740503d0955da3dba32c2e4131710baf80c8fe746c
-```
-
-The wheel was installed into a fresh isolated virtual environment without dependencies. `perfect-prompts-cli --version` reported:
-
-```text
-Perfect Prompts 2.0.0
-```
-
-All three packaged runtime icon resources were present.
+and all eight packaged Linux icon sizes were copied into the temporary user hicolor tree.
 
 ## Version surfaces
 
-The release version is represented consistently at:
+The active release version is represented consistently at:
 
 ```text
 VERSION
@@ -121,4 +70,4 @@ Application/CHANGELOG.md
 Application/tests/test_package.py
 ```
 
-The repository release and desktop application package both identify as **2.0.0**.
+The repository and desktop application identify as **2.0.1**.

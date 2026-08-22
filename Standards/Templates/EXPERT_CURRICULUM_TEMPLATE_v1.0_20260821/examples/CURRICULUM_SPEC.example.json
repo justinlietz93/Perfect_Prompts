@@ -1,0 +1,86 @@
+{
+  "schema_version": "1.0",
+  "template_version": "1.0",
+  "curriculum": {
+    "name": "Example Expert Curriculum",
+    "domain": "Example Domain",
+    "learner": "Learner",
+    "capability_target": "Independently understand, apply, audit, and extend the core methods of Example Domain.",
+    "purpose": "Build operational command rather than passive familiarity.",
+    "allow_parallel_branches": true,
+    "allow_targeted_activation": true,
+    "active_load": {
+      "primary_spine_groups": 1,
+      "parallel_branches": 1,
+      "diagnostic_layers": 1
+    }
+  },
+  "resource_roles": [
+    "DIAGNOSTIC",
+    "CORE_PASS",
+    "DEEPENING_PASS",
+    "REFERENCE",
+    "OPTIONAL",
+    "RECREATIONAL_CONTEXTUAL"
+  ],
+  "groups": [
+    {
+      "id": "01",
+      "slug": "foundations",
+      "name": "Foundations",
+      "type": "primary_spine",
+      "depends_on": [],
+      "start_gate": "Start immediately.",
+      "role": "Supply the primitive vocabulary and operations required by all later groups.",
+      "exit_gate": [
+        "Explain the primitive objects independently.",
+        "Solve representative foundational problems without help.",
+        "Distinguish the main neighboring concepts that are commonly confused."
+      ],
+      "resources": [
+        {
+          "title": "Core Resource",
+          "availability": "ACQUIRE",
+          "role": "CORE_PASS",
+          "note": "Primary first-pass text or course."
+        }
+      ]
+    },
+    {
+      "id": "02",
+      "slug": "core_methods",
+      "name": "Core Methods",
+      "type": "primary_spine",
+      "depends_on": [
+        "01"
+      ],
+      "start_gate": "Group 01 exit gate met.",
+      "role": "Develop the methods that control later application.",
+      "exit_gate": [
+        "Apply the core methods to unfamiliar problems.",
+        "Explain failure modes and assumptions."
+      ],
+      "resources": []
+    },
+    {
+      "id": "10",
+      "slug": "application_branch",
+      "name": "Application Branch",
+      "type": "parallel_branch",
+      "depends_on": [
+        "01"
+      ],
+      "start_gate": "Group 01 core pass complete; activate only when this application becomes relevant.",
+      "role": "Apply the spine to a specialized domain.",
+      "exit_gate": [
+        "Complete one domain-specific analysis or build using standard definitions."
+      ],
+      "resources": []
+    }
+  ],
+  "single_thread_fallback": [
+    "01",
+    "02",
+    "10"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "name": "EXPERT_CURRICULUM_TEMPLATE",
+  "version": "1.0",
+  "date": "2026-08-21",
+  "status": "reusable_template",
+  "primary_authority": "AUTHORITY.md",
+  "machine_spec": "CURRICULUM_SPEC.json",
+  "controlling_order": "00_MASTER_ROADMAP/STRICT_ORDER_AND_START_GATES.md",
+  "group_template": "_GROUP_TEMPLATE/",
+  "research_standard_dependency": "canonical Research & Evidence Standard when research-grade work is performed"
+}

@@ -1,0 +1,2 @@
+# Add one top-level figure path per line, for example:
+# figures/C001_fig01_complete_lifted_object.pdf

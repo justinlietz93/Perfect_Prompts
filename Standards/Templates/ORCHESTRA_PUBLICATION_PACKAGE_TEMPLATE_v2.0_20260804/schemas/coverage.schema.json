@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "coverage.schema.json",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "publication_id",
+    "coverage"
+  ]
+}

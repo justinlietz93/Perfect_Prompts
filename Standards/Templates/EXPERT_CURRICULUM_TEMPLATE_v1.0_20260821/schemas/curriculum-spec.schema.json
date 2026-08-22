@@ -1,0 +1,133 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "curriculum-spec.schema.json",
+  "title": "Expert Curriculum Specification",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "template_version",
+    "curriculum",
+    "groups"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string"
+    },
+    "template_version": {
+      "type": "string"
+    },
+    "curriculum": {
+      "type": "object",
+      "required": [
+        "name",
+        "domain",
+        "capability_target"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "domain": {
+          "type": "string",
+          "minLength": 1
+        },
+        "learner": {
+          "type": "string"
+        },
+        "capability_target": {
+          "type": "string",
+          "minLength": 1
+        },
+        "purpose": {
+          "type": "string"
+        },
+        "allow_parallel_branches": {
+          "type": "boolean"
+        },
+        "allow_targeted_activation": {
+          "type": "boolean"
+        },
+        "active_load": {
+          "type": "object"
+        }
+      }
+    },
+    "resource_roles": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "groups": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "slug",
+          "name",
+          "type",
+          "depends_on",
+          "start_gate",
+          "role",
+          "exit_gate"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[0-9A-Za-z._-]+$"
+          },
+          "slug": {
+            "type": "string",
+            "pattern": "^[a-z0-9_]+$"
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "type": {
+            "enum": [
+              "primary_spine",
+              "parallel_branch",
+              "research_active_bridge",
+              "specialist_branch"
+            ]
+          },
+          "depends_on": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "uniqueItems": true
+          },
+          "start_gate": {
+            "type": "string",
+            "minLength": 1
+          },
+          "role": {
+            "type": "string",
+            "minLength": 1
+          },
+          "exit_gate": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1
+          },
+          "resources": {
+            "type": "array"
+          }
+        }
+      }
+    },
+    "single_thread_fallback": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}
