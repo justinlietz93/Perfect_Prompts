@@ -1,27 +1,34 @@
-# Perfect Prompts v0.2.1 Validation Report
+# Perfect Prompts v2.0.0 Validation Report
 
-## Scope
+## Release lineage
 
-v0.2.1 is an application-identity/icon patch over the validated v0.2.0 filesystem-first repository/application release. The repository taxonomy, Prompt Beacon behavior, GUI library workflow, and source-corpus migration are unchanged.
+`v2.0.0` is the first Perfect Prompts release after the published `v1.0.0` repository release.
 
-The original v0.2.0 migration remains:
+The major-version increment is intentional. The desktop GUI is additive, but this release also reorganizes repository paths into the filesystem-first semantic taxonomy documented by `REPOSITORY_MAP.md`. Direct path consumers of the v1.0.0 layout can therefore require migration, so the release is treated as semantically breaking rather than as `v1.1.0`.
+
+The earlier local `0.2.x` labels were development-package numbering and were never the correct Perfect Prompts release lineage. They have been removed from release metadata.
+
+## Repository migration
+
+The source-corpus migration represented by `REORGANIZATION_MANIFEST.json` remains:
 
 - source files: **3,036**;
 - mapped: **3,036 / 3,036**;
 - missing: **0**;
 - unmapped: **0**;
+- unexpected changes: **0**;
 - byte-identical relocations: **3,026**;
 - documented intentional source edits: **10**.
 
-`REORGANIZATION_MANIFEST.json` remains the old→new source-path authority.
+`REORGANIZATION_MANIFEST.json` is the old→new source-path authority.
 
 ## Application tests
 
 ```text
-18 passed, 1 skipped
+18 passed
 ```
 
-The skipped test is the real PySide6 window-construction smoke test because PySide6 is not installed in this execution environment. The passing suite includes the existing search/index/sync/add/remove/batch/settings/launcher/package tests plus native icon validation.
+The suite includes search/index/sync/add/remove/batch/settings/launcher/package tests, native icon validation, and a real PySide6 window-construction smoke test using Qt's offscreen platform.
 
 Python bytecode compilation of application source, tests, and scripts also passed.
 
@@ -52,10 +59,10 @@ Validation results:
 - 1024×1024 PNG is RGBA with transparent exterior corners;
 - visible artwork is inset from the canvas rather than hard-cropped to the square boundary;
 - 256×256 Linux PNG is RGBA with transparent exterior corners;
-- Windows file identifies as an **MS Windows icon resource**;
-- `.ico` contains **10 native sizes**: 16, 20, 24, 32, 40, 48, 64, 96, 128, and 256 px;
+- Windows file identifies as an MS Windows icon resource;
+- `.ico` contains 10 native sizes: 16, 20, 24, 32, 40, 48, 64, 96, 128, and 256 px;
 - 256 px ICO surface has transparent exterior corners;
-- internal logo artwork is preserved; derivation removes the border-connected outer black canvas and adds transparent icon padding;
+- internal logo artwork is preserved;
 - derivation is reproducible through `Application/scripts/build_icons.py`.
 
 Derived SHA-256 values:
@@ -68,32 +75,50 @@ Derived SHA-256 values:
 
 ## Launcher behavior
 
-Windows shortcuts use the multi-resolution `.ico`. The GUI also sets a stable `PerfectPrompts.Desktop` AppUserModelID so Windows taskbar/pinned surfaces identify the process as Perfect Prompts rather than a generic Python application.
+Windows shortcuts use the multi-resolution `.ico`. The GUI sets the stable `PerfectPrompts.Desktop` AppUserModelID so Windows taskbar and pinned surfaces identify the process as Perfect Prompts rather than as a generic Python application.
 
-Linux launcher installation copies the transparent 256 px icon to the user's standard hicolor icon-theme location:
+Linux launcher installation copies the transparent 256 px icon to:
 
 ```text
 ~/.local/share/icons/hicolor/256x256/apps/perfect-prompts.png
 ```
 
-The `.desktop` launcher then uses the native icon name `perfect-prompts` rather than pointing at an arbitrary source PNG.
+The `.desktop` launcher uses the native icon name `perfect-prompts`.
 
 ## Distribution smoke test
 
-A clean wheel was built without build isolation:
+A clean wheel was built from the v2.0.0 application source:
 
 ```text
-perfect_prompts-0.2.1-py3-none-any.whl
+perfect_prompts-2.0.0-py3-none-any.whl
 ```
 
 Wheel SHA-256 during validation:
 
 ```text
-c975a885614b6005840835e371c7b8f0adc1dd281fdb5bc06fa037a7a89f05ea
+d451fe3d43ffb56aaa5f88740503d0955da3dba32c2e4131710baf80c8fe746c
 ```
 
-The wheel was installed into a fresh isolated virtual environment without dependencies. `perfect-prompts-cli --version` reported `Perfect Prompts 0.2.1`, and all three packaged runtime icon resources were present.
+The wheel was installed into a fresh isolated virtual environment without dependencies. `perfect-prompts-cli --version` reported:
 
-## GUI runtime boundary
+```text
+Perfect Prompts 2.0.0
+```
 
-The Qt source compiles and the GUI smoke test remains present. A live Qt window cannot be constructed in this execution environment because PySide6 is unavailable here; the normal installer installs the `gui` extra before creating launchers.
+All three packaged runtime icon resources were present.
+
+## Version surfaces
+
+The release version is represented consistently at:
+
+```text
+VERSION
+README.md
+Application/pyproject.toml
+Application/src/perfect_prompts/__init__.py
+Application/docs/PRODUCT_DEFINITION.md
+Application/CHANGELOG.md
+Application/tests/test_package.py
+```
+
+The repository release and desktop application package both identify as **2.0.0**.

@@ -1,23 +1,34 @@
 # Changelog
 
-## 0.2.1 — 2026-08-22
+## 2.0.0 — 2026-08-22
 
-- Rebuilt the supplied Perfect Prompts artwork into proper native application icon assets instead of treating the original square PNG as the launcher icon directly.
-- Preserved the original user-supplied logo unchanged under `assets/source/`.
-- Added a transparent 1024 px master icon with native breathing room and transparent exterior corners.
-- Rebuilt the Windows `.ico` as a true multi-resolution icon container (16–256 px).
-- Added a native Linux 256 px icon-theme asset and launcher installation under the user hicolor theme.
-- Added a stable Windows AppUserModelID so taskbar/pinned surfaces resolve Perfect Prompts as its own application identity.
-- Added reproducible programmatic icon generation and icon-asset validation tests.
+First Perfect Prompts release after the published `v1.0.0` repository release. This is a major release because it both adds the optional desktop application and reorganizes repository paths, which can break consumers that referenced the previous filesystem layout directly.
 
-## 0.2.0 — 2026-08-22
+### Repository
 
-- Reoriented Perfect Prompts around a filesystem-first, human-browseable repository taxonomy.
-- Added the `Search`, `Batch`, and `Library` desktop workflow.
-- Added GUI file/folder import and confirmed artifact removal against the real repository filesystem.
-- Added Prompt Beacon incremental synchronization so external filesystem edits, moves, additions, and removals converge into the disposable search index.
-- Added programmatic `sync`, `add`, and `remove` CLI commands.
-- Made project-authored material the default GUI search scope while preserving filterable external-reference search.
-- Isolated application source under `Application/`; application code is excluded from the library search corpus by default.
-- Preserved all 3,036 source-corpus files through the reorganization, with only documented path/metadata edits.
-- Retained the supplied Perfect Prompts logo as native application identity and generated Windows icon variants from it.
+- Reorganized the repository around semantic artifact classes while preserving ordinary GitHub and native-filesystem use.
+- Added `REPOSITORY_MAP.md` and the reorganization manifest so previous paths remain traceable.
+- Preserved the existing prompt, skill, persona, rule, methodology, script, runtime-binding, architecture-standard, research-standard, APEX, NASA, and external-reference corpus.
+- Kept the repository filesystem as the authoritative library rather than moving artifacts into an application database.
+
+### Desktop application
+
+- Added the optional Perfect Prompts desktop GUI using the Lamina-oriented Python/Qt architecture.
+- Added Search, Batch, and Library workflows.
+- Added Prompt Beacon, a Perfect Prompts-specialized Beacon index/query layer with FTS5/BM25 search, quoted phrases, broad prefix matching, filters, exports, and incremental filesystem synchronization.
+- Added GUI and CLI add/remove operations against the real repository filesystem.
+- Added external filesystem change synchronization so edits made through Git, editors, terminals, or file managers converge into the disposable search index.
+- Added native Linux and Windows launcher installation.
+
+### Application identity
+
+- Uses Perfect Prompts as the sole product/application name.
+- Preserves the user-supplied Perfect Prompts logo as source artwork.
+- Generates proper transparent PNG launcher assets and a true multi-resolution Windows `.ico` rather than using the original square source image directly as an icon.
+- Adds a stable Windows AppUserModelID for taskbar and pinned-launcher identity.
+
+### Compatibility
+
+- The desktop application is optional; the repository remains directly browsable and editable without installation.
+- `.perfect-prompts/` contains only disposable/local application state and can be rebuilt from the repository files.
+- The repository reorganization is the reason this release advances from `v1.0.0` to `v2.0.0` rather than `v1.1.0`.
