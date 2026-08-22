@@ -1,5 +1,18 @@
 # Changelog
 
+## v2.0.4 - 2026-08-22
+
+- Fixed Linux desktop launchers to invoke the verified runtime interpreter directly with `python -m perfect_prompts.main`, removing dependence on pip-generated GUI entry-point wrappers.
+- Desktop shortcuts are now marked trusted with `gio` when available so GNOME-compatible desktops can launch newly rewritten `.desktop` files without manual "Allow Launching" intervention.
+- Runtime repair now performs an actual Qt platform smoke test rather than stopping at import validation.
+
+## 2.0.3 — 2026-08-22
+
+- Fixed launcher repair when the stable per-user runtime already exists but its editable Perfect Prompts installation points at an older or removed checkout.
+- `python install.py --repair-launcher` now always refreshes the editable installation against the current repository before rewriting launchers.
+- Added runtime validation that imports Perfect Prompts and the Qt GUI stack from the repaired environment and verifies that `perfect_prompts.__file__` resolves to the current `Application/src/` tree.
+- Added a regression test for an existing-but-stale runtime, which was the case missed by v2.0.2.
+
 ## 2.0.2 — 2026-08-22
 
 - Fixed a launcher regression caused by keeping the installed Python virtual environment inside the tracked `Application/` directory. Replacing `Application/` during an update could therefore remove the launch target while leaving a desktop shortcut behind.

@@ -59,3 +59,38 @@ def test_repair_recreates_missing_runtime(monkeypatch, tmp_path):
     assert module.main() == 0
     assert installed["called"] is True
     assert calls == [[str(fake_cli), "install-launcher", "--root", str(INSTALL_SCRIPT.parents[2]), "--no-desktop"]]
+
+
+def test_repair_refreshes_existing_runtime_binding(monkeypatch, tmp_path):
+    module = _load_install_module()
+    fake_env = tmp_path / "runtime" / "venv"
+    fake_python = fake_env / "bin" / "python"
+    fake_cli = fake_env / "bin" / "perfect-prompts-cli"
+    fake_gui = fake_env / "bin" / "perfect-prompts"
+    fake_python.parent.mkdir(parents=True, exist_ok=True)
+    for path in (fake_python, fake_cli, fake_gui):
+        path.write_text("stub", encoding="utf-8")
+
+    monkeypatch.setattr(module, "_resolve_env_dir", lambda _app, _requested: fake_env)
+    installed = {"count": 0}
+
+    def fake_install_runtime(*, env_dir, application_dir, without_pdf):
+        installed["count"] += 1
+        assert env_dir == fake_env
+        return fake_python, fake_cli, fake_gui
+
+    monkeypatch.setattr(module, "_install_runtime", fake_install_runtime)
+    calls = []
+
+    def fake_run(args, check=True, **kwargs):
+        calls.append([str(x) for x in args])
+        class Result:
+            returncode = 0
+        return Result()
+
+    monkeypatch.setattr(module.subprocess, "run", fake_run)
+    monkeypatch.setattr(sys, "argv", [str(INSTALL_SCRIPT), "--repair-launcher", "--no-desktop"])
+
+    assert module.main() == 0
+    assert installed["count"] == 1
+    assert calls == [[str(fake_cli), "install-launcher", "--root", str(INSTALL_SCRIPT.parents[2]), "--no-desktop"]]

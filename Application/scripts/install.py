@@ -61,7 +61,52 @@ def _install_runtime(*, env_dir: Path, application_dir: Path, without_pdf: bool)
             "Perfect Prompts installation completed but launcher entry points were not created. "
             f"Expected {cli} and {gui}."
         )
+    _validate_runtime(python=python, application_dir=application_dir)
     return python, cli, gui
+
+
+def _validate_runtime(*, python: Path, application_dir: Path) -> None:
+    """Verify that the runtime imports this checkout and can load the GUI stack."""
+    check = (
+        "from pathlib import Path; "
+        "import perfect_prompts, PySide6; "
+        "from perfect_prompts.presentation.qt.main_window import MainWindow; "
+        "print(Path(perfect_prompts.__file__).resolve())"
+    )
+    result = subprocess.run(
+        [str(python), "-c", check],
+        check=True,
+        text=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+    )
+    imported = Path(result.stdout.strip()).resolve()
+    expected = (application_dir / "src" / "perfect_prompts" / "__init__.py").resolve()
+    if imported != expected:
+        raise SystemExit(
+            "Perfect Prompts runtime is still bound to a different checkout after installation. "
+            f"Expected {expected}, imported {imported}."
+        )
+
+    # Import success is not enough for a desktop application. Verify that Qt can
+    # initialize its real platform plugin in the environment running the repair.
+    # This catches xcb/Wayland/plugin failures before we declare the launcher fixed.
+    smoke_env = os.environ.copy()
+    if os.name != "nt" and not (smoke_env.get("DISPLAY") or smoke_env.get("WAYLAND_DISPLAY")):
+        smoke_env["QT_QPA_PLATFORM"] = "offscreen"
+    smoke = subprocess.run(
+        [str(python), "-m", "perfect_prompts.main", "--smoke-test"],
+        text=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        env=smoke_env,
+    )
+    if smoke.returncode != 0:
+        detail = (smoke.stderr or smoke.stdout).strip()
+        raise SystemExit(
+            "Perfect Prompts runtime imports correctly, but Qt cannot initialize the desktop runtime.\n"
+            + (detail or f"Qt smoke test exited with code {smoke.returncode}.")
+        )
 
 
 def main() -> int:
@@ -94,18 +139,15 @@ def main() -> int:
     env_dir = _resolve_env_dir(application_dir, args.venv)
     python, cli, gui = _entry_points(env_dir)
 
-    runtime_missing = not (python.is_file() and cli.is_file() and gui.is_file())
-    if not args.repair_launcher or runtime_missing:
-        python, cli, gui = _install_runtime(
-            env_dir=env_dir,
-            application_dir=application_dir,
-            without_pdf=args.without_pdf,
-        )
-    else:
-        # Editable installs already point at the current Application/src. Repair
-        # mode intentionally avoids a dependency reinstall when the stable
-        # runtime is intact.
-        print(f"Using existing Perfect Prompts runtime: {env_dir}")
+    # Always refresh the editable installation, including repair mode. A stable
+    # runtime can legitimately exist while still pointing at an older checkout.
+    # Skipping this step produced a launcher that targeted a valid executable
+    # whose package import path was stale or missing.
+    python, cli, gui = _install_runtime(
+        env_dir=env_dir,
+        application_dir=application_dir,
+        without_pdf=args.without_pdf,
+    )
 
     if not args.repair_launcher and not args.skip_index:
         print("Building initial Prompt Beacon index…")

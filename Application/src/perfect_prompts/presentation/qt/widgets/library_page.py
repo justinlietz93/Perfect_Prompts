@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from PySide6.QtCore import QDir, QModelIndex, QUrl
+from PySide6.QtCore import QDir, QModelIndex, Qt, QUrl
 from PySide6.QtGui import QDesktopServices
 from PySide6.QtWidgets import (
     QFileDialog,
@@ -43,7 +43,7 @@ class LibraryPage(QWidget):
         self._tree.setRootIndex(root_index)
         self._tree.setAlternatingRowColors(True)
         self._tree.setSortingEnabled(True)
-        self._tree.sortByColumn(0, 0)
+        self._tree.sortByColumn(0, Qt.SortOrder.AscendingOrder)
         self._tree.setColumnWidth(0, 430)
 
         self._add_files = QPushButton("Add File(s)…")

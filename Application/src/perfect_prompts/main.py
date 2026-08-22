@@ -15,6 +15,7 @@ def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(prog="perfect-prompts", add_help=True)
     parser.add_argument("--root", type=Path, default=None, help="Perfect Prompts repository root to open")
     parser.add_argument("--version", action="version", version=f"Perfect Prompts {__version__}")
+    parser.add_argument("--smoke-test", action="store_true", help=argparse.SUPPRESS)
     args, qt_args = parser.parse_known_args(argv)
     try:
         from PySide6.QtGui import QIcon
@@ -52,6 +53,10 @@ def main(argv: list[str] | None = None) -> int:
         except (AttributeError, TypeError):
             pass
     app.setWindowIcon(QIcon(str(icon_png_path())))
+    if args.smoke_test:
+        # Used by the installer to verify that the actual Qt platform can be
+        # initialized, not merely that PySide6 can be imported.
+        return 0
     settings = UserSettingsStore()
     root = args.root.expanduser().resolve() if args.root else settings.load_last_root() or discover_repository_root()
     if root is None or not root.is_dir():

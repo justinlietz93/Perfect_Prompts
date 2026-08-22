@@ -92,11 +92,11 @@ def _install_hicolor_icons(root: Path) -> tuple[Path, ...]:
     return tuple(installed)
 
 
-def _desktop_entry(*, target: Path, root: Path, icon: Path) -> str:
-    # Absolute Icon= is deliberate. Several Linux desktops continue to show a
-    # generic gear until their icon-theme cache catches up; the absolute path
-    # makes the launcher correct immediately while the hicolor copies preserve
-    # normal theme integration.
+def _desktop_entry(*, python: Path, root: Path, icon: Path) -> str:
+    # Launch the module with the runtime interpreter directly instead of relying
+    # on pip's generated console-script shim. This keeps the desktop launcher
+    # tied to the verified virtual environment even when editable-install entry
+    # point wrappers are stale or regenerated.
     return "\n".join(
         [
             "[Desktop Entry]",
@@ -104,8 +104,8 @@ def _desktop_entry(*, target: Path, root: Path, icon: Path) -> str:
             "Type=Application",
             "Name=Perfect Prompts",
             "Comment=Prompt and Context Engineering Library",
-            f'TryExec={target}',
-            f'Exec="{target}" --root "{root}"',
+            f"TryExec={python}",
+            f'Exec="{python}" -m perfect_prompts.main --root "{root}"',
             f"Path={root}",
             f"Icon={icon}",
             "Terminal=false",
@@ -116,6 +116,18 @@ def _desktop_entry(*, target: Path, root: Path, icon: Path) -> str:
         ]
     )
 
+
+def _trust_desktop_file(path: Path) -> None:
+    """Mark a desktop shortcut trusted on GNOME-compatible desktops when possible."""
+    gio = shutil.which("gio")
+    if not gio:
+        return
+    subprocess.run(
+        [gio, "set", str(path), "metadata::trusted", "true"],
+        check=False,
+        stdout=subprocess.DEVNULL,
+        stderr=subprocess.DEVNULL,
+    )
 
 def _refresh_linux_desktop_caches() -> None:
     applications = Path.home() / ".local" / "share" / "applications"
@@ -141,10 +153,16 @@ def _refresh_linux_desktop_caches() -> None:
 
 
 def _install_linux(root: Path, *, desktop: bool, menu: bool) -> LauncherReceipt:
-    target = _gui_executable()
+    # install-launcher is executed by perfect-prompts-cli inside the dedicated
+    # runtime, so sys.executable is the verified runtime interpreter. Keep the
+    # venv path itself (do not resolve through its symlink to system Python).
+    python = Path(sys.executable).absolute()
+    if not python.is_file():
+        raise FileNotFoundError(f"Perfect Prompts runtime Python does not exist: {python}")
+
     created: list[Path] = list(_install_hicolor_icons(root))
     icon_target = Path.home() / ".local" / "share" / "icons" / "hicolor" / "256x256" / "apps" / "perfect-prompts.png"
-    content = _desktop_entry(target=target, root=root, icon=icon_target)
+    content = _desktop_entry(python=python, root=root, icon=icon_target)
 
     if menu:
         path = Path.home() / ".local" / "share" / "applications" / "perfect-prompts.desktop"
@@ -159,6 +177,7 @@ def _install_linux(root: Path, *, desktop: bool, menu: bool) -> LauncherReceipt:
         path = desktop_dir / "Perfect Prompts.desktop"
         path.write_text(content, encoding="utf-8")
         path.chmod(0o755)
+        _trust_desktop_file(path)
         created.append(path)
 
     _refresh_linux_desktop_caches()
