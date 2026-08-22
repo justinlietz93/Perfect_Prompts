@@ -1,73 +1,50 @@
-# Perfect Prompts v2.0.1 Validation Report
+# Perfect Prompts v2.0.2 Validation Report
 
 ## Scope
 
-`v2.0.1` is a patch release over `v2.0.0` focused on Linux desktop identity and native icon resolution. The filesystem-first repository reorganization and desktop GUI introduced in `v2.0.0` are otherwise unchanged.
+`v2.0.2` repairs a launcher regression introduced by the Linux icon/launcher patch in `v2.0.1`.
 
-## Repository continuity
+The underlying failure was architectural rather than icon-related: the installed Python virtual environment lived at `Application/.venv/`, while the update instructions also treated `Application/` as a replaceable tracked directory. Replacing that directory could therefore delete the executable referenced by the desktop launcher while leaving the `.desktop` file intact.
 
-The `v2.0.0` source-corpus migration authority remains `REORGANIZATION_MANIFEST.json`:
+## Repair
 
-- source files: **3,036**;
-- mapped: **3,036 / 3,036**;
-- missing: **0**;
-- unmapped: **0**;
-- byte-identical relocations: **3,026**;
-- documented intentional source edits: **10**.
+The default desktop runtime now lives outside the tracked repository:
 
-## Linux icon/launcher repair
+- Linux: `~/.local/share/perfect-prompts/runtime/venv`
+- Windows: `%LOCALAPPDATA%\\PerfectPrompts\\runtime\\venv`
 
-The reported failure mode was reproduced from the installed launcher state: the icon file existed at the standard user hicolor location, while the `.desktop` entry referenced only `Icon=perfect-prompts`. That leaves rendering dependent on desktop/icon-theme lookup and cache behavior, and it does not by itself guarantee that the running Qt window will associate with the launcher.
+The repository remains installed editable into that runtime, so application source continues to come from the checked-out `Application/src/` tree while the launcher target survives normal repository/application-folder updates.
 
-`v2.0.1` changes that contract:
+`python install.py --repair-launcher` now:
 
-- generated `.desktop` files use an **absolute `Icon=` path** to the installed 256 px PNG;
-- all packaged hicolor raster sizes are installed when available (16, 24, 32, 48, 64, 128, 256, 512 px);
-- `StartupWMClass=perfect-prompts` is included in the launcher;
-- Qt publishes the matching `perfect-prompts` application/desktop-file identity while retaining the visible display name **Perfect Prompts**;
-- `update-desktop-database` and `gtk-update-icon-cache` are invoked opportunistically after installation when present;
-- desktop shortcut placement uses `xdg-user-dir DESKTOP` when available rather than assuming `~/Desktop`.
+1. resolves the stable per-user runtime;
+2. recreates and installs it automatically if missing;
+3. preserves the existing runtime when intact;
+4. skips Prompt Beacon reindexing in repair mode;
+5. rewrites the native launcher against the valid runtime executable.
 
-The original user-supplied image remains preserved unchanged under `Application/assets/source/`. Native PNG and ICO assets remain derived from that source.
+The explicit `--venv` option remains available for development or custom installations.
 
-## Automated tests
+## Automated Validation
 
 ```text
-20 passed
+22 passed
 ```
 
-The suite now includes launcher tests that verify:
+Coverage includes:
 
-- absolute icon paths in Linux `.desktop` files;
-- matching `StartupWMClass`;
-- installation of the complete packaged hicolor size set;
-- preservation of the real 256 px source asset rather than replacing it with fallback data.
+- Prompt Beacon behavior and filesystem synchronization;
+- artifact add/remove paths;
+- icon asset validity;
+- Linux launcher generation and absolute icon paths;
+- package/version assertions;
+- stable runtime location outside `Application/`;
+- automatic runtime recreation in launcher repair mode.
 
-The existing search/index/sync/add/remove/batch/settings/package/icon tests also remain passing.
+## Regression Gate
 
-## Direct launcher smoke test
+The specific update failure now has a test: repair mode is executed with a missing runtime and must invoke runtime installation before generating the launcher. The default runtime path is also asserted not to live beneath `Application/`.
 
-A temporary HOME and fake installed `perfect-prompts` executable were used to execute the real Linux launcher installer against the repository. The generated entry contained:
+## Result
 
-```text
-Icon=<absolute HOME path>/.local/share/icons/hicolor/256x256/apps/perfect-prompts.png
-StartupWMClass=perfect-prompts
-```
-
-and all eight packaged Linux icon sizes were copied into the temporary user hicolor tree.
-
-## Version surfaces
-
-The active release version is represented consistently at:
-
-```text
-VERSION
-README.md
-Application/pyproject.toml
-Application/src/perfect_prompts/__init__.py
-Application/docs/PRODUCT_DEFINITION.md
-Application/CHANGELOG.md
-Application/tests/test_package.py
-```
-
-The repository and desktop application identify as **2.0.1**.
+**PASS** — application updates can replace the tracked `Application/` directory without deleting the installed desktop runtime, and repair mode can recover an already-broken launcher without requiring manual filesystem diagnosis.

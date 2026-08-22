@@ -1,5 +1,0 @@
-[console_scripts]
-perfect-prompts-cli = perfect_prompts.cli:main
-
-[gui_scripts]
-perfect-prompts = perfect_prompts.main:main

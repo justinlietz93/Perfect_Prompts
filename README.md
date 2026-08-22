@@ -1,17 +1,19 @@
 ![Perfect Prompts Banner](https://github.com/user-attachments/assets/2ef86d9f-a64f-40e8-a9ad-fc4593ccb3b7)
 
-# Perfect Prompts
+## The filesystem is the library. The app is the search layer.
 
-**Current release: v2.0.1**
+Perfect Prompts is a searchable library of prompts, rules, standards, and agent assets that lives in the filesystem - not in a proprietary database. Browse it normally in Git or your editor, or use the desktop app to search in plain English and take action on the best matches in one click.
 
-A filesystem-first library for **prompt engineering, context engineering, agent control, reusable AI workflows, research methodology, and LLM tooling**, with an optional desktop application for fast search and library management.
+Your personal filesystem-first library for **prompt engineering, context engineering, agent control, reusable AI workflows, research methodology, and LLM tooling**.
 
-Perfect Prompts is intentionally useful in two completely independent ways:
+Two easy ways to use it:
 
 1. **Open the repository normally** in your file manager, editor, terminal, or GitHub and browse/copy the artifacts directly.
 2. **Launch the Perfect Prompts desktop application** when you want indexed search, batch queries, previews, or GUI-based add/remove operations.
 
 The GUI does not own the library. The files do.
+
+**Current release: v2.0.2**
 
 ## Repository organization
 

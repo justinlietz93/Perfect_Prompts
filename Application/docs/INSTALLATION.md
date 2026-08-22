@@ -10,7 +10,7 @@ python install.py
 
 The installer:
 
-1. creates `Application/.venv/`;
+1. creates a stable per-user desktop runtime outside the tracked repository (`~/.local/share/perfect-prompts/runtime/venv` on Linux, `%LOCALAPPDATA%\PerfectPrompts\runtime\venv` on Windows);
 2. installs the Perfect Prompts application and GUI dependencies;
 3. builds the initial Prompt Beacon index against the repository root;
 4. saves that repository as the default library;
@@ -28,7 +28,7 @@ python install.py --without-pdf
 python install.py --repair-launcher
 ```
 
-`--repair-launcher` rewrites the native launcher/icon integration using the existing `Application/.venv` without reinstalling dependencies or rebuilding Prompt Beacon. It is the fastest way to repair an already-installed Linux launcher after upgrading.
+`--repair-launcher` repairs the native launcher without rebuilding Prompt Beacon. If the stable runtime does not exist, it is created automatically. This specifically recovers installations where an older `Application/.venv` disappeared because the tracked `Application/` directory was replaced during an update.
 
 `--without-pdf` disables the optional PDF text-extraction dependency; PDFs remain searchable by path/name.
 
@@ -47,7 +47,7 @@ On Windows activate with `Application\.venv\Scripts\activate`.
 
 ## Uninstall behavior
 
-The library itself does not need uninstalling because it is ordinary repository content. Removing `Application/.venv/`, OS shortcuts, user-local Perfect Prompts settings, and `.perfect-prompts/` removes application state while leaving every library artifact intact.
+The library itself does not need uninstalling because it is ordinary repository content. Removing the user-local Perfect Prompts runtime, OS shortcuts, user-local Perfect Prompts settings, and `.perfect-prompts/` removes application state while leaving every library artifact intact.
 
 ## Native icon installation
 

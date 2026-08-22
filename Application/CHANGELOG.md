@@ -1,5 +1,12 @@
 # Changelog
 
+## 2.0.2 — 2026-08-22
+
+- Fixed a launcher regression caused by keeping the installed Python virtual environment inside the tracked `Application/` directory. Replacing `Application/` during an update could therefore remove the launch target while leaving a desktop shortcut behind.
+- Moved the default desktop runtime to stable per-user application data (`~/.local/share/perfect-prompts/runtime/venv` on Linux; `%LOCALAPPDATA%\PerfectPrompts\runtime\venv` on Windows).
+- `python install.py --repair-launcher` now recreates the runtime automatically when it is missing instead of failing or writing a shortcut to a vanished executable.
+- Preserved `--venv` as an explicit override for development/custom installations.
+
 ## 2.0.1 — 2026-08-22
 
 ### Fixed
