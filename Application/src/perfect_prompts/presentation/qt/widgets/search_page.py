@@ -2,7 +2,6 @@
 
 from __future__ import annotations
 
-import re
 from pathlib import Path
 
 from PySide6.QtCore import Qt, QUrl
@@ -54,7 +53,6 @@ class SearchPage(QWidget):
 
         self._preview_title = QLabel("Select a result"); self._preview_title.setObjectName("previewTitle")
         self._meta = QLabel(""); self._meta.setTextInteractionFlags(Qt.TextInteractionFlag.TextSelectableByMouse)
-        self._snippet = QLabel(""); self._snippet.setWordWrap(True); self._snippet.setTextInteractionFlags(Qt.TextInteractionFlag.TextSelectableByMouse)
         self._content = QPlainTextEdit(); self._content.setReadOnly(True)
         self._open = QPushButton("Open File"); self._open.setObjectName("secondaryButton")
         self._open_folder = QPushButton("Open Folder"); self._open_folder.setObjectName("secondaryButton")
@@ -66,7 +64,7 @@ class SearchPage(QWidget):
         for widget in (self._open, self._open_folder, self._copy_path, self._copy_content, self._remove, self._export): actions.addWidget(widget)
         actions.addStretch(1)
         preview = QWidget(); preview_layout = QVBoxLayout(preview)
-        preview_layout.addWidget(self._preview_title); preview_layout.addWidget(self._meta); preview_layout.addWidget(self._snippet)
+        preview_layout.addWidget(self._preview_title); preview_layout.addWidget(self._meta)
         preview_layout.addLayout(actions); preview_layout.addWidget(self._content, 1)
 
         splitter = QSplitter(Qt.Orientation.Vertical); splitter.addWidget(self._table); splitter.addWidget(preview); splitter.setSizes([370, 390])
@@ -101,7 +99,7 @@ class SearchPage(QWidget):
         self._summary.setText(f"{len(self._hits)} result(s)")
         if self._hits: self._table.selectRow(0)
         else:
-            self._preview_title.setText("No result selected"); self._meta.clear(); self._snippet.clear(); self._content.clear()
+            self._preview_title.setText("No result selected"); self._meta.clear(); self._content.clear()
 
     def _selected(self) -> SearchHit | None:
         row = self._table.currentRow()
@@ -112,7 +110,6 @@ class SearchPage(QWidget):
         if hit is None: return
         self._preview_title.setText(hit.name)
         self._meta.setText(f"{hit.area} · {hit.artifact_type.replace('_',' ')} · {hit.runtime or 'generic'} · {hit.source_scope}")
-        self._snippet.setText(_strip_markers(hit.snippet))
         try: content = self._controller.preview(hit.path)
         except Exception as error: content = f"Preview unavailable: {error}"
         if len(content) > 160_000: content = content[:160_000] + "\n\n[… preview truncated …]"
@@ -178,7 +175,3 @@ def _filter_combo(label: str, values: tuple[str, ...], default: str | None = Non
             default_index = combo.count() - 1
     combo.setCurrentIndex(default_index)
     return combo
-
-
-def _strip_markers(text: str) -> str:
-    return re.sub(r"</?mark>", "", text)

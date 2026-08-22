@@ -9,6 +9,9 @@ def test_index_search_filters_and_application_exclusion(tmp_path: Path):
     prompts = tmp_path / "Prompts" / "Runtime_Bindings" / "Python" / "agent_prompts"; prompts.mkdir(parents=True)
     (prompts / "reasoner.py").write_text('PROMPT = "architecture reasoning"', encoding="utf-8")
     app = tmp_path / "Application"; app.mkdir(); (app / "noise.py").write_text("architecture", encoding="utf-8")
+    (tmp_path / "README.md").write_text("architecture repository readme", encoding="utf-8")
+    (tmp_path / "install.py").write_text("architecture installer", encoding="utf-8")
+    (tmp_path / "VERSION").write_text("2.0.4", encoding="utf-8")
     index = PromptBeaconIndex(tmp_path); report = index.rebuild()
     assert report.indexed_files == 2
     hits = index.search(SearchRequest("architecture")); assert len([h for h in hits if h.kind == "file"]) == 2

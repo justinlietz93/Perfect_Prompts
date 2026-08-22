@@ -4,11 +4,12 @@ import fnmatch
 from dataclasses import dataclass
 from pathlib import Path
 
+from perfect_prompts.domain.classification import LIBRARY_ROOT_DIRECTORIES
+
 DEFAULT_IGNORED_DIRECTORIES = frozenset({
     ".git", ".perfect-prompts", ".venv", "venv", "__pycache__", ".pytest_cache",
     ".mypy_cache", ".ruff_cache", "node_modules", "build", "dist",
 })
-DEFAULT_IGNORED_ROOT_DIRECTORIES = frozenset({"Application"})
 
 
 @dataclass(frozen=True, slots=True)
@@ -26,7 +27,10 @@ class IgnoreMatcher:
         relative = path.relative_to(self.root).as_posix()
         if path.is_dir() and path.name in DEFAULT_IGNORED_DIRECTORIES:
             return True
-        if path.is_dir() and path.parent == self.root and path.name in DEFAULT_IGNORED_ROOT_DIRECTORIES:
+        # The search corpus is the library, not every file in the repository root.
+        # Only designated library roots are admitted; README/install/version/app source
+        # and other repository infrastructure stay outside the index.
+        if path.parent == self.root and path.name not in LIBRARY_ROOT_DIRECTORIES:
             return True
         ignored = False
         for rule in self.rules:

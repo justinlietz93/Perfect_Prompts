@@ -98,8 +98,10 @@ def main() -> int:
     _save_png_set(master, PUBLIC_ASSETS)
 
     shutil.copy2(public_master, PACKAGE_ASSETS / public_master.name)
-    shutil.copy2(public_256, PACKAGE_ASSETS / public_256.name)
     shutil.copy2(public_ico, PACKAGE_ASSETS / public_ico.name)
+    for size in (16, 24, 32, 48, 64, 256):
+        source = PUBLIC_ASSETS / "icons" / "hicolor" / f"{size}x{size}" / "apps" / "perfect-prompts.png"
+        shutil.copy2(source, PACKAGE_ASSETS / f"perfect-prompts-icon-{size}.png")
 
     print(f"Built transparent master: {public_master}")
     print(f"Built Linux PNG: {public_256}")

@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from PySide6.QtCore import QDir, QModelIndex, Qt, QUrl
+from PySide6.QtCore import QDir, QModelIndex, QSortFilterProxyModel, Qt, QUrl
 from PySide6.QtGui import QDesktopServices
 from PySide6.QtWidgets import (
     QFileDialog,
@@ -19,7 +19,30 @@ from PySide6.QtWidgets import (
 )
 
 from perfect_prompts.contracts.dto import AddArtifactRequest, RemoveArtifactRequest
+from perfect_prompts.domain.classification import is_library_relative_path
 from perfect_prompts.presentation.controllers.library_controller import LibraryController
+
+
+class _LibraryTreeProxy(QSortFilterProxyModel):
+    """Hide repository infrastructure while preserving the real filesystem model."""
+
+    def __init__(self, root: Path, parent=None):
+        super().__init__(parent)
+        self._root = root.resolve()
+
+    def filterAcceptsRow(self, source_row: int, source_parent: QModelIndex) -> bool:
+        model = self.sourceModel()
+        if model is None:
+            return True
+        index = model.index(source_row, 0, source_parent)
+        path = Path(model.filePath(index)).resolve()
+        try:
+            relative = path.relative_to(self._root)
+        except ValueError:
+            return True
+        if not relative.parts:
+            return True
+        return is_library_relative_path(relative.as_posix())
 
 
 class LibraryPage(QWidget):
@@ -31,16 +54,19 @@ class LibraryPage(QWidget):
 
     def _build(self) -> None:
         intro = QLabel(
-            "This is the real repository filesystem. Changes made here or in your OS file manager operate on the same files."
+            "This view contains the Perfect Prompts library corpus only. Repository metadata, installer files, and "
+            "application/runtime source are excluded; changes here still operate on the real library files on disk."
         )
         intro.setWordWrap(True)
 
         self._model = QFileSystemModel(self)
         self._model.setFilter(QDir.Filter.AllEntries | QDir.Filter.NoDotAndDotDot)
-        root_index = self._model.setRootPath(str(self._controller.root))
+        source_root_index = self._model.setRootPath(str(self._controller.root))
+        self._proxy = _LibraryTreeProxy(self._controller.root, self)
+        self._proxy.setSourceModel(self._model)
         self._tree = QTreeView()
-        self._tree.setModel(self._model)
-        self._tree.setRootIndex(root_index)
+        self._tree.setModel(self._proxy)
+        self._tree.setRootIndex(self._proxy.mapFromSource(source_root_index))
         self._tree.setAlternatingRowColors(True)
         self._tree.setSortingEnabled(True)
         self._tree.sortByColumn(0, Qt.SortOrder.AscendingOrder)
@@ -80,7 +106,8 @@ class LibraryPage(QWidget):
     def refresh(self) -> None:
         path = self._selected_path() or self._controller.root
         self._model.setRootPath(str(self._controller.root))
-        index = self._model.index(str(path))
+        source_index = self._model.index(str(path))
+        index = self._proxy.mapFromSource(source_index)
         if index.isValid():
             self._tree.setCurrentIndex(index)
 
@@ -88,7 +115,8 @@ class LibraryPage(QWidget):
         index = self._tree.currentIndex()
         if not index.isValid():
             return None
-        return Path(self._model.filePath(index)).resolve()
+        source_index = self._proxy.mapToSource(index)
+        return Path(self._model.filePath(source_index)).resolve()
 
     def _destination_directory(self) -> Path:
         selected = self._selected_path()
@@ -165,6 +193,7 @@ class LibraryPage(QWidget):
             QDesktopServices.openUrl(QUrl.fromLocalFile(str(target)))
 
     def _double_clicked(self, index: QModelIndex) -> None:
-        path = Path(self._model.filePath(index))
+        source_index = self._proxy.mapToSource(index)
+        path = Path(self._model.filePath(source_index))
         if path.is_file():
             QDesktopServices.openUrl(QUrl.fromLocalFile(str(path)))

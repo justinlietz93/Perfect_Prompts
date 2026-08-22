@@ -18,7 +18,6 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--smoke-test", action="store_true", help=argparse.SUPPRESS)
     args, qt_args = parser.parse_known_args(argv)
     try:
-        from PySide6.QtGui import QIcon
         from PySide6.QtWidgets import QApplication, QFileDialog
     except ImportError:
         print("PySide6 is required for the GUI. Run: python install.py", file=sys.stderr)
@@ -27,7 +26,7 @@ def main(argv: list[str] | None = None) -> int:
     from perfect_prompts.composition.container import build_container
     from perfect_prompts.presentation.qt.dispatch import GuiDispatcher
     from perfect_prompts.presentation.qt.main_window import MainWindow
-    from perfect_prompts.resources import icon_png_path
+    from perfect_prompts.resources import application_icon
 
     if os.name == "nt":
         # Give Windows a stable application identity so pinned/taskbar surfaces
@@ -52,7 +51,7 @@ def main(argv: list[str] | None = None) -> int:
             app.setDesktopFileName("perfect-prompts")
         except (AttributeError, TypeError):
             pass
-    app.setWindowIcon(QIcon(str(icon_png_path())))
+    app.setWindowIcon(application_icon())
     if args.smoke_test:
         # Used by the installer to verify that the actual Qt platform can be
         # initialized, not merely that PySide6 can be imported.

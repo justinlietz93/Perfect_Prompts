@@ -8,3 +8,17 @@ def test_project_specific_classification():
     assert classify_relative_path("Prompts/Portable/Plaintext/context_builder_prompts/session.md").area == "Context Builders"
     assert classify_relative_path("External_References/library/prompt.md").source_scope == "external_reference"
     assert classify_relative_path("Skills/session_handoff_skill/validate_snapshot.py").artifact_type == "skill"
+
+
+def test_library_boundary_is_explicit_allowlist():
+    from perfect_prompts.domain.classification import (
+        LIBRARY_ROOT_DIRECTORIES,
+        is_library_relative_path,
+    )
+
+    assert "Prompts" in LIBRARY_ROOT_DIRECTORIES
+    assert is_library_relative_path("Prompts/Templates/example.md")
+    assert not is_library_relative_path("Application/src/main.py")
+    assert not is_library_relative_path("README.md")
+    assert not is_library_relative_path("install.py")
+    assert not is_library_relative_path("VERSION")

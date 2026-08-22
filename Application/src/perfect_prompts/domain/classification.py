@@ -44,6 +44,28 @@ ARTIFACT_TYPES = (
 RUNTIMES = ("plaintext", "python", "typescript", "rust", "go", "json", "structured_text", "mixed", "")
 SOURCE_SCOPES = ("project", "external_reference")
 
+# Top-level directories that constitute the Perfect Prompts library corpus.
+# Repository/application infrastructure at the root is deliberately outside this boundary.
+LIBRARY_ROOT_DIRECTORIES = frozenset({
+    "Agent_Instructions",
+    "Guidelines",
+    "Methodologies",
+    "Personas",
+    "Prompts",
+    "Rules",
+    "Skills",
+    "Standards",
+    "External_References",
+})
+
+
+def is_library_relative_path(relative_path: str) -> bool:
+    """Return whether a repository-relative path belongs to the library corpus."""
+    normalized = relative_path.replace("\\", "/").strip("/")
+    if not normalized or normalized == ".":
+        return False
+    return PurePosixPath(normalized).parts[0] in LIBRARY_ROOT_DIRECTORIES
+
 
 @dataclass(frozen=True, slots=True)
 class ArtifactClassification:

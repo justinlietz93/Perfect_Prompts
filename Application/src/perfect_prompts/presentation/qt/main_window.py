@@ -4,8 +4,8 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from PySide6.QtCore import QEvent, QTimer
-from PySide6.QtGui import QAction, QIcon, QKeySequence, QPixmap
+from PySide6.QtCore import QEvent, Qt, QTimer
+from PySide6.QtGui import QAction, QKeySequence, QPixmap
 from PySide6.QtWidgets import (
     QFileDialog, QHBoxLayout, QLabel, QLineEdit, QMainWindow, QMessageBox, QPushButton,
     QTabWidget, QVBoxLayout, QWidget,
@@ -16,7 +16,7 @@ from perfect_prompts.presentation.qt.theme import STYLE
 from perfect_prompts.presentation.qt.widgets.batch_page import BatchPage
 from perfect_prompts.presentation.qt.widgets.library_page import LibraryPage
 from perfect_prompts.presentation.qt.widgets.search_page import SearchPage
-from perfect_prompts.resources import icon_png_path
+from perfect_prompts.resources import application_icon, icon_png_path
 
 
 class MainWindow(QMainWindow):
@@ -37,11 +37,16 @@ class MainWindow(QMainWindow):
 
     def _build_shell(self) -> None:
         self.setWindowTitle("Perfect Prompts")
-        self.setWindowIcon(QIcon(str(icon_png_path())))
+        self.setWindowIcon(application_icon())
         self.resize(1280, 880)
         self.setMinimumSize(980, 660)
         self.setStyleSheet(STYLE)
-        icon = QLabel(); pix = QPixmap(str(icon_png_path())); icon.setPixmap(pix.scaled(54, 54)); icon.setFixedSize(58, 58)
+        icon = QLabel()
+        pix = QPixmap(str(icon_png_path(64)))
+        icon.setPixmap(
+            pix.scaled(54, 54, Qt.AspectRatioMode.KeepAspectRatio, Qt.TransformationMode.SmoothTransformation)
+        )
+        icon.setFixedSize(58, 58)
         title = QLabel("Perfect Prompts"); title.setObjectName("brandTitle")
         subtitle = QLabel("Prompt & Context Engineering Library"); subtitle.setObjectName("brandSubtitle")
         titles = QVBoxLayout(); titles.setSpacing(1); titles.addWidget(title); titles.addWidget(subtitle)
