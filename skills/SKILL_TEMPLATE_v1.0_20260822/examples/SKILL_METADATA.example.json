@@ -1,0 +1,28 @@
+{
+  "skill_id": "example-capability",
+  "title": "Example Capability",
+  "version": "1.0.0",
+  "status": "CANDIDATE",
+  "purpose": "Demonstrate a schema-valid completed skill metadata record.",
+  "capability_scope": "Example only.",
+  "entrypoint": "SKILL.md",
+  "use_when": [
+    "The example capability is requested."
+  ],
+  "do_not_use_when": [
+    "Another skill is a narrower fit."
+  ],
+  "activation_triggers": [],
+  "modes": [],
+  "supporting_artifacts": [],
+  "outputs": [
+    "example-result.md"
+  ],
+  "runtime_bindings": [],
+  "dependencies": [],
+  "validation_contract": [
+    "Output exists and passes the skill-specific checks."
+  ],
+  "source_lineage": [],
+  "supersedes": []
+}

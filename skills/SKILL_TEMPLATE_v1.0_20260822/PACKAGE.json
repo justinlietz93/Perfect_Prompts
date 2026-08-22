@@ -1,0 +1,7 @@
+{
+  "template_id": "canonical-skill-template",
+  "version": "1.0.0",
+  "status": "CANONICAL CANDIDATE",
+  "governing_standard": "SKILL_STANDARD_v1.0_20260822",
+  "purpose": "Instantiate a scoped, inspectable, testable skill package without imposing one universal internal workflow."
+}
