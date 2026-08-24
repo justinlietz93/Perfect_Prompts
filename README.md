@@ -1,5 +1,7 @@
 ![Perfect Prompts Banner](https://github.com/user-attachments/assets/2ef86d9f-a64f-40e8-a9ad-fc4593ccb3b7)
 
+Active development has been moved to the [Neuroca, Inc organization](https://github.com/Neuroca-Inc/Perfect_Prompts)
+
 ## The filesystem is the library. The app is the search layer.
 
 Perfect Prompts is a searchable library of prompts, rules, standards, and agent assets that lives in the filesystem - not in a proprietary database. Browse it normally in Git or your editor, or use the desktop app to search in plain English and take action on the best matches in one click.
