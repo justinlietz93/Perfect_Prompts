@@ -1,0 +1,84 @@
+{
+  "template_id": "repository-build",
+  "title": "Repository Build",
+  "version": "2.0.0",
+  "status": "CANDIDATE",
+  "task_class": "implementation",
+  "purpose": "Build a substantial multi-file repository from resolved architecture and explicit file contracts.",
+  "scope": "Dependency-aware multi-file implementation after architecture has been sufficiently resolved.",
+  "use_when": [
+    "multi-file implementation requires dependency-aware sequencing",
+    "architecture and file contracts must exist before production implementation"
+  ],
+  "do_not_use_when": [
+    "trivial isolated edit",
+    "read-only review",
+    "architecture is still materially unresolved"
+  ],
+  "governing_standards": ["prompt-template-standard"],
+  "required_authority_inputs": ["user request", "project canon when present"],
+  "compatible_methodologies": ["emergence-based-design"],
+  "compatible_rulesets": [],
+  "persona_policy": "OPTIONAL",
+  "input_contract": {
+    "required_semantic_inputs": ["approved desired state", "governing architecture or plan"],
+    "required_operational_inputs": ["repository access"],
+    "optional_context": ["prior implementation notes"],
+    "defaultable_inputs": ["incidental local naming where unconstrained"],
+    "derived_inputs": ["current repository state"],
+    "missing_input_policy": "Inspect authoritative state first; stop or surface a blocker when a missing semantic input can change architecture or correctness."
+  },
+  "authority_contract": {
+    "controls": ["build workflow for this task class"],
+    "must_not_override": ["project canon", "accepted architecture", "user-approved plan"],
+    "reference_only": ["historical prompt variants"]
+  },
+  "state_contract": {
+    "consumes": ["PROJECT_PLAN.md", "BUILD_TODO.md"],
+    "produces": [],
+    "updates": ["BUILD_TODO.md"],
+    "durability": "repository-resident"
+  },
+  "execution_contract": {
+    "interaction_mode": "clarify-on-blocker",
+    "mutation_mode": "scoped-edit",
+    "continuation_behavior": "handoff/state artifact required for multisession continuation"
+  },
+  "tool_contract": {
+    "requires": ["file read/write", "test execution"],
+    "optional": ["static analysis", "package builder"],
+    "runtime_notes": "Provider-specific tool names belong in the runtime binding."
+  },
+  "output_contract": {
+    "artifacts": ["implemented files", "updated tests", "updated build state"],
+    "reporting": "Report validation evidence and unresolved blockers."
+  },
+  "validation_contract": {
+    "required_checks": ["local tests", "integration gate"],
+    "success_evidence": ["test results"],
+    "successor_validator": null
+  },
+  "completion_contract": [
+    "requested implementation exists",
+    "required tests pass",
+    "repository build state is updated"
+  ],
+  "failure_contract": {
+    "semantic_blocker": "surface and stop the affected path",
+    "validation_failure": "repair before claiming completion"
+  },
+  "handoff_contract": {
+    "required": false,
+    "required_for_multisession": true,
+    "artifact": "repository-resident build state"
+  },
+  "representation_family": "repository-build",
+  "supersedes": null,
+  "source_lineage": ["Perfect Prompts repository-build-orchestrator lineage"],
+  "canonicalization_evidence": {
+    "representative_tasks": [],
+    "negative_controls": ["trivial one-file edit should not route here"],
+    "known_failures": [],
+    "review_notes": "Example only; not itself a canonical template."
+  }
+}

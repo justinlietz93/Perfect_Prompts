@@ -1,0 +1,212 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://neuroca.dev/schemas/prompt-template-metadata-v1.1.schema.json",
+  "title": "Canonical Prompt Template Metadata",
+  "description": "Metadata contract for a canonical or candidate reusable prompt template. Task-specific operating behavior remains owned by the template and is intentionally not standardized here.",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "template_id",
+    "title",
+    "version",
+    "status",
+    "task_class",
+    "purpose",
+    "scope",
+    "use_when",
+    "do_not_use_when",
+    "input_contract",
+    "output_contract",
+    "completion_contract",
+    "failure_contract"
+  ],
+  "properties": {
+    "template_id": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^[a-z0-9][a-z0-9._-]*$"
+    },
+    "title": {"type": "string", "minLength": 1},
+    "version": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Explicit version. Semantic versioning is recommended."
+    },
+    "status": {
+      "type": "string",
+      "enum": ["DRAFT", "EXPERIMENTAL", "CANDIDATE", "CANONICAL", "DEPRECATED", "ARCHIVED"]
+    },
+    "task_class": {"type": "string", "minLength": 1},
+    "purpose": {"type": "string", "minLength": 1},
+    "scope": {"type": "string", "minLength": 1},
+    "use_when": {
+      "type": "array",
+      "items": {"type": "string", "minLength": 1},
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "do_not_use_when": {
+      "type": "array",
+      "items": {"type": "string", "minLength": 1},
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "governing_standards": {
+      "type": "array",
+      "items": {"type": "string", "minLength": 1},
+      "uniqueItems": true,
+      "default": []
+    },
+    "required_authority_inputs": {
+      "type": "array",
+      "items": {"type": "string", "minLength": 1},
+      "uniqueItems": true,
+      "default": []
+    },
+    "compatible_methodologies": {
+      "type": "array",
+      "items": {"type": "string", "minLength": 1},
+      "uniqueItems": true,
+      "default": []
+    },
+    "compatible_rulesets": {
+      "type": "array",
+      "items": {"type": "string", "minLength": 1},
+      "uniqueItems": true,
+      "default": []
+    },
+    "persona_policy": {
+      "oneOf": [
+        {"type": "string", "enum": ["NONE", "OPTIONAL", "REQUIRED", "TEMPLATE_DEFINED"]},
+        {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {
+            "mode": {"type": "string"},
+            "allowed": {"type": "array", "items": {"type": "string"}},
+            "forbidden": {"type": "array", "items": {"type": "string"}},
+            "notes": {"type": "string"}
+          }
+        }
+      ]
+    },
+    "input_contract": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["required_semantic_inputs", "missing_input_policy"],
+      "properties": {
+        "required_semantic_inputs": {"type": "array", "items": {"type": "string"}},
+        "required_operational_inputs": {"type": "array", "items": {"type": "string"}},
+        "optional_context": {"type": "array", "items": {"type": "string"}},
+        "defaultable_inputs": {"type": "array", "items": {"type": "string"}},
+        "derived_inputs": {"type": "array", "items": {"type": "string"}},
+        "missing_input_policy": {"type": "string", "minLength": 1}
+      }
+    },
+    "authority_contract": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "controls": {"type": "array", "items": {"type": "string"}},
+        "must_not_override": {"type": "array", "items": {"type": "string"}},
+        "reference_only": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "state_contract": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "consumes": {"type": "array", "items": {"type": "string"}},
+        "produces": {"type": "array", "items": {"type": "string"}},
+        "updates": {"type": "array", "items": {"type": "string"}},
+        "durability": {"type": "string"}
+      }
+    },
+    "execution_contract": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "interaction_mode": {"type": "string"},
+        "mutation_mode": {"type": "string"},
+        "continuation_behavior": {"type": "string"}
+      }
+    },
+    "tool_contract": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "requires": {"type": "array", "items": {"type": "string"}},
+        "optional": {"type": "array", "items": {"type": "string"}},
+        "runtime_notes": {"type": "string"}
+      }
+    },
+    "output_contract": {
+      "oneOf": [
+        {"type": "string", "minLength": 1},
+        {
+          "type": "object",
+          "minProperties": 1,
+          "additionalProperties": true
+        }
+      ]
+    },
+    "validation_contract": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "required_checks": {"type": "array", "items": {"type": "string"}},
+        "success_evidence": {"type": "array", "items": {"type": "string"}},
+        "successor_validator": {"type": ["string", "null"]}
+      }
+    },
+    "completion_contract": {
+      "oneOf": [
+        {"type": "string", "minLength": 1},
+        {"type": "array", "items": {"type": "string", "minLength": 1}, "minItems": 1}
+      ]
+    },
+    "failure_contract": {
+      "oneOf": [
+        {"type": "string", "minLength": 1},
+        {
+          "type": "object",
+          "minProperties": 1,
+          "additionalProperties": true
+        }
+      ]
+    },
+    "handoff_contract": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "required": {"type": "boolean"},
+        "required_for_multisession": {"type": "boolean"},
+        "artifact": {"type": ["string", "null"]}
+      }
+    },
+    "representation_family": {"type": ["string", "null"]},
+    "supersedes": {
+      "oneOf": [
+        {"type": "null"},
+        {"type": "string"},
+        {"type": "array", "items": {"type": "string"}, "uniqueItems": true}
+      ]
+    },
+    "source_lineage": {
+      "type": "array",
+      "items": {"type": "string", "minLength": 1},
+      "uniqueItems": true,
+      "default": []
+    },
+    "canonicalization_evidence": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "representative_tasks": {"type": "array", "items": {"type": "string"}},
+        "negative_controls": {"type": "array", "items": {"type": "string"}},
+        "known_failures": {"type": "array", "items": {"type": "string"}},
+        "review_notes": {"type": "string"}
+      }
+    }
+  }
+}

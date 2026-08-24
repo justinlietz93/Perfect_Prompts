@@ -1,0 +1,40 @@
+{
+  "skill_id": "session-handoff",
+  "title": "Session Handoff",
+  "version": "1.0.0",
+  "status": "CANONICAL",
+  "purpose": "Preserve full working session context for zero-loss resumption.",
+  "capability_scope": "State capture, synthesis, and handoff package generation.",
+  "entrypoint": "SKILL.md",
+  "use_when": [
+    "Need to save session state so another agent or future session can resume immediately."
+  ],
+  "do_not_use_when": [
+    "The task is to continue the project work itself rather than package the current state."
+  ],
+  "activation_triggers": [
+    "handoff",
+    "save state",
+    "package this session",
+    "resume later"
+  ],
+  "supporting_artifacts": [
+    "references/state_schema.md",
+    "scripts/validate_snapshot.py",
+    "scripts/render_mermaid.py"
+  ],
+  "outputs": [
+    "00_executive_narrative.md",
+    "01_state_snapshot.json",
+    "03_concept_map.mmd",
+    "06_next_actions.md"
+  ],
+  "runtime_bindings": [
+    "zip bundle"
+  ],
+  "validation_contract": [
+    "Schema/structure checks",
+    "Manifest completeness review"
+  ],
+  "source_lineage": []
+}

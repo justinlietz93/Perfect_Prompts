@@ -1,0 +1,33 @@
+{
+  "package": "DOCUMENTATION_STANDARD_v1.0_20260822",
+  "version": "1.0.0",
+  "date": "2026-08-22",
+  "status": "CANONICAL CANDIDATE",
+  "files": [
+    {
+      "path": "CHANGELOG.md",
+      "sha256": "6b7ee29b43a7512c30e432a04214a6249725236a2eb9fbdc97d796930bb095c0",
+      "bytes": 74
+    },
+    {
+      "path": "DOCUMENTATION_STANDARD_v1.0_20260822.docx",
+      "sha256": "14f1a42030308b28f966d36e1ac4da941eac2fda7a3543a78782d282ebc71655",
+      "bytes": 45161
+    },
+    {
+      "path": "DOCUMENTATION_STANDARD_v1.0_20260822.md",
+      "sha256": "3f785377892a9ffaf243588bd0b41ad200d954399cc1e68ff3b6c2a9ba6cd8af",
+      "bytes": 15072
+    },
+    {
+      "path": "README.md",
+      "sha256": "db6349e70aa94e6ec7d78d1f3d8cc8d5b48a51d754cacbb43d9b75ad720f946b",
+      "bytes": 312
+    },
+    {
+      "path": "SOURCE_MAP.md",
+      "sha256": "27a8ef0dd6f331762a8d34b58898be95cea10b70d2f508abb6a9b3f0e516d07a",
+      "bytes": 1589
+    }
+  ]
+}

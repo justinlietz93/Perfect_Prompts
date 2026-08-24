@@ -1,0 +1,33 @@
+{
+  "package": "AI_AGENT_INTERACTION_OPERATING_STANDARD_v1.0_20260822",
+  "version": "1.0.0",
+  "date": "2026-08-22",
+  "status": "CANONICAL CANDIDATE",
+  "files": [
+    {
+      "path": "AI_AGENT_INTERACTION_OPERATING_STANDARD_v1.0_20260822.docx",
+      "sha256": "32528aa415b2167a09ca6af0e672e6829ad5cad5f6710064f3ed2c65968ed262",
+      "bytes": 44392
+    },
+    {
+      "path": "AI_AGENT_INTERACTION_OPERATING_STANDARD_v1.0_20260822.md",
+      "sha256": "0f6bb4819faf277dcec0909f8aaa3d1a5343c9eedeed24abb99d118d031fd4a9",
+      "bytes": 13154
+    },
+    {
+      "path": "CHANGELOG.md",
+      "sha256": "6b7ee29b43a7512c30e432a04214a6249725236a2eb9fbdc97d796930bb095c0",
+      "bytes": 74
+    },
+    {
+      "path": "README.md",
+      "sha256": "adef7ec55ab739bf3d6b1972f3c839ffd8d20e12237ffcedc4db75424f28a4dc",
+      "bytes": 335
+    },
+    {
+      "path": "SOURCE_MAP.md",
+      "sha256": "3cc08465ae6aa5bf2d4c18dea559ce9c87e5c1781aaf14a6f0d3c26b66418695",
+      "bytes": 1331
+    }
+  ]
+}

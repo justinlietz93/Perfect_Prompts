@@ -1,0 +1,59 @@
+{
+  "schema_version": "1.0",
+  "package_id": "prompt-template-standard-v1.1.0-20260822",
+  "title": "Prompt Template Standard v1.1.0",
+  "status": "CANONICAL_CANDIDATE",
+  "created_at": "2026-08-22T01:15:00-05:00",
+  "source_corpus": "Perfect_Prompts-main (1)(1).zip",
+  "audit_scope": {
+    "repository_files_inventoried": 580,
+    "method": "whole-repository inventory plus direct inspection of current README, methodologies, skills, context/state artifacts, prompt families, bindings, rulesets, personas, validation/research systems, and historical prompt templates"
+  },
+  "files": [
+    {
+      "path": "CHANGELOG.md",
+      "bytes": 1214,
+      "sha256": "6b6886651caa704b9bc9633aa6eaef242bd7d861442172d730ae007009af76eb"
+    },
+    {
+      "path": "PERFECT_PROMPTS_HOLISTIC_AUDIT.md",
+      "bytes": 12208,
+      "sha256": "e59ba1355e1ac2bfadf91d10e96998df101651db36107562dfbec1e50c03a618"
+    },
+    {
+      "path": "PROMPT_TEMPLATE_CONFORMANCE_CHECKLIST.md",
+      "bytes": 3594,
+      "sha256": "49727dd31d24b4a541a7c60ca6c3e3c6f8192d6fd9ec3cc74a211da60f053d72"
+    },
+    {
+      "path": "PROMPT_TEMPLATE_METADATA.schema.json",
+      "bytes": 6742,
+      "sha256": "3af3b847da16504cbed5effa03109365360758fcd71ff09d364bfa649233648f"
+    },
+    {
+      "path": "PROMPT_TEMPLATE_STANDARD_v1.1_20260822.docx",
+      "bytes": 52510,
+      "sha256": "1c2999034357cb3333a69718683eac60096a16cfef08893c315d04325bbc1581"
+    },
+    {
+      "path": "PROMPT_TEMPLATE_STANDARD_v1.1_20260822.md",
+      "bytes": 30821,
+      "sha256": "0390fc52c7c047e6fd55df3dec49cd7bb74219b1ffadbc1a685d3bad562d914f"
+    },
+    {
+      "path": "README.md",
+      "bytes": 1388,
+      "sha256": "bffb902419d014cf83614f7b0c119cd58197816a1a670b440a490bae3ef70525"
+    },
+    {
+      "path": "SOURCE_MAP.md",
+      "bytes": 5811,
+      "sha256": "ac797b0514129f4e3dcda2c84ebcae5427ab1b96ca3baca8dd8f1b8bc6b27ac5"
+    },
+    {
+      "path": "examples/PROMPT_TEMPLATE_METADATA.example.json",
+      "bytes": 3450,
+      "sha256": "b6aef89aca61aef0c74e2f0a29619b20864e6d5318ed99c1c9c551d1e4ae3173"
+    }
+  ]
+}

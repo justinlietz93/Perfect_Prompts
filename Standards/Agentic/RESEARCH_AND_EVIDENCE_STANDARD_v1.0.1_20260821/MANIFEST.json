@@ -1,0 +1,32 @@
+{
+  "package": "RESEARCH_AND_EVIDENCE_STANDARD",
+  "version": "1.0.1",
+  "date": "2026-08-21",
+  "files": [
+    {
+      "path": "CHANGELOG.md",
+      "size": 1687,
+      "sha256": "0fcf6622065c3ed31ec982b0898dccf294e51be785a2d642ec4a2368d3118719"
+    },
+    {
+      "path": "README.md",
+      "size": 1785,
+      "sha256": "36646fa414d99926c4e243d599231f370d897ecbfac8c952d1561db71c230cc6"
+    },
+    {
+      "path": "RESEARCH_AND_EVIDENCE_STANDARD_v1.0.1_20260821.docx",
+      "size": 54756,
+      "sha256": "613c3ca6f5e808be0517cf3e2527b707a4f533d9873383457924acccbafc4c58"
+    },
+    {
+      "path": "RESEARCH_AND_EVIDENCE_STANDARD_v1.0.1_20260821.md",
+      "size": 34122,
+      "sha256": "4dad970c0de6771bd7269a5917762c567ba5c2d5531b54b45c7d12bfd5c48d9a"
+    },
+    {
+      "path": "SOURCE_MAP.md",
+      "size": 4661,
+      "sha256": "c0d04f8595a33d7cd90c0965a8fe243928a5f84a44526988ff500623bbd306d7"
+    }
+  ]
+}

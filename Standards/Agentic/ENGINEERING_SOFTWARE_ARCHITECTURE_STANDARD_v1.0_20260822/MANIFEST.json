@@ -1,0 +1,33 @@
+{
+  "package": "ENGINEERING_SOFTWARE_ARCHITECTURE_STANDARD_v1.0_20260822",
+  "version": "1.0.0",
+  "date": "2026-08-22",
+  "status": "CANONICAL CANDIDATE",
+  "files": [
+    {
+      "path": "CHANGELOG.md",
+      "sha256": "6b7ee29b43a7512c30e432a04214a6249725236a2eb9fbdc97d796930bb095c0",
+      "bytes": 74
+    },
+    {
+      "path": "ENGINEERING_SOFTWARE_ARCHITECTURE_STANDARD_v1.0_20260822.docx",
+      "sha256": "97c78d84237fa35c2beebe70db3e43aaa4c474b70bc6d8c3f9c0720788ead616",
+      "bytes": 44637
+    },
+    {
+      "path": "ENGINEERING_SOFTWARE_ARCHITECTURE_STANDARD_v1.0_20260822.md",
+      "sha256": "a176627358eb4adabb9b16e5286c9fc6c74d4e3956ded47562362c450f5cd9ab",
+      "bytes": 14044
+    },
+    {
+      "path": "README.md",
+      "sha256": "017b1075732753671e0634dd217d73ffa63146d47a1f51d8c5fc8ca3885740b3",
+      "bytes": 336
+    },
+    {
+      "path": "SOURCE_MAP.md",
+      "sha256": "cfdaf232583863fde9ada6e5230f31bc434ec85d6ca2fb8e8f4e5ca6f945b39a",
+      "bytes": 1468
+    }
+  ]
+}

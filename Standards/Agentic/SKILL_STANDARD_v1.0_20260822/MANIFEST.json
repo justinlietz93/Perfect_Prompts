@@ -1,0 +1,17 @@
+{
+  "package": "SKILL_STANDARD_v1.0_20260822",
+  "version": "1.0.0",
+  "files": [
+    "CHANGELOG.md",
+    "MANIFEST.json",
+    "PERFECT_PROMPTS_SKILL_HOLISTIC_AUDIT.md",
+    "README.md",
+    "SHA256SUMS",
+    "SKILL_CONFORMANCE_CHECKLIST.md",
+    "SKILL_PACKAGE_METADATA.schema.json",
+    "SKILL_STANDARD_v1.0_20260822.docx",
+    "SKILL_STANDARD_v1.0_20260822.md",
+    "SOURCE_MAP.md",
+    "examples/SKILL_PACKAGE_METADATA.example.json"
+  ]
+}
